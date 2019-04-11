@@ -5,6 +5,7 @@ class SalesController < ApplicationController
   # GET /sales.json
   def index
     @sales = Sale.all
+    @products = Product.all
   end
 
   # GET /sales/1
@@ -15,6 +16,7 @@ class SalesController < ApplicationController
   # GET /sales/new
   def new
     @sale = Sale.new
+    @products = Product.all
   end
 
   # GET /sales/1/edit
@@ -25,7 +27,7 @@ class SalesController < ApplicationController
   # POST /sales.json
   def create
     @sale = Sale.new(sale_params)
-
+    @products = Product.all
     respond_to do |format|
       if @sale.save
         format.html { redirect_to @sale, notice: 'Sale was successfully created.' }
@@ -69,6 +71,6 @@ class SalesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sale_params
-      params.require(:sale).permit(:SoldDate, :quantity)
+      params.require(:sale).permit(:SoldDate, :quantity, :product_id)
     end
 end
