@@ -1,4 +1,4 @@
-class Supplier < ApplicationRecord
-has_many: orders
+suclass Supplier < ApplicationRecord
+has_many :orders
 
 end
