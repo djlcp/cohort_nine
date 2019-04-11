@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Reports</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Total Sales</th>
+      <th>Total Orders</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sales.each do |sale| %>
+      <tr>
+        <td><%= sale.name %></td>
+
+        <td><%= sale.SoldDate %></td>
+        <td><%= sale.quantity %></td>
+      </tr>
+
+      <tr>
+        <td><%= sale.saleprice %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
