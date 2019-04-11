@@ -5,4 +5,8 @@ class Sale < ApplicationRecord
         0
     end
 
+    def total_sales
+      self.sales.map { |s| s.value }.sum
+    end
+
 end
