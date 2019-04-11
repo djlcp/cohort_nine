@@ -21,6 +21,11 @@
     <%= form.number_field :quantity %>
   </div>
 
+  <div class="field">
+      <%= form.label :product %><br>
+      <%= form.collection_select :product_id, Product.all, :id, :name %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
