@@ -41,4 +41,13 @@ ActiveRecord::Schema.define(version: 2019_04_11_175711) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "fulfilled_at", null:false
+    t.integer "quantity", null:false
+
+  end
+
+
 end
