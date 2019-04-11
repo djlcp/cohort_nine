@@ -1,3 +1,12 @@
-<% form_for [@supplier, order] do |f| %>
+<%= form_for [@supplier, order] do |f| %>
+
+	<div class ="field">
+		<%= f.label :quantity,"Quantity" %>
+		<% f.text_field :quantity %>
+	</div>
+
+	<div class="actions">
+		<% f.submit %>
+	</div>
 
 <% end %>
