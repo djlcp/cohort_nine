@@ -1,6 +1,6 @@
 class ReportsController < ApplicationController
   def index
     @sales = Sale.all
-    @order = Order.all
+    @orders = Order.all
   end
 end
