@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  value: 9.99
+  description: MyString
+  type: 
+  expiry_date: 2019-04-18 20:01:02
+  redeemed_date: 2019-04-18 20:01:02
+  status: MyString
+  payment_sent: 2019-04-18 20:01:02
+
+two:
+  value: 9.99
+  description: MyString
+  type: 
+  expiry_date: 2019-04-18 20:01:02
+  redeemed_date: 2019-04-18 20:01:02
+  status: MyString
+  payment_sent: 2019-04-18 20:01:02

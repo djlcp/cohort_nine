@@ -10,6 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2019_04_18_190412) do
+
+  create_table "vendors", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.string "location"
+    t.integer "contact_phone"
+    t.string "contact_email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "vouchers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.decimal "value", precision: 10
+    t.string "description"
+    t.string "type"
+    t.datetime "expiry_date"
+    t.datetime "redeemed_date"
+    t.string "status"
+    t.datetime "payment_sent"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end
