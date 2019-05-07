@@ -1,2 +1,22 @@
 <h1>Customer::Voucher#index</h1>
+
 <p>Find me in app/views/customer/voucher/index.html.erb</p>
+
+
+<div>
+    <h1> Check out all your vouchers! </h1>
+
+        <div>
+            <% @voucher.each do |voucher| %>
+                <div>
+                    <%= link_to voucher_path(voucher), method: :put do %>
+                    <p><%= voucher.description %></p>
+                    <p><%= voucher.value %></p>
+                    <p><%= voucher.expiry_date %></p>
+                    <p><%= link_to 'Show Voucher', voucher %></p>
+                </div>
+            <% end %>
+        </div>
+</div>
+
+              
