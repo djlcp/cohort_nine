@@ -1,4 +1,4 @@
-class Admin::UserController < ApplicationController
+class Admin::UsersController < ApplicationController
   
     before_action :is_admin?
 
