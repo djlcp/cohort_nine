@@ -1,0 +1,45 @@
+# environment variables
+# MYSQL_ROOT_PASSWORD
+# VOLUME_PATH
+version: '3.7'
+services:
+  db:
+    image: mysql:8
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    volumes:
+      - ${VOLUME_PATH}mysql:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    networks:
+      - djlcp_9
+  djlcp_9_web_ui:
+    build: .
+    image: codeje/djlcp:9_voucheriffic_master
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    environment:
+      VC_DB_NAME: voucheriffic_production
+      VC_DB_USERNAME: root
+      VC_DB_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      VC_DB_HOST: db
+      VC_DB_PORT: 3306
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    networks:
+      default:
+        aliases:
+          - djlcp_9_web_ui
+      djlcp_9:
+      System_load_balancing:
+        aliases:
+          - djlcp_9_web_ui
+volumes:
+  mysql:
+networks:
+  djlcp_9:
+    driver: overlay
+    attachable: true
+  System_load_balancing:
+    external: true
