@@ -1,0 +1,2 @@
+module Vendor::UsersHelper
+end
