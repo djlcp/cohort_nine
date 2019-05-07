@@ -26,5 +26,8 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :users, :vouchers, :vendors
   end
+<<<<<<< HEAD
+>>>>>>> 5f0f0d4b313ab64f2fa2eeda759990d84f26f8b2
+=======
 >>>>>>> 5f0f0d4b313ab64f2fa2eeda759990d84f26f8b2
 end

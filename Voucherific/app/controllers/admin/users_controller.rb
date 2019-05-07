@@ -1,6 +1,4 @@
 class Admin::UsersController < ApplicationController
-<<<<<<< HEAD
-  
     before_action :is_admin?
 
 
@@ -15,8 +13,4 @@ class Admin::UsersController < ApplicationController
 
   def index
   end
-=======
-    def index
-    end
->>>>>>> 5f0f0d4b313ab64f2fa2eeda759990d84f26f8b2
 end
