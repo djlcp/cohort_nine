@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   root to: "home#index"
   
   namespace :admin do
-    resources :users
+    resources :users do
+      resources :vouchers
+    end
   end
 
   namespace :customer do
@@ -12,7 +14,9 @@ Rails.application.routes.draw do
   end
  
   namespace :vendor do 
-    resources :users
+    resources :users do
+      resources :vouchers
+    end
   end
 
 
