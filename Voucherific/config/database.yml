@@ -13,13 +13,11 @@ default: &default
   encoding: utf8
   reconnect: false
   database: <%= ENV['VC_DB_NAME'] %>
-  adapter: mysql2
   pool: 5
   username: <%= ENV['VC_DB_USERNAME'] %>
   password: <%= ENV['VC_DB_PASSWORD'] %>
   host: <%= ENV['VC_DB_HOST'] %>
   port: <%= ENV['VC_DB_PORT'] %>
-
 
 development: &development
   <<: *default
