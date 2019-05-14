@@ -3,6 +3,9 @@ class Vendor::VouchersController < ApplicationController
 
     def index
         @vouchers = Voucher.all.order("created_at DESC")
+    end
+
+    def search
         @search = params["search"]
         if @voucher.present?
             @id = @search["id"]
