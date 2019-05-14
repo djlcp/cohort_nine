@@ -68,3 +68,5 @@ yarn-debug.log*
 
 Voucherific/tmp/**
 Voucherific/log/**
+Voucherific/config/database.yml
+Voucherific/config/database.yml

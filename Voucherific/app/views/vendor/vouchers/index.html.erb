@@ -1,0 +1,12 @@
+<h1>Please enter the voucher number to validate</h1>
+
+<div class="section">
+
+<%= simple_form_for :search, url: '/vendors/voucher/search', method: "GET", html: { class: 'form-inline' } do |f| %>
+  <%= f.input :id, input_html: {value: ""} %>
+  <%= f.submit "Search", class: "btn btn-primary" %>
+ <% end %>
+
+
+
+
