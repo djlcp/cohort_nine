@@ -5,4 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
          belongs_to :vendor
+
+         has_many :instances
+         has_many :vouchers, through: :instances
 end
