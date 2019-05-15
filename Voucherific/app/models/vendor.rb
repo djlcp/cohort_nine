@@ -1,2 +1,3 @@
-class Vendor < ApplicationRecord
+class Vendor < ApplicationRecord    
+    has_one :user
 end
