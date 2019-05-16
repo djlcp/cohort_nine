@@ -11,11 +11,12 @@ class Admin::VouchersController < ApplicationController
    end
 
    def index_outstanding
-   	  @oustanding = Voucher.all.(is_redeemed? && !is_paid?)
+   	  #the booleans is_redeemed and is_paid don't currently exist but Anca making something comparable
+   	  @oustanding = Voucher.where(Voucher.is_redeemed?).where(Voucher.!is_paid?)
    end
 
    def index_expired
-   	  @expired = Voucher.all.expiry>today
+   	  @expired = Voucher.where(:expiry_date => Date.current)
    end
 
    def index_paid
