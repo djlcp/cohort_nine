@@ -69,3 +69,7 @@ yarn-debug.log*
 Voucherific/tmp/**
 Voucherific/log/**
 Voucherific/config/database.yml
+<<<<<<< HEAD
+=======
+Voucherific/config/database.yml
+>>>>>>> development
