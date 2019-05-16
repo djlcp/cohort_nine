@@ -1,20 +1,17 @@
 Rails.application.routes.draw do
   root to: "home#index"
-  
+
+ 
   namespace :admin do
-    resources :users do
       resources :vouchers
-    end
   end
 
   namespace :customer do
-    resources :vouchers
+      resources :vouchers
   end
  
   namespace :vendor do 
-    resources :users do
       resources :vouchers
-    end
   end
 
 

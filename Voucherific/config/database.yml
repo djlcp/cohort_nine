@@ -1,32 +1,28 @@
-# MySQL. Versions 5.1.10 and up are supported.
-#
-# Install the MySQL driver
-#   gem install mysql2
-#
-# Ensure the MySQL gem is defined in your Gemfile
-#   gem 'mysql2'
-#
-# And be sure to use new-style password hashing:
-#   https://dev.mysql.com/doc/refman/5.7/en/password-hashing.html
-#
 default: &default
   adapter: mysql2
   encoding: utf8
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: root
-  password: 
-  socket: /var/run/mysqld/mysqld.sock
+  reconnect: false
+  #database: <%= ENV['VC_DB_NAME'] %>
+  adapter: mysql2
+  pool: 5
+  username: <%= ENV['VC_DB_USERNAME'] %>
+  password: <%= ENV['VC_DB_PASSWORD'] %>
+  host: <%= ENV['VC_DB_HOST'] %>
+  port: <%= ENV['VC_DB_PORT'] %>
+
 
 development:
   <<: *default
-  database: voucher_development
+  #database: <%= ENV['VC_DB_NAME'] %>
+  database: Voucherific_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: voucher_test
+  #database: <%= ENV['VC_DB_NAME'] %>
+  database: Voucherific_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is

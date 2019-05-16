@@ -1,0 +1,10 @@
+<h1> Welcome To Admin Page </h1>
+<h2> Please select one of the following options </h2>
+
+
+<% @voucher.each do |voucher| %>
+   <p> <%= link_to "All Vouchers" ,"/voucher/#{voucher.id}" %> </p>
+   <p> <%= link_to "Reedemed" , "/voucher/#{voucher.id}"%> </p>
+   <p> <%= link_to "Expired" , "/voucher/#{voucher.id}"%> </p>
+   <p> <%= link_to "Paid Vouchers" , "/voucher/#{voucher.id}"%> </p>
+ <% end %>
