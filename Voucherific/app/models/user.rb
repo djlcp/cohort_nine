@@ -4,7 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+         belongs_to :vendor
+
          has_many :instances
          has_many :vouchers, through: :instances
-         belongs_to :vendor
 end
