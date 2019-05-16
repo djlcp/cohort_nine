@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # MySQL. Versions 5.1.10 and up are supported.
 #
 # Install the MySQL driver
@@ -9,6 +10,8 @@
 # And be sure to use new-style password hashing:
 #   https://dev.mysql.com/doc/refman/5.7/en/password-hashing.html
 #
+=======
+>>>>>>> development
 default: &default
   adapter: mysql2
   encoding: utf8
@@ -72,6 +75,7 @@ test:
 production:
   <<: *default
 <<<<<<< HEAD
+<<<<<<< HEAD
   #database: <%= ENV['VC_DB_NAME'] %>
   database: Voucherific_production
 =======
@@ -79,3 +83,7 @@ production:
   username: Voucherific_rails
   password: <%= ENV['VOUCHERIFIC_RAILS_DATABASE_PASSWORD'] %>
 >>>>>>> 5009aef05a1a25d1704a7227e9cf2a1903ecd952
+=======
+  database: <%= ENV['VC_DB_NAME'] %>
+
+>>>>>>> development
