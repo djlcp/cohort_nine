@@ -8,9 +8,7 @@ Rails.application.routes.draw do
   end
 
   namespace :customer do
-    resources :users do
-      resources :vouchers
-    end
+    resources :vouchers
   end
  
   namespace :vendor do 

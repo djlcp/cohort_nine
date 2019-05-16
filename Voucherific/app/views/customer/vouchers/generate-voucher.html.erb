@@ -1,0 +1,10 @@
+#This view generates a new voucher for logged in customer
+
+<div>
+    <h1> Generate voucher </h1>
+        <div>
+            <p> This is a voucher you can choose </p>
+            <%= render 'form', voucher: @voucher %>
+            <%= link_to 'Back', voucher_path %>
+        </div>  
+</div>

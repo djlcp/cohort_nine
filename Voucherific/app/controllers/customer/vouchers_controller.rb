@@ -12,4 +12,8 @@ class Customer::VouchersController < ApplicationController
     @voucher = Voucher.find(params[:id])
   end
 
+  def create #generate new voucher
+    @voucher = Voucher.new
+  end
+
 end

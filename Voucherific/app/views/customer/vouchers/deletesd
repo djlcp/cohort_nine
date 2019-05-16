@@ -1,0 +1,4 @@
+<!--<%= link_to voucher_path(voucher), method: :put do %>-->
+end
+<p><%= link_to 'Show Voucher', voucher %></p>
+                    <p><%= link_to 'Show Voucher', voucher %></p>

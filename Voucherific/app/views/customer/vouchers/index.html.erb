@@ -1,6 +1,6 @@
-<h1>Customer::Voucher#index</h1>
+<!--This is the view for all vouchers for the logged in customer-->
+<!--#<h1>Customer::Voucher#index</h1> -->
 
-<p>Find me in app/views/customer/voucher/index.html.erb</p>
 
 
 <div>
@@ -9,14 +9,15 @@
         <div>
             <% @voucher.each do |voucher| %>
                 <div>
-                    <%= link_to voucher_path(voucher), method: :put do %>
+                    <%= link_to customer_voucher_path(voucher), method: :put do %>
                     <p><%= voucher.description %></p>
                     <p><%= voucher.value %></p>
                     <p><%= voucher.expiry_date %></p>
-                    <p><%= link_to 'Show Voucher', voucher %></p>
+
+                    <% end %>
+                    
                 </div>
             <% end %>
         </div>
 </div>
 
-              
