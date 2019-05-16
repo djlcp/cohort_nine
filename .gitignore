@@ -21,7 +21,6 @@ config/initializers/secret_token.rb
 config/master.key
 
 # Only include if you have production secrets in this file, which is no longer a Rails default
-# config/database.yml
 
 # dotenv
 # TODO Comment out this rule if environment variables can be committed
@@ -66,3 +65,8 @@ yarn-debug.log*
 !/storage/.keep
 
 \.DS_Store
+
+Voucherific/tmp/**
+Voucherific/log/**
+Voucherific/config/database.yml
+Voucherific/config/database.yml
