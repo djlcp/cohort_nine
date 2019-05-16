@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root to: "home#index"
 
+  get '/vendors/voucher/search' => "vendor/vouchers#search"
+
  
   namespace :admin do
       resources :vouchers

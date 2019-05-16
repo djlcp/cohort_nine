@@ -8,8 +8,8 @@ class Vendor::VouchersController < ApplicationController
     def search
         @search = params["search"]
         if @voucher.present?
-            @id = @search["id"]
-            @vouchers = Voucher.where(id: @id)
+            @id = @search["search"]
+            @voucher = Voucher.where(id: @id)
         end
     end
 
