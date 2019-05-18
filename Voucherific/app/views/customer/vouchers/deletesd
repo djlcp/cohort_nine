@@ -2,3 +2,16 @@
 end
 <p><%= link_to 'Show Voucher', voucher %></p>
                     <p><%= link_to 'Show Voucher', voucher %></p>
+
+
+
+
+                                    <div>
+                    <%= customer_voucher_path(voucher), method: :put do %>
+                                    </div>
+            <% end %>
+
+
+
+                        <%= render 'form', voucher: @voucher %>
+            <%= link_to 'Back', voucher_path %>

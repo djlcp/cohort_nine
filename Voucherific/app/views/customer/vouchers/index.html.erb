@@ -1,26 +1,21 @@
 <!--This is the view for all vouchers for the logged in customer-->
-<!--#<h1>Customer::Voucher#index</h1> -->
-
-
 
 <div>
-    <h1> Check out all your vouchers! </h1>
+
+    <h1> Hi, current_user.email Check out all your vouchers! </h1> <!-- this need fixing when devise sorted -->
 
         <div>
-            <% @voucher.each do |voucher| %>
-                <div>
-                    <%= link_to customer_voucher_path(voucher), method: :put do %>
-                    <p><%= voucher.description %></p>
-                    <p><%= voucher.value %></p>
-                    <p><%= voucher.expiry_date %></p>
-                    
-                    <% end %>
-                    
-                </div>
+            <%= @voucher.each do |voucher| %>
+                <p><strong><%= voucher.description %></strong></p>
+                <p><%= voucher.value %>
+                <%= voucher.expiry_date %></p>
+                <p><%= link_to "Show Voucher", customer_voucher_path(voucher) %></p>
+                <!-- takes user to specific voucher details page -->
             <% end %>
-
-            
-        
         </div>
-</div>
 
+        <p><%= button_to "Get New Voucher", new_customer_voucher_path(@voucher), method: :get %></p>
+        <!-- takes user to the new voucher page -->
+
+        <p><%= link_to "Back", :back %></p> <!-- takes user back to the previous page they were on -->
+</div>

@@ -1,16 +1,27 @@
+<!--This is the view for the logged in customer to see details of selected voucher-->
+
+
+<h1> Here is your voucher </h1>
+<h2> <%= @voucher.description %> </h1>
 
   <p>
-    <strong>Title:</strong>
-    <%= @voucher.title %>
+    <strong>Value:</strong>
+    <%= @voucher.value %>
   </p>
 
-  <p>
-    <strong>Body:</strong>
-    <%= @voucher.body %>
-  </p>
+   <p>
+    <strong>Expires:</strong>
+    <%= @voucher.expiry_date %>
+</p>
+
+<p><%= button_to "Print Voucher"%> </p> <!-- we need to think how to get this working -->
 
 
-  <%#= link_to 'Back', voucher_path %>
+<p><%= button_to "Send to e-mail"  %></p> <!-- we need to think how to get this working -->
+<p><%= link_to "Back", :back %></p> <!-- takes user back to the previous page they were on -->
+
+  
+
 
 
 
