@@ -2,14 +2,15 @@ class Vendor::VouchersController < ApplicationController
 
 
     def index
-        @vouchers = Voucher.all.order("created_at DESC")
+        @vouchers = Voucher.all
     end
 
     def search
+        @vouchers = Voucher.all
         @search = params["search"]
-        if @voucher.present?
-            @id = @search["search"]
-            @voucher = Voucher.where(id: @id)
+        if @search.present?
+            @id = @search["id"]
+            @voucher = Voucher.where(id: @id).first
         end
     end
 

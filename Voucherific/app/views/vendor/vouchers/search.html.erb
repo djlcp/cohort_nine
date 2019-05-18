@@ -1,4 +1,9 @@
-<h1> hey </h1>
+<h1> Voucher valid ! </h1>
 
-<% @voucher.value %>
+
+
+<% @vouchers.each do |voucher| %>
+   <h3>Voucher value:</h3> <h3><%= voucher.value %></h3>
+   <h3>Voucher description:</h3> <h3><%= voucher.description %></h3>
+<% end %>
 
