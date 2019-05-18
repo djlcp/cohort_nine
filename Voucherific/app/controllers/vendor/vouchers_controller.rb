@@ -6,11 +6,18 @@ class Vendor::VouchersController < ApplicationController
     end
 
     def search
-        @vouchers = Voucher.all
+        @voucher = Voucher.where(id: @id).first
         @search = params["search"]
         if @search.present?
             @id = @search["id"]
-            @voucher = Voucher.where(id: @id).first
+            
+            if @voucher = Voucher.where(id: @id, status: "valid").first
+                render '_valid'
+            elsif @voucher = Voucher.where(id: @id).first
+                render '_expired_or_redeemed' 
+            else
+                render '_not_valid'
+            end
         end
     end
 
