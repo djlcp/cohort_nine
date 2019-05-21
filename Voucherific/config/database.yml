@@ -23,10 +23,6 @@ test: &test
 
 production: &production
   <<: *default
-<<<<<<< HEAD
   #database: <%= ENV['VC_DB_NAME'] %>
   database: Voucherific_production
-=======
-  database: <%= ENV['VC_DB_NAME'] %>
-
->>>>>>> development
+  #database: <%= ENV['VC_DB_NAME'] %>
