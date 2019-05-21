@@ -34,5 +34,7 @@ class Vendor::VouchersController < ApplicationController
             render 'edit'
         end
     end
-
+def redeem
 end
+end
+

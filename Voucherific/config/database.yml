@@ -1,25 +1,15 @@
 default: &default
   adapter: mysql2
   encoding: utf8
-  reconnect: false
-  database: Voucherific_development
-  adapter: mysql2
-  pool: 5
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
-  password: brasov
-  
+  socket: /tmp/mysql.sock
 
-
-development: &development
+development:
   <<: *default
   database: Voucherific_development
-
-test: &test
+ 
+  production:
   <<: *default
-  database: Voucherific_test
-
-production: &production
-  <<: *default
-  database: Voucherific_productionm
-
-
+  database: Voucherific_production
+  password: <%= ENV['BREXIT_DATABASE_PASSWORD'] %>

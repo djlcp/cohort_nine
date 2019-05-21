@@ -7,5 +7,4 @@
 <p>Description: <%= @voucher.description %></p>
 <p>Status: <%= @voucher.status %></p>
 
-<%= link_to '<button type="button">Redeem !!</button>'.html_safe %>
-
+<%= link_to "Redeem", {controller: 'vouchers', action: 'redeem', id: @voucher.id}   , class: "btn btn-primary"   %>
