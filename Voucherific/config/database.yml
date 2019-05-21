@@ -10,7 +10,6 @@ default: &default
   host: <%= ENV['VC_DB_HOST'] %>
   port: <%= ENV['VC_DB_PORT'] %>
 
-
 development:
   <<: *default
   database: <%= ENV['DEV_VC_DB_NAME'] %>
