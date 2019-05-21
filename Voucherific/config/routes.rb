@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   get '/vendor/vouchers' => "vendor/vouchers#search"
   get '/vendor/vouchers/search' => "vendor/vouchers#search"
-
+  get '/vendor/vouchers/:id/redeem' => "vendor/vouchers#redeem"
  
   namespace :admin do
       resources :vouchers
