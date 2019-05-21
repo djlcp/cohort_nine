@@ -17,13 +17,12 @@ default: &default
   encoding: utf8
 <<<<<<< HEAD
   reconnect: false
-  #database: <%= ENV['VC_DB_NAME'] %>
+  database: Voucherific_development
   adapter: mysql2
   pool: 5
-  username: <%= ENV['VC_DB_USERNAME'] %>
-  password: <%= ENV['VC_DB_PASSWORD'] %>
-  host: <%= ENV['VC_DB_HOST'] %>
-  port: <%= ENV['VC_DB_PORT'] %>
+  username: root
+  password: brasov
+  
 
 =======
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
@@ -35,7 +34,10 @@ default: &default
 development:
   <<: *default
 <<<<<<< HEAD
+<<<<<<< HEAD
   #database: <%= ENV['VC_DB_NAME'] %>
+=======
+>>>>>>> development
   database: Voucherific_development
 =======
   database: Voucherific_rails_development
@@ -47,7 +49,10 @@ development:
 test:
   <<: *default
 <<<<<<< HEAD
+<<<<<<< HEAD
   #database: <%= ENV['VC_DB_NAME'] %>
+=======
+>>>>>>> development
   database: Voucherific_test
 =======
   database: Voucherific_rails_test
@@ -77,6 +82,7 @@ production:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   #database: <%= ENV['VC_DB_NAME'] %>
   database: Voucherific_production
 =======
@@ -91,5 +97,8 @@ production:
 =======
 >>>>>>> development
   database: <%= ENV['VC_DB_NAME'] %>
+=======
+  database: Voucherific_productionm
 
 >>>>>>> development
+
