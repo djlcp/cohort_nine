@@ -1,15 +1,27 @@
 default: &default
   adapter: mysql2
   encoding: utf8
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: root
-  socket: /tmp/mysql.sock
+  reconnect: false
+  #database: <%= ENV['VC_DB_NAME'] %>
+  adapter: mysql2
+  pool: 5
+  username: <%= ENV['VC_DB_USERNAME'] %>
+  password: <%= ENV['VC_DB_PASSWORD'] %>
+  host: <%= ENV['VC_DB_HOST'] %>
+  port: <%= ENV['VC_DB_PORT'] %>
 
 development:
   <<: *default
-  database: Voucherific_development
- 
-  production:
+  database: <%= ENV['DEV_VC_DB_NAME'] %>
+  #database: Voucherific_development
+
+test: &test
   <<: *default
-  database: Voucherific_production
-  password: <%= ENV['BREXIT_DATABASE_PASSWORD'] %>
+  database: <%= ENV['TEST_VC_DB_NAME'] %>
+  #database: Voucherific_test
+
+production: &production
+  <<: *default
+  database: <%= ENV['PROD_VC_DB_NAME'] %>
+  #database: Voucherific_production
+  #database: <%= ENV['VC_DB_NAME'] %>
