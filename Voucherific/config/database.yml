@@ -1,5 +1,9 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # MySQL. Versions 5.1.10 and up are supported.
+=======
+# MySQL. Versions 5.5.8 and up are supported.
+>>>>>>> development
 #
 # Install the MySQL driver
 #   gem install mysql2
@@ -10,6 +14,7 @@
 # And be sure to use new-style password hashing:
 #   https://dev.mysql.com/doc/refman/5.7/en/password-hashing.html
 #
+<<<<<<< HEAD
 =======
 >>>>>>> development
 default: &default
@@ -43,10 +48,25 @@ development:
   database: Voucherific_rails_development
 >>>>>>> 5009aef05a1a25d1704a7227e9cf2a1903ecd952
 
+=======
+default: &default
+ adapter: mysql2
+ encoding: utf8mb4
+ pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+ username: root
+ password: B0r0wsk!
+ host: localhost
+
+development:
+ <<: *default
+ database: Voucherific_development
+
+>>>>>>> development
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
+<<<<<<< HEAD
   <<: *default
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -101,4 +121,32 @@ production:
   database: Voucherific_productionm
 
 >>>>>>> development
+=======
+ <<: *default
+ database: Voucherific_test
+>>>>>>> development
 
+# As with config/credentials.yml, you never want to store sensitive information,
+# like your database password, in your source code. If your source code is
+# ever seen by anyone, they now have access to your database.
+#
+# Instead, provide the password as a unix environment variable when you boot
+# the app. Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
+# for a full rundown on how to provide these environment variables in a
+# production deployment.
+#
+# On Heroku and other platform providers, you may have a full connection URL
+# available as an environment variable. For example:
+#
+#   DATABASE_URL="mysql2://myuser:mypass@localhost/somedatabase"
+#
+# You can use this database configuration with:
+#
+#   production:
+#     url: <%= ENV['DATABASE_URL'] %>
+#
+production:
+ <<: *default
+ database: Voucherific_production
+ username: Voucherific
+ password: <%= ENV['VOUCHERIFIC_DATABASE_PASSWORD'] %>
