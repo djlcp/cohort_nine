@@ -13,16 +13,16 @@ default: &default
 
 development:
   <<: *default
-  #database: <%= ENV['VC_DB_NAME'] %>
-  database: Voucherific_development
+  database: <%= ENV['DEV_VC_DB_NAME'] %>
+  #database: Voucherific_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  #database: <%= ENV['VC_DB_NAME'] %>
-  database: Voucherific_test
+  database: <%= ENV['TEST_VC_DB_NAME'] %>
+  #database: Voucherific_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -45,6 +45,6 @@ test:
 #
 production:
   <<: *default
-  database: voucher_production
-  username: vouher
-  password: <%= ENV['voucher_DATABASE_PASSWORD'] %>
+  database: <%= ENV['PROD_VC_DB_NAME'] %>
+  #database: Voucherific_production
+  #database: <%= ENV['VC_DB_NAME'] %>
