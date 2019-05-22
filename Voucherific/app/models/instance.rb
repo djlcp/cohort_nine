@@ -1,4 +1,4 @@
 class Instance < ApplicationRecord
-    belongs_to :users
-    belongs_to :vouchers
+    belongs_to :user
+    belongs_to :voucher
 end
