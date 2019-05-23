@@ -1,16 +1,25 @@
+# 
+# Install the MYSQL driver
+#   gem install mysql2
+#
+# Ensure the MySQL gem is defined in your Gemfile
+#   gem 'mysql2'
+#
+# And be sure to use new-style password hashing:
+#   http://dev.mysql.com/doc/refman/5.0/en/old-client.html
+
 default: &default
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  #database: <%= ENV['VC_DB_NAME'] %>
-  adapter: mysql2
+  database: <%= ENV['VC_DB_NAME'] %>
   pool: 5
   username: <%= ENV['VC_DB_USERNAME'] %>
   password: <%= ENV['VC_DB_PASSWORD'] %>
   host: <%= ENV['VC_DB_HOST'] %>
   port: <%= ENV['VC_DB_PORT'] %>
 
-development:
+development: &development
   <<: *default
   database: <%= ENV['DEV_VC_DB_NAME'] %>
   #database: Voucherific_development
@@ -44,6 +53,4 @@ test:
 #
 production:
   <<: *default
-  database: <%= ENV['PROD_VC_DB_NAME'] %>
-  #database: Voucherific_production
-  #database: <%= ENV['VC_DB_NAME'] %>
+  database: <%= ENV['VC_DB_NAME'] %>

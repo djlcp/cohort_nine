@@ -6,6 +6,8 @@ services:
   db:
     image: mysql:8
     command: --default-authentication-plugin=mysql_native_password
+    container_name: db
+    hostname: db
     restart: always
     volumes:
       - ${VOLUME_PATH}mysql:/var/lib/mysql
@@ -17,6 +19,8 @@ services:
     build: .
     image: codeje/djlcp:9_voucheriffic_master
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    container_name: djlcp_9_web_ui
+    hostname: djlcp_9_web_ui
     environment:
       VC_DB_NAME: voucheriffic_production
       VC_DB_USERNAME: root
@@ -24,7 +28,7 @@ services:
       VC_DB_HOST: db
       VC_DB_PORT: 3306
     ports:
-      - "3000:3000"
+      - "0.0.0.0:3000:3000"
     depends_on:
       - db
     networks:
