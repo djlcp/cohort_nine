@@ -13,6 +13,8 @@ class Shop::InstancesController < ApplicationController
             @id = @search["id"]
             
             if @instance = Instance.where(id: @id).first
+                @voucher_id = @instance.voucher_id
+                @voucher = Voucher.where(id: @voucher_id).first
                 render '_valid'
             else
                 render '_not_valid'

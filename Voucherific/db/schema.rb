@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_22_201409) do
+ActiveRecord::Schema.define(version: 2019_05_23_180037) do
 
   create_table "instances", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "voucher_id"
@@ -57,7 +57,6 @@ ActiveRecord::Schema.define(version: 2019_05_22_201409) do
   create_table "vouchers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.decimal "value", precision: 10
     t.string "description"
-    t.string "type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
