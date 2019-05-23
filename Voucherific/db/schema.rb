@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2019_05_15_211055) do
 
+<<<<<<< HEAD
   create_table "instances", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
     t.integer "voucher_id"
@@ -20,6 +21,9 @@ ActiveRecord::Schema.define(version: 2019_05_15_211055) do
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+=======
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+>>>>>>> 2bd5b753455b3772181e0fb9d0b00c0315f079ad
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -34,7 +38,7 @@ ActiveRecord::Schema.define(version: 2019_05_15_211055) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "vendors", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "vendors", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name"
     t.string "location"
     t.integer "contact_phone"
@@ -43,7 +47,7 @@ ActiveRecord::Schema.define(version: 2019_05_15_211055) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "vouchers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "vouchers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.decimal "value", precision: 10
     t.string "description"
     t.string "type"
