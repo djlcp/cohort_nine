@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_21_182720) do
+ActiveRecord::Schema.define(version: 2019_05_22_201409) do
 
   create_table "instances", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "voucher_id"
@@ -18,11 +18,23 @@ ActiveRecord::Schema.define(version: 2019_05_21_182720) do
     t.datetime "updated_at", null: false
     t.integer "number"
     t.datetime "issued_on"
-    t.integer "issued_by"
     t.datetime "redeemed_on"
-    t.integer "redeemed_by"
     t.datetime "paid_on"
-    t.integer "paid_by"
+    t.bigint "customer_id"
+    t.bigint "admin_id"
+    t.bigint "vendor_id"
+    t.index ["admin_id"], name: "index_instances_on_admin_id"
+    t.index ["customer_id"], name: "index_instances_on_customer_id"
+    t.index ["vendor_id"], name: "index_instances_on_vendor_id"
+  end
+
+  create_table "shops", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.string "location"
+    t.integer "contact_phone"
+    t.string "contact_email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -36,17 +48,10 @@ ActiveRecord::Schema.define(version: 2019_05_21_182720) do
     t.datetime "dob"
     t.boolean "is_admin"
     t.boolean "is_vendor"
+    t.bigint "shop_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-  end
-
-  create_table "vendors", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
-    t.string "location"
-    t.integer "contact_phone"
-    t.string "contact_email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.index ["shop_id"], name: "index_users_on_shop_id"
   end
 
   create_table "vouchers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -57,4 +62,8 @@ ActiveRecord::Schema.define(version: 2019_05_21_182720) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "instances", "users", column: "admin_id"
+  add_foreign_key "instances", "users", column: "customer_id"
+  add_foreign_key "instances", "users", column: "vendor_id"
+  add_foreign_key "users", "shops"
 end

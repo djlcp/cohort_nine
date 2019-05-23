@@ -2,24 +2,26 @@ default: &default
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: Voucherific_development
+  #database: <%= ENV['VC_DB_NAME'] %>
   adapter: mysql2
   pool: 5
-  username: root
-  password: brasov
-  
+  username: <%= ENV['VC_DB_USERNAME'] %>
+  password: <%= ENV['VC_DB_PASSWORD'] %>
+  host: <%= ENV['VC_DB_HOST'] %>
+  port: <%= ENV['VC_DB_PORT'] %>
 
-
-development: &development
+development:
   <<: *default
-  database: Voucherific_development
+  database: <%= ENV['DEV_VC_DB_NAME'] %>
+  #database: Voucherific_development
 
 test: &test
   <<: *default
-  database: Voucherific_test
+  database: <%= ENV['TEST_VC_DB_NAME'] %>
+  #database: Voucherific_test
 
 production: &production
   <<: *default
-  database: Voucherific_productionm
-
-
+  database: <%= ENV['PROD_VC_DB_NAME'] %>
+  #database: Voucherific_production
+  #database: <%= ENV['VC_DB_NAME'] %>

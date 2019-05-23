@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   root to: "home#index"
 
-  get '/vendor/vouchers' => "vendor/vouchers#search"
-  get '/vendor/vouchers/search' => "vendor/vouchers#search"
+  get '/shop/instances' => "shop/instances#search"
+  get '/shop/instances/search' => "shop/instances#search"
 
  
   namespace :admin do
@@ -13,8 +13,8 @@ Rails.application.routes.draw do
       resources :vouchers
   end
  
-  namespace :vendor do 
-      resources :vouchers
+  namespace :shop do 
+      resources :instances
   end
 
 
