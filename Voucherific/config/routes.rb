@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   root to: "home#index"
 
-  get '/shop/instances' => "shop/instances#search"
-  get '/shop/instances/search' => "shop/instances#search"
-  get '/shop/instances/redeem' => "shop/instances#redeem"
+  get '/shop/instances' => "shop/instances#validate"
+  get '/shop/instances/validate' => "shop/instances#validate"
+  get '/shop/instances/:id/redeem' => "shop/instances#redeem"
   
 
  

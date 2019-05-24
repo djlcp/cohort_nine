@@ -1,48 +1,36 @@
 class Shop::InstancesController < ApplicationController
 
+    def validate
+        @number = params["validate"]
+        if @number.present?
+            @instance_number = @number["number"]
+            @instance = Instance.where(number: @instance_number).first
 
-    def index
-        @instances = Instance.all
-    end
+            if @instance
+                @created_at = @instance.created_at.to_i
+                @today = DateTime.now.to_i
+            end
 
-    def search
-        @instance = Instance.where(id: @id).first
-        @search = params["search"]
-        if @search.present?
-            @id = @search["id"]
-            
-            if @instance = Instance.where(id: @id).first
+            if @instance && (@instance.redeemed_on == nil ) && (@today - @created_at < 2592000) 
                 @voucher_id = @instance.voucher_id
                 @voucher = Voucher.where(id: @voucher_id).first
                 render '_valid'
-                
-            
+            elsif @instance && (@instance.redeemed_on != nil )
+                render '_fail_redeemed'
+            elsif @instance && (@today - @created_at > 2592000)
+                render '_fail_expired'
             else
                 render '_not_valid'
             end
         end
-        @instance = params[:instance]
-                redirect_to shop_instances_redeem_path(passed_parameter: params[:instance])
+
     end
 
     def redeem
-        @instance_valid = params[:passed_parameter]
-        @instance = @instance_valid
-	end
-
-
-	def show
         @instance = Instance.find(params[:id])
+        @instance.redeemed_on = DateTime.now
+        @instance.save
+        render '_redeem'
 	end
-	
-	def edit
-        @instance = Instance.find(params[:id])
-
-        if @instance.update(post_params)
-            redirect_to @instance
-        else
-            render 'edit'
-        end
-    end
 
 end

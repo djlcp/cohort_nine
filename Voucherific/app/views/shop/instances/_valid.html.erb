@@ -9,4 +9,8 @@
 
 
 
-<%= link_to '<button type="button">Redeem !!</button>'.html_safe, shop_instances_redeem_path %>
+
+
+<%= link_to "Redeem", {controller: 'instances', action: 'redeem', id: @instance.id}   , class: "btn btn-primary"   %> 
+<%= link_to "Try Again", shop_instances_validate_path , class: "btn btn-primary" %>
+
