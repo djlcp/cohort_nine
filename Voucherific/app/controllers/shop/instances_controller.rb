@@ -3,7 +3,6 @@ class Shop::InstancesController < ApplicationController
 
     def index
         @instances = Instance.all
-        
     end
 
     def search
@@ -16,11 +15,21 @@ class Shop::InstancesController < ApplicationController
                 @voucher_id = @instance.voucher_id
                 @voucher = Voucher.where(id: @voucher_id).first
                 render '_valid'
+                
+            
             else
                 render '_not_valid'
             end
         end
+        @instance = params[:instance]
+                redirect_to shop_instances_redeem_path(passed_parameter: params[:instance])
     end
+
+    def redeem
+        @instance_valid = params[:passed_parameter]
+        @instance = @instance_valid
+	end
+
 
 	def show
         @instance = Instance.find(params[:id])

@@ -3,9 +3,10 @@
 <br />
 
 
-<p>id: £<%=  @instance.id %></p>
-<p>id: £<%=  @voucher.description %></p>
+<p>Voucher number: <%=  @instance.number %></p>
+<p>Value: £<%=  @voucher.value %></p>
+<p><%=  @voucher.description %></p>
 
 
-<%= link_to '<button type="button">Redeem !!</button>'.html_safe %>
 
+<%= link_to '<button type="button">Redeem !!</button>'.html_safe, shop_instances_redeem_path %>

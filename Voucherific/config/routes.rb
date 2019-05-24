@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   get '/shop/instances' => "shop/instances#search"
   get '/shop/instances/search' => "shop/instances#search"
+  get '/shop/instances/redeem' => "shop/instances#redeem"
+  
 
  
   namespace :admin do
