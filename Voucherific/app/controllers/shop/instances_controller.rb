@@ -11,11 +11,11 @@ class Shop::InstancesController < ApplicationController
                 @today = DateTime.now.to_i
             end
 
-            if @instance && (@instance.redeemed_on == nil ) && (@today - @created_at < 2592000) 
+            if @instance && (@instance.redeemed_at == nil ) && (@today - @created_at < 2592000) 
                 @voucher_id = @instance.voucher_id
                 @voucher = Voucher.where(id: @voucher_id).first
                 render '_valid'
-            elsif @instance && (@instance.redeemed_on != nil )
+            elsif @instance && (@instance.redeemed_at != nil )
                 render '_fail_redeemed'
             elsif @instance && (@today - @created_at > 2592000)
                 render '_fail_expired'
@@ -28,7 +28,7 @@ class Shop::InstancesController < ApplicationController
 
     def redeem
         @instance = Instance.find(params[:id])
-        @instance.redeemed_on = DateTime.now
+        @instance.redeemed_at = DateTime.now
         @instance.vendor_id = current_user.id
         @instance.save
         render '_redeem'
