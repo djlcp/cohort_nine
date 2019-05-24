@@ -29,6 +29,7 @@ class Shop::InstancesController < ApplicationController
     def redeem
         @instance = Instance.find(params[:id])
         @instance.redeemed_on = DateTime.now
+        @instance.vendor_id = current_user.id
         @instance.save
         render '_redeem'
 	end
