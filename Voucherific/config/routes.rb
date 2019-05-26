@@ -13,6 +13,11 @@ Rails.application.routes.draw do
 
   namespace :customer do
       resources :instances
+      resources :users do
+        member do
+            get :instances
+        end
+      end
   end
  
   namespace :shop do 
