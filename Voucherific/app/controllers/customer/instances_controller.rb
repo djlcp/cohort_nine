@@ -23,6 +23,8 @@ class Customer::InstancesController < ApplicationController
     def new
     @instance = Instance.new
     @vouchers = Voucher.all
+    @user_id = 1
+    @user_email = "goeff@hotmail.com"
     end
     
     def create
