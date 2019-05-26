@@ -22,6 +22,7 @@ class Customer::InstancesController < ApplicationController
 
     def new
     @instance = Instance.new
+    @vouchers = Voucher.all
     end
     
     def create

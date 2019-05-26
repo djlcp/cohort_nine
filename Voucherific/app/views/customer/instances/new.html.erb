@@ -4,6 +4,28 @@
     <h1> Get a NEW voucher </h1>
     <p> This is a voucher for you </p>
 
+
+
+<!-- Getting a copy of an existing "flyer" and putting it in  a basket to spend" -->
+
+<!-- see what flyers are avaliable to me that i can put in my basket
+click one and generate a new instance for the customer to print / email and use. 
+
+CUSTOMER INSTANCES NEW PAGE = NEW user
+Customer instances index page = existing user -->
+
+
+   <div>
+            <% @vouchers.each do |voucher| %>
+                <div>
+                    <p><strong><%= voucher.description %></strong></p>
+                    <p><%= voucher.value %>
+                </div>
+            <% end %>
+
+
+
+
 </div>  
 
     <p><%= link_to "Back", :back %></p> <!-- takes user back to the previous page they were on -->

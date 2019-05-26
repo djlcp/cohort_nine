@@ -13,7 +13,3 @@ end
 
 
 
-                        <%= render 'form', voucher: @voucher %>
-            <%= link_to 'Back', voucher_path %>
-            <!--<%= voucher.expiry_date %></p>-->
-<%= @instance.expiry_date %>
