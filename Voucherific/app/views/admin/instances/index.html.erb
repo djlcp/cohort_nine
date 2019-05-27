@@ -1,0 +1,11 @@
+<h1> Welcome To Admin Page </h1>
+<h2> Please select one of the following options </h2>
+
+<% @instances.each do |instance| %>
+
+    <p> <%= instance.number %> </p>
+    <p> <%= instance.voucher_id %> </p>
+
+<% end %>
+
+

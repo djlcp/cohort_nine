@@ -10,6 +10,7 @@ Rails.application.routes.draw do
  
   namespace :admin do
       resources :instances
+      resources :vouchers
   end
 
   namespace :customer do
