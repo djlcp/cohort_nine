@@ -1,6 +1,10 @@
+</br>
+<h2> Available vouchers: </h2>
 <% @vouchers.each do |voucher| %>
 
-    <p> <%= voucher.value %> </p>
-    <p> <%= voucher.description %> </p>
+    <p> Voucher value: <%= voucher.value %> </p>
+    <p> Voucher description: <%= voucher.description %> </p>
 
 <% end %>
+
+<%= link_to "Create New Voucher", new_admin_voucher_path, class: "btn btn-primary" %>
