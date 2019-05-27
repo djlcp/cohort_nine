@@ -1,11 +1,15 @@
 <h1> Welcome To Admin Page </h1>
 <h2> Please select one of the following options </h2>
 
+<%= link_to "View Voucher Templates", admin_vouchers_path, class: "btn btn-primary" %>
+<hr class="mt-4 mb-4">
+
 <% @instances.each do |instance| %>
 
-    <p> <%= instance.number %> </p>
-    <p> <%= instance.voucher_id %> </p>
-
+    <p> Voucher number: <%= instance.number %> </p>
+    <p> Voucher value:  <%= instance.voucher.description %> </p>
+    <p> Voucher description:  <%= instance.voucher.description %> </p>
+    <hr class="mt-4 mb-4">
 <% end %>
 
 
