@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root to: "home#index"
 
   get '/shop/instances' => "shop/instances#validate"
+  get '/shop/vouchers' => "shop/instances#validate"
   get '/shop/instances/validate' => "shop/instances#validate"
   get '/shop/instances/:id/redeem' => "shop/instances#redeem"
   
