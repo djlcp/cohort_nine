@@ -1,0 +1,15 @@
+
+</br>
+
+
+<h2> hey </h2>
+
+
+<% @instances.each do |instance| %>
+
+    <p> Voucher number: <%= instance.number %> </p>
+    <p> Voucher value:  <%= instance.voucher.value %> </p>
+    <p> Voucher description:  <%= instance.voucher.description %> </p>
+    <p> Voucher has been redeemed by :  <%= instance.vendor.email %> </p>
+    <hr class="mt-4 mb-4">
+<% end %>

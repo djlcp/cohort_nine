@@ -1,7 +1,4 @@
 class Admin::VoucherController < ApplicationController
-
-
-
    def index
      @voucher = Voucher.all
    end

@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   get '/shop/vouchers' => "shop/instances#validate"
   get '/shop/instances/validate' => "shop/instances#validate"
   get '/shop/instances/:id/redeem' => "shop/instances#redeem"
+
+  get '/admin/instances/redeemed' => "admin/instances#redeemed"
+  get '/admin/instances/all' => "admin/instances#all"
   
 
  
