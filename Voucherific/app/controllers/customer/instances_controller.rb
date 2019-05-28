@@ -29,15 +29,8 @@ class Customer::InstancesController < ApplicationController
     
     def create
         @instance = Instance.new(instance_params)
-
-        respond_to do |format|
-        if @instance.save
-            format.html { redirect_to @instance, notice: 'Voucher instance was successfully created.' }
-            format.json { render :show, status: :created, location: @instance }
-        else
-            format.html { render :new }
-            format.json { render json: @instance.errors, status: :unprocessable_entity }
-        end
-        end
+        @user_id = current_user(:id)
+        
+ 
     end
 end
