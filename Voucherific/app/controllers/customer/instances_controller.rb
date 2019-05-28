@@ -33,4 +33,22 @@ class Customer::InstancesController < ApplicationController
         
  
     end
+
+    def this
+        @vouchers = Voucher.all
+    end
+    
+    def voucher
+        @instance = Instance.new
+        @vouchers = Voucher.all
+        @user_id = 1
+        @user_email = "goeff@hotmail.com"
+    end
+    
+    def vouchers
+        @instance = Instance.new
+        @vouchers = Voucher.all
+        @user_id = 1
+        @user_email = "goeff@hotmail.com"
+    end
 end

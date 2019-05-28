@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get '/shop/vouchers' => "shop/instances#validate"
   get '/shop/instances/validate' => "shop/instances#validate"
   get '/shop/instances/:id/redeem' => "shop/instances#redeem"
+
+  get '/customer/instances/voucher' => "customer/instances#voucher"
   
 
  
@@ -15,6 +17,8 @@ Rails.application.routes.draw do
 
   namespace :customer do
       resources :instances
+      resources :vouchers
+      resources :voucher
       resources :users do
         member do
             get :instances
