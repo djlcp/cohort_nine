@@ -1,4 +1,4 @@
-class Admin::VouchersController < ApplicationController
+class Admin::VoucherController < ApplicationController
 
 
 
