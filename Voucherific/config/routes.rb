@@ -1,20 +1,29 @@
 Rails.application.routes.draw do
   root to: "home#index"
 
-  get '/vendor/vouchers' => "vendor/vouchers#search"
-  get '/vendor/vouchers/search' => "vendor/vouchers#search"
-  get '/vendor/vouchers/:id/redeem' => "vendor/vouchers#redeem"
+  get '/shop/instances' => "shop/instances#validate"
+  get '/shop/vouchers' => "shop/instances#validate"
+  get '/shop/instances/validate' => "shop/instances#validate"
+  get '/shop/instances/:id/redeem' => "shop/instances#redeem"
+  
+
  
   namespace :admin do
+      resources :instances
       resources :vouchers
   end
 
   namespace :customer do
-      resources :vouchers
+      resources :instances
+      resources :users do
+        member do
+            get :instances
+        end
+      end
   end
  
-  namespace :vendor do 
-      resources :vouchers
+  namespace :shop do 
+      resources :instances
   end
 
 
