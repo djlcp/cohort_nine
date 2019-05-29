@@ -41,7 +41,13 @@ class Admin::VouchersController < ApplicationController
         @voucher.destroy
 
         redirect_to admin_vouchers_path
+    end
 
+    def disable
+        @voucher = Voucher.find(params[:id])
+        @voucher.is_disabled = true
+        @voucher.save
+        redirect_to admin_vouchers_path
     end
 
  

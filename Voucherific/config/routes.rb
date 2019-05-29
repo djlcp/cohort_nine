@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   get '/admin/instances/redeemed' => "admin/instances#redeemed"
   get '/admin/instances/all' => "admin/instances#all"
+
+  get '/admin/vouchers/disable/:id' => "admin/vouchers#disable"
   
 
  
