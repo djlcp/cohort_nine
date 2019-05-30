@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get '/admin/vouchers/disable/:id' => "admin/vouchers#disable"
 
   get '/customer/instances/vouchers' => "customer/instances#vouchers"
-  get '/customer/instances/custom' => "customer/instances#custom"
+  post '/customer/instances/custom' => "customer/instances#custom"
   
 
  
