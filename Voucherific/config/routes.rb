@@ -6,7 +6,13 @@ Rails.application.routes.draw do
   get '/shop/instances/validate' => "shop/instances#validate"
   get '/shop/instances/:id/redeem' => "shop/instances#redeem"
 
-  get '/customer/instances/voucher' => "customer/instances#voucher"
+  get '/admin/instances/redeemed' => "admin/instances#redeemed"
+  get '/admin/instances/all' => "admin/instances#all"
+
+  get '/admin/vouchers/disable/:id' => "admin/vouchers#disable"
+
+  get '/customer/instances/vouchers' => "customer/instances#vouchers"
+  post '/customer/instances/custom' => "customer/instances#custom"
   
 
  

@@ -12,43 +12,25 @@ class Customer::InstancesController < ApplicationController
     
     # click on a voucher and open for information about specific voucher
     def show
-    #@user = User.find(params[:id])
-    #@instance.user_id = current_user.id
-    @instance = Instance.find(params[:id])
-    @voucher = Instance.find_by_id(params[:voucher_id])
+        @instance = Instance.find(params[:id])
+        @voucher = Instance.find_by_id(params[:voucher_id])
     end
 
     # generate new voucher
 
-    def new
-    @instance = Instance.new
-    @vouchers = Voucher.all
-    @user_id = 1
-    @user_email = "goeff@hotmail.com"
-    end
-    
-    def create
-        @instance = Instance.new(instance_params)
-        @user_id = current_user(:id)
-        
- 
+    def vouchers
+        @vouchers = Voucher.all
     end
 
-    def this
-        @vouchers = Voucher.all
+    def custom
+        @voucher = Voucher.find(params[:id])
+        @instance = Instance.new(voucher_id: @voucher.id, customer_id: current_user.id)
+        @instance.number = Instance.last.number + 1
+        @instance.save
+        render "_custom"
     end
-    
-    def voucher
-        @instance = Instance.new
-        @vouchers = Voucher.all
-        @user_id = 1
-        @user_email = "goeff@hotmail.com"
-    end
-    
-    def vouchers
-        @instance = Instance.new
-        @vouchers = Voucher.all
-        @user_id = 1
-        @user_email = "goeff@hotmail.com"
+
+    def instance_params
+        params.require(:instance).permit(:voucher_id, :customer_id)
     end
 end
