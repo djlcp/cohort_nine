@@ -1,0 +1,8 @@
+
+<% @voucher.each do |voucher| %>
+    <p> <%= link_to "All Vouchers" ,"/voucher/#{voucher.id}" %> </p>
+    <p> <%= link_to "Reedemed" , "/voucher/#{voucher.id}"%> </p>
+    <p> <%= link_to "Expired" , "/voucher/#{voucher.id}"%> </p>
+    <p> <%= link_to "Paid Vouchers" , "/voucher/#{voucher.id}"%> </p>
+  <% end %>
+ 
