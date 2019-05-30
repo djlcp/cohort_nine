@@ -25,7 +25,12 @@ class Customer::InstancesController < ApplicationController
     def custom
         @voucher = Voucher.find(params[:id])
         @instance = Instance.new(voucher_id: @voucher.id, customer_id: current_user.id)
-        @instance.number = Instance.last.number + 1
+        if Instance.last != nil 
+            @instance.number = Instance.last.number + 1
+           
+        else
+            @instance.number = 1001
+        end
         @instance.save
         render "_custom"
     end
