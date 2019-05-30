@@ -2,7 +2,7 @@
 
 <div>
     <!-- Greeting to the signed in user. Note this needs fixing when devise is sorted -->
-    <h1> Hi <%= @User %>, here are today's deals avaliable to you! </h1> 
+    <h1> Hi <%= current_user.email %>, here are today's deals avaliable to you! </h1> 
         <div>
             <% @vouchers.each do |voucher| %>
                 <div>
@@ -13,7 +13,7 @@
                     
                     <!-- THIS  IS THE BIT WE NEED TO FIGURE OUT. HOW DO WE MAKE A UNIQUE NEW INSTANCE OF THE COUPON
                     WHICH BELONGS THEN TO THE CUSTOMER?!! -->
-                    <p><%= button_to "Get this coupon" %>
+                    <%= link_to "Get this coupon", {controller: 'instances', action: 'custom', id: voucher.id}   , class: "btn btn-primary"   %> 
                 
                 </div>
             <% end %>

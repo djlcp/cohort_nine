@@ -2,7 +2,7 @@
 
 <div>
     <!-- Greeting to the signed in user. Note this needs fixing when devise is sorted -->
-    <h1> Hi <%= @User %>, here are all your current coupons! </h1> 
+    <h1> Hi <%= current_user.email %>, here are all your current coupons! </h1> 
 
         <div>
             <% @instances.each do |instance| %>
@@ -18,7 +18,7 @@
         </div>
 
         <!-- takes user to the new  page which lists all the pre-made Coupons avaliable to the user for selection-->
-        <p><%= button_to "Get New Coupon", new_customer_instance_path, method: :get %></p>
+        <p><%= link_to "Get New Coupon", customer_instances_vouchers_path %></p>
 
        
         <!-- takes user back to the previous page they were on -->

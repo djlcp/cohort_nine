@@ -20,24 +20,17 @@ class Customer::InstancesController < ApplicationController
 
     # generate new voucher
 
-    def new
-    @instance = Instance.new
-    @vouchers = Voucher.all
-    @user_id = 1
-    @user_email = "goeff@hotmail.com"
+    def vouchers
+        @vouchers = Voucher.all
     end
-    
-    def create
-        @instance = Instance.new(instance_params)
 
-        respond_to do |format|
-        if @instance.save
-            format.html { redirect_to @instance, notice: 'Voucher instance was successfully created.' }
-            format.json { render :show, status: :created, location: @instance }
-        else
-            format.html { render :new }
-            format.json { render json: @instance.errors, status: :unprocessable_entity }
-        end
-        end
+    def custom
+        @voucher = Voucher.find(params[:id])
+        @instance = Instance.create(voucher_id: @voucher.id, customer_id: current_user.id)
+        render "_custom"
+    end
+
+    def instance_params
+        params.require(:instance).permit(:voucher_id, :customer_id)
     end
 end
