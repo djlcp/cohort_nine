@@ -45,7 +45,7 @@ class Admin::VouchersController < ApplicationController
 
     def disable
         @voucher = Voucher.find(params[:id])
-        @voucher.is_disabled = true
+        @voucher.is_inactive = true
         @voucher.save
         redirect_to admin_vouchers_path
     end

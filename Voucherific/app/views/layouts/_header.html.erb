@@ -3,8 +3,11 @@
     <nav class="navbar fixed-top navbar-light bg-light">
         <a class="navbar-brand" href="#">
             <img src="#" width="30" height="30" class="d-inline-block align-top" alt="">
-            Voucherific</a>
-        <a class="nav-link" href="#"><button type="button" class="btn btn-outline-dark">Log In</button></a>
+            VOUCHERIFIC</a>
+            <a> Contact </a>
+        <a class="nav-link" href="/users/sign_in"><class="btn btn-outline-dark">Log In</button></a>
+        <button type="button" class="btn btn-outline-dark"><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></button>
+        <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
     </nav>
     
     </header>
