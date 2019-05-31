@@ -9,8 +9,8 @@
             <p> Voucher id:  <%= voucher.id %> </p>
             <p> Value: £ <%= voucher.value %> </p>
             <p> Description: <%= voucher.description %> </p>
-                <% if voucher.is_disabled != false %>
-                    <p style="color:red;"> DISABLED </p>
+                <% if voucher.is_inactive != false %>
+                    <p style="color:red;"> INACTIVE </p>
                 <% end %>
             <%= link_to content_tag(:span, ""), {controller: 'vouchers', action: 'show', id: voucher.id}  %>
         </div>
