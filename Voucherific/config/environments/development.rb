@@ -47,7 +47,8 @@ Rails.application.configure do
   :user_name            => "test_voucher@jerseybean.je",
   :password             => "yesthisisthepassword",
   :authentication       => "plain",
-  :enable_starttls_auto => true
+  :enable_starttls_auto => true,
+  :tls                  => true
 }
 
   # Print deprecation notices to the Rails logger.
@@ -73,4 +74,5 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+  config.action_mailer.perform_deliveries = true
 end
