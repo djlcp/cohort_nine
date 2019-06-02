@@ -1,5 +1,9 @@
 class Admin::VouchersController < ApplicationController
 
+    before_action :authenticate_user!
+    user_signed_in?
+    current_user.is_admin?
+
     def index
       @vouchers = Voucher.all
     end
