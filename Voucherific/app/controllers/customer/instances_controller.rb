@@ -19,7 +19,7 @@ class Customer::InstancesController < ApplicationController
     # generate new voucher
 
     def vouchers
-        @vouchers = Voucher.all
+        @vouchers = Voucher.where(is_inactive: false)
     end
 
     def custom

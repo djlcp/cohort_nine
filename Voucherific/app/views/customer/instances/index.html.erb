@@ -13,10 +13,13 @@
         <div>
             <% @instances.each do |instance| %>
                 <div class="customervoucher">
-                    <p><strong><%= instance.voucher.description %></strong></p>
-                    <p><%= instance.voucher.value %>
-                    <p><%= instance.voucher.id %>
-                    <p><%= instance.voucher.created_at %>
+                    <p><strong> <%= instance.voucher.description %></strong></p>
+                    <p>Voucher number: <%= instance.number %>
+                    <p>Value: £<%= instance.voucher.value %>
+                    <p>Created at: <%= instance.voucher.created_at %>
+                    <% if instance.redeemed_at != nil %>
+                        <p style="color:red;" > VOUCHER HAS BEEN REDEEMED </p>
+                    <% end %>
                     <!-- need to put "status of voucher" -->
 
                      <!-- link which takes user to a page showing the specific coupon details -->
