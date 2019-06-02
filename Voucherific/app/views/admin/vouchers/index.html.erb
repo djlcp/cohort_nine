@@ -1,11 +1,19 @@
 <h1> Welcome To Admin Page </h1>
 <h2> Please select one of the following options </h2>
 
-<%= link_to "View Templates", admin_templates_path, class: "btn btn-primary" %>
+<p> Templates </p>
+<p>
+    <%= link_to "View Templates", admin_templates_path, class: "btn btn-primary" %>
+</p>
+
+<hr class="mt-4 mb-4">
 
 
-<%= link_to "Redeemed vouchers", admin_vouchers_redeemed_path, class: "btn btn-primary" %>
-<%= link_to "All vouchers", admin_vouchers_all_path, class: "btn btn-primary" %>
+<p> Vouchers </p>
+<div>   
+    <%= link_to "Redeemed vouchers", admin_vouchers_redeemed_path, class: "btn btn-primary" %>
+    <%= link_to "All vouchers", admin_vouchers_all_path, class: "btn btn-primary" %>
+</div>
 
 <hr class="mt-4 mb-4">
 

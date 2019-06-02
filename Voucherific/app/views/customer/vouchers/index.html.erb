@@ -23,7 +23,7 @@
                     <!-- need to put "status of template" -->
 
                      <!-- link which takes user to a page showing the specific coupon details -->
-                    <p><%= link_to "Show Voucher Details", customer_voucher_path(voucher) %></p>
+                    <p><%= link_to "Show Voucher Details", customer_voucher_path(voucher), class: "btn btn-primary" %></p>
 
                 </div>
             <% end %>
@@ -33,5 +33,5 @@
 
        
         <!-- takes user back to the previous page they were on -->
-        <p><%= link_to "Back", customer_vouchers_path %></p> 
+        <p><%= link_to "Back", customer_vouchers_path, class: "btn btn-primary" %></p> 
 </div>

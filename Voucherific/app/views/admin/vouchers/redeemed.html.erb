@@ -1,6 +1,7 @@
 
-<h2> hey </h2>
+<h2> Redeemed vouchers</h2>
 
+<hr class="mt-4 mb-4">
 
 <% @vouchers.each do |voucher| %>
 
@@ -10,3 +11,5 @@
     <p> Voucher has been redeemed by :  <%= voucher.vendor.email %> </p>
     <hr class="mt-4 mb-4">
 <% end %>
+
+<%= link_to "Back To Admin Homepage", admin_vouchers_path ,class: "btn btn-primary" %>

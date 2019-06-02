@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   root to: "home#index"
 
-  get '/shop/vouchers' => "shop/vouchers#validate"
-  get '/shop/templates' => "shop/vouchers#validate"
+  get'/shop' => "shop/vouchers#validate"
+  get '/admin' => "admin/vouchers#index"
+  get '/customer' => "customer/vouchers#index"
+
   get '/shop/vouchers/validate' => "shop/vouchers#validate"
   get '/shop/vouchers/:id/redeem' => "shop/vouchers#redeem"
 
