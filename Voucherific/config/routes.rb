@@ -1,41 +1,53 @@
 Rails.application.routes.draw do
   root to: "home#index"
 
+<<<<<<< HEAD
     devise_for :users
 
   get '/shop/instances' => "shop/instances#validate"
   get '/shop/vouchers' => "shop/instances#validate"
   get '/shop/instances/validate' => "shop/instances#validate"
   get '/shop/instances/:id/redeem' => "shop/instances#redeem"
+=======
+  get'/shop' => "shop/vouchers#validate"
+  get '/admin' => "admin/vouchers#index"
+  get '/customer' => "customer/vouchers#index"
+>>>>>>> development
 
-  get '/admin/instances/redeemed' => "admin/instances#redeemed"
-  get '/admin/instances/all' => "admin/instances#all"
+  get '/shop/vouchers/validate' => "shop/vouchers#validate"
+  get '/shop/vouchers/:id/redeem' => "shop/vouchers#redeem"
 
-  get '/admin/vouchers/disable/:id' => "admin/vouchers#disable"
-  get '/admin/vouchers/restore/:id' => "admin/vouchers#restore"
+  get '/admin/vouchers/redeemed' => "admin/vouchers#redeemed"
+  get '/admin/vouchers/all' => "admin/vouchers#all"
 
-  get '/customer/instances/vouchers' => "customer/instances#vouchers"
-  post '/customer/instances/custom' => "customer/instances#custom"
+  get '/admin/templates/disable/:id' => "admin/templates#disable"
+  get '/admin/templates/restore/:id' => "admin/templates#restore"
+
+  get '/customer/vouchers/templates' => "customer/vouchers#templates"
+  post '/customer/vouchers/custom' => "customer/vouchers#custom"
   
 
  
   namespace :admin do
-      resources :instances
       resources :vouchers
+<<<<<<< HEAD
       #resources :users
+=======
+      resources :templates
+>>>>>>> development
   end
 
   namespace :customer do
-      resources :instances
+      resources :vouchers
       resources :users do
         member do
-            get :instances
+            get :vouchers
         end
       end
   end
  
   namespace :shop do 
-      resources :instances
+      resources :vouchers
   end
 
 

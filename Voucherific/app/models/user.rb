@@ -7,10 +7,11 @@ class User < ApplicationRecord
          belongs_to :shop, optional: true
 
        
-         has_many :instances, :class_name => 'User', :foreign_key => 'customer_id'
-         has_many :instances, :class_name => 'User', :foreign_key => 'vendor_id'
-         has_many :instances, :class_name => 'User', :foreign_key => 'admin_id'
+         has_many :vouchers, :class_name => 'User', :foreign_key => 'customer_id'
+         has_many :vouchers, :class_name => 'User', :foreign_key => 'vendor_id'
+         has_many :vouchers, :class_name => 'User', :foreign_key => 'admin_id'
 
+<<<<<<< HEAD
          has_many :vouchers, through: :instances
 
 # def self.current_user
@@ -21,4 +22,7 @@ class User < ApplicationRecord
  # Thread.current[:user] = user
 #end
 
+=======
+         has_many :templates, through: :vouchers
+>>>>>>> development
 end

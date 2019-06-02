@@ -10,22 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_31_080330) do
-
-  create_table "instances", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "voucher_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "number"
-    t.datetime "redeemed_at"
-    t.datetime "paid_at"
-    t.bigint "customer_id"
-    t.bigint "admin_id"
-    t.bigint "vendor_id"
-    t.index ["admin_id"], name: "index_instances_on_admin_id"
-    t.index ["customer_id"], name: "index_instances_on_customer_id"
-    t.index ["vendor_id"], name: "index_instances_on_vendor_id"
-  end
+ActiveRecord::Schema.define(version: 2019_06_02_154952) do
 
   create_table "shops", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -34,6 +19,14 @@ ActiveRecord::Schema.define(version: 2019_05_31_080330) do
     t.string "contact_email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "templates", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.decimal "value", precision: 10
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "is_inactive", default: false
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -54,15 +47,22 @@ ActiveRecord::Schema.define(version: 2019_05_31_080330) do
   end
 
   create_table "vouchers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.decimal "value", precision: 10
-    t.string "description"
+    t.integer "template_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "is_inactive", default: false
+    t.integer "number"
+    t.datetime "redeemed_at"
+    t.datetime "paid_at"
+    t.bigint "customer_id"
+    t.bigint "admin_id"
+    t.bigint "vendor_id"
+    t.index ["admin_id"], name: "index_vouchers_on_admin_id"
+    t.index ["customer_id"], name: "index_vouchers_on_customer_id"
+    t.index ["vendor_id"], name: "index_vouchers_on_vendor_id"
   end
 
-  add_foreign_key "instances", "users", column: "admin_id"
-  add_foreign_key "instances", "users", column: "customer_id"
-  add_foreign_key "instances", "users", column: "vendor_id"
   add_foreign_key "users", "shops"
+  add_foreign_key "vouchers", "users", column: "admin_id"
+  add_foreign_key "vouchers", "users", column: "customer_id"
+  add_foreign_key "vouchers", "users", column: "vendor_id"
 end
