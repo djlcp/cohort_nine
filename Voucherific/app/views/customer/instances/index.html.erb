@@ -6,24 +6,24 @@
 
 
     <!-- takes user to the new  page which lists all the pre-made Coupons avaliable to the user for selection-->
-        <p><%= link_to "Get New Coupon", customer_instances_vouchers_path, class: "btn btn-primary"  %></p>
+        <p><%= link_to "Get New Voucher", customer_instances_templates_path, class: "btn btn-primary"  %></p>
 
   
     <h2> Here are all your vouchers </h2>
         <div>
             <% @instances.each do |instance| %>
-                <div class="customervoucher">
-                    <p><strong> <%= instance.voucher.description %></strong></p>
+                <div class="customertemplate">
+                    <p><strong> <%= instance.template.description %></strong></p>
                     <p>Voucher number: <%= instance.number %>
-                    <p>Value: £<%= instance.voucher.value %>
-                    <p>Created at: <%= instance.voucher.created_at %>
+                    <p>Value: £<%= instance.template.value %>
+                    <p>Created at: <%= instance.template.created_at %>
                     <% if instance.redeemed_at != nil %>
                         <p style="color:red;" > VOUCHER HAS BEEN REDEEMED </p>
                     <% end %>
-                    <!-- need to put "status of voucher" -->
+                    <!-- need to put "status of template" -->
 
                      <!-- link which takes user to a page showing the specific coupon details -->
-                    <p><%= link_to "Show Coupon Details", customer_instance_path(instance) %></p>
+                    <p><%= link_to "Show Voucher Details", customer_instance_path(instance) %></p>
 
                 </div>
             <% end %>

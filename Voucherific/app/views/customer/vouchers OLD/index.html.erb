@@ -1,21 +1,21 @@
-<!--This is the view for all vouchers for the logged in customer-->
+<!--This is the view for all templates for the logged in customer-->
 
 <div>
 
-    <h1> Hi, current_user.email Check out all your vouchers! </h1> <!-- this need fixing when devise sorted -->
+    <h1> Hi, current_user.email Check out all your templates! </h1> <!-- this need fixing when devise sorted -->
 
         <div>
-            <%= @voucher.each do |voucher| %>
-                <p><strong><%= voucher.description %></strong></p>
-                <p><%= voucher.value %>
-                <%= voucher.expiry_date %></p>
-                <p><%= link_to "Show Voucher", customer_voucher_path(voucher) %></p>
-                <!-- takes user to specific voucher details page -->
+            <%= @template.each do |template| %>
+                <p><strong><%= template.description %></strong></p>
+                <p><%= template.value %>
+                <%= template.expiry_date %></p>
+                <p><%= link_to "Show template", customer_template_path(template) %></p>
+                <!-- takes user to specific template details page -->
             <% end %>
         </div>
 
-        <p><%= button_to "Get New Voucher", new_customer_voucher_path(@voucher), method: :get %></p>
-        <!-- takes user to the new voucher page -->
+        <p><%= button_to "Get New template", new_customer_template_path(@template), method: :get %></p>
+        <!-- takes user to the new template page -->
 
         <p><%= link_to "Back", :back %></p> <!-- takes user back to the previous page they were on -->
 </div>

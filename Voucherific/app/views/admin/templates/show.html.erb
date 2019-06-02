@@ -1,0 +1,38 @@
+
+
+<h2> template details </h2>
+
+<div class="content">
+<p>  Id : <%= @template.id %> </p>
+<p>  Value : <%= @template.value %> </p>
+<p>  Description : <%= @template.description %> </p>
+</div>
+
+<% if @instance == nil %>
+  <p>
+    <%= link_to "Edit", edit_admin_template_path(@template), class: "btn btn-primary" %> 
+  </p>
+<% end %>
+
+
+<% if @template.is_inactive != true %>
+  <p>
+    <%= link_to "Deactivate", {controller: 'templates', action: 'disable', id: @template.id}, data: { confirm: "Are you sure?" }, class: "btn btn-primary" %>
+  </p> 
+<% else %>
+  <p>
+    <%= link_to "Restore", {controller: 'templates', action: 'restore', id: @template.id}, data: { confirm: "Are you sure?" }, class: "btn btn-primary" %>
+  </p>
+<% end %>
+
+
+<% if @instance == nil %>
+  <p>
+    <%= link_to "Delete", admin_template_path(@template), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-primary" %>
+  </p>
+<% end %>
+
+<p>
+  <%= link_to "Back to templates list", admin_templates_path, class: "btn btn-primary" %>
+</p>
+

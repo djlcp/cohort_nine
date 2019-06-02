@@ -12,8 +12,8 @@ class Shop::InstancesController < ApplicationController
             end
 
             if @instance && (@instance.redeemed_at == nil ) && (@today - @created_at < 2592000) 
-                @voucher_id = @instance.voucher_id
-                @voucher = Voucher.where(id: @voucher_id).first
+                @template_id = @instance.template_id
+                @template = Template.where(id: @template_id).first
                 render '_valid'
             elsif @instance && (@instance.redeemed_at != nil )
                 render '_fail_redeemed'

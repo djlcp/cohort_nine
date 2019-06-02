@@ -3,28 +3,28 @@ class Customer::InstancesController < ApplicationController
     #load_and_authorize_resource
     def index
         @instances = Instance.where(customer_id: current_user.id)
-        @voucher = Instance.find_by_id(params[:voucher_id])
-        #@voucher = Voucher.where(id: @voucher_id).first
-        #@voucher = Voucher.where(id: @voucher_id).first
+        @template = Instance.find_by_id(params[:template_id])
+        #@template = template.where(id: @template_id).first
+        #@template = template.where(id: @template_id).first
         #@instance.user_id = current_user.id
       end
     
     
-    # click on a voucher and open for information about specific voucher
+    # click on a template and open for information about specific template
     def show
         @instance = Instance.find(params[:id])
-        @voucher = Instance.find_by_id(params[:voucher_id])
+        @template = Instance.find_by_id(params[:template_id])
     end
 
-    # generate new voucher
+    # generate new template
 
-    def vouchers
-        @vouchers = Voucher.where(is_inactive: false)
+    def templates
+        @templates = Template.where(is_inactive: false)
     end
 
     def custom
-        @voucher = Voucher.find(params[:id])
-        @instance = Instance.new(voucher_id: @voucher.id, customer_id: current_user.id)
+        @template = Template.find(params[:id])
+        @instance = Instance.new(template_id: @template.id, customer_id: current_user.id)
         if Instance.last != nil 
             @instance.number = Instance.last.number + 1
            
@@ -36,6 +36,6 @@ class Customer::InstancesController < ApplicationController
     end
 
     def instance_params
-        params.require(:instance).permit(:voucher_id, :customer_id)
+        params.require(:instance).permit(:template_id, :customer_id)
     end
 end

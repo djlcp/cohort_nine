@@ -2,24 +2,24 @@ Rails.application.routes.draw do
   root to: "home#index"
 
   get '/shop/instances' => "shop/instances#validate"
-  get '/shop/vouchers' => "shop/instances#validate"
+  get '/shop/templates' => "shop/instances#validate"
   get '/shop/instances/validate' => "shop/instances#validate"
   get '/shop/instances/:id/redeem' => "shop/instances#redeem"
 
   get '/admin/instances/redeemed' => "admin/instances#redeemed"
   get '/admin/instances/all' => "admin/instances#all"
 
-  get '/admin/vouchers/disable/:id' => "admin/vouchers#disable"
-  get '/admin/vouchers/restore/:id' => "admin/vouchers#restore"
+  get '/admin/templates/disable/:id' => "admin/templates#disable"
+  get '/admin/templates/restore/:id' => "admin/templates#restore"
 
-  get '/customer/instances/vouchers' => "customer/instances#vouchers"
+  get '/customer/instances/templates' => "customer/instances#templates"
   post '/customer/instances/custom' => "customer/instances#custom"
   
 
  
   namespace :admin do
       resources :instances
-      resources :vouchers
+      resources :templates
   end
 
   namespace :customer do

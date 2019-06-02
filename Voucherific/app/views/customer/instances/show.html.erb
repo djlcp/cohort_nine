@@ -1,12 +1,12 @@
 <!--This is the view for the logged in customer to see details of a specific selected coupon-->
-<h2>Specific voucher instance details to show here</h2>
+<h2>Voucher details:</h2>
 
-<div class="customervoucher">
+<div class="customertemplate">
     <p>  Number : <%= @instance.number %> </p>
-    <p>  Value : £ <%= @instance.voucher.value %> </p>
-    <p>  Description : <%= @instance.voucher.description %> </p>
+    <p>  Value : £ <%= @instance.template.value %> </p>
+    <p>  Description : <%= @instance.template.description %> </p>
     <% if @instance.redeemed_at != nil %>
-        <p style="color:red;" > VOUCHER HAS BEEN REDEEMED </p>
+        <p style="color:red;" > template HAS BEEN REDEEMED </p>
     <% end %>
 </div>
 
