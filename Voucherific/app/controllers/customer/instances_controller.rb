@@ -2,7 +2,7 @@ class Customer::InstancesController < ApplicationController
     #before_action :set_post, only: [:show, :edit, :update, :destroy, :new, :create]
     #load_and_authorize_resource
     def index
-        @instances = Instance.all
+        @instances = Instance.where(customer_id: current_user.id)
         @voucher = Instance.find_by_id(params[:voucher_id])
         #@voucher = Voucher.where(id: @voucher_id).first
         #@voucher = Voucher.where(id: @voucher_id).first
