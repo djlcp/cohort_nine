@@ -1,14 +1,10 @@
 class Admin::VouchersController < ApplicationController
 
     before_action :authenticate_user!
-    if user_signed_in?
-        if current_user.is_admin?
+    if current_user.is_admin?
             yield
         else
             puts "not admin"
-        end
-    else
-        puts "not logged in"
     end
     
 
