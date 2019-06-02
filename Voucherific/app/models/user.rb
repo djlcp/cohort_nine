@@ -7,9 +7,9 @@ class User < ApplicationRecord
          belongs_to :shop, optional: true
 
        
-         has_many :instances, :class_name => 'User', :foreign_key => 'customer_id'
-         has_many :instances, :class_name => 'User', :foreign_key => 'vendor_id'
-         has_many :instances, :class_name => 'User', :foreign_key => 'admin_id'
+         has_many :vouchers, :class_name => 'User', :foreign_key => 'customer_id'
+         has_many :vouchers, :class_name => 'User', :foreign_key => 'vendor_id'
+         has_many :vouchers, :class_name => 'User', :foreign_key => 'admin_id'
 
-         has_many :templates, through: :instances
+         has_many :templates, through: :vouchers
 end

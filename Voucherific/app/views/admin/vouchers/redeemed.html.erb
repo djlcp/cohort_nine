@@ -1,0 +1,12 @@
+
+<h2> hey </h2>
+
+
+<% @vouchers.each do |voucher| %>
+
+    <p> Voucher number: <%= voucher.number %> </p>
+    <p> Voucher value:  <%= voucher.template.value %> </p>
+    <p> Voucher description:  <%= voucher.template.description %> </p>
+    <p> Voucher has been redeemed by :  <%= voucher.vendor.email %> </p>
+    <hr class="mt-4 mb-4">
+<% end %>

@@ -1,4 +1,4 @@
 class Template < ApplicationRecord    
-    has_many :instances
-    has_many :users, through: :instances
+    has_many :vouchers
+    has_many :users, through: :vouchers
 end

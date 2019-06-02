@@ -20,7 +20,7 @@ class Admin::TemplatesController < ApplicationController
 
     def show
         @template = Template.find(params[:id])
-        @instance = Instance.where(template_id: @template.id).first
+        @voucher = Voucher.where(template_id: @template.id).first
     end
 
     def update

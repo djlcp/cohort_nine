@@ -13,4 +13,4 @@ end
 
 
 
-    <%#= render 'new', template: @instance %>
+    <%#= render 'new', template: @voucher %>
