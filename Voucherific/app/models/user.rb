@@ -12,4 +12,13 @@ class User < ApplicationRecord
          has_many :instances, :class_name => 'User', :foreign_key => 'admin_id'
 
          has_many :vouchers, through: :instances
+
+ def self.current_user
+  Thread.current[:user]
+end
+
+def self.current_user=(user)
+  Thread.current[:user] = user
+end
+
 end

@@ -1,10 +1,11 @@
 class Admin::VouchersController < ApplicationController
 
     before_action :authenticate_user!
-    if current_user.is_admin?
-            yield
-        else
-            puts "not admin"
+
+    before_action
+    if User.current_user.is_admin != true
+        redirect_to :back
+
     end
     
 
@@ -71,4 +72,5 @@ class Admin::VouchersController < ApplicationController
     def voucher_params
         params.require(:voucher).permit(:value, :description)
     end
+
 end
