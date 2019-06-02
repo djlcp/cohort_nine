@@ -20,6 +20,7 @@ class Admin::VouchersController < ApplicationController
 
     def show
         @voucher = Voucher.find(params[:id])
+        @instance = Instance.where(voucher_id: @voucher.id).first
     end
 
     def update
@@ -39,7 +40,6 @@ class Admin::VouchersController < ApplicationController
     def destroy
         @voucher = Voucher.find(params[:id])
         @voucher.destroy
-
         redirect_to admin_vouchers_path
     end
 
@@ -50,6 +50,12 @@ class Admin::VouchersController < ApplicationController
         redirect_to admin_vouchers_path
     end
 
+    def restore
+        @voucher = Voucher.find(params[:id])
+        @voucher.is_inactive = false
+        @voucher.save
+        redirect_to admin_vouchers_path
+    end
  
 
     private
