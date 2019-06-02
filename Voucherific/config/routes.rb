@@ -1,18 +1,11 @@
 Rails.application.routes.draw do
   root to: "home#index"
 
-<<<<<<< HEAD
-    devise_for :users
-
-  get '/shop/instances' => "shop/instances#validate"
-  get '/shop/vouchers' => "shop/instances#validate"
-  get '/shop/instances/validate' => "shop/instances#validate"
-  get '/shop/instances/:id/redeem' => "shop/instances#redeem"
-=======
+  devise_for :users
+  
   get'/shop' => "shop/vouchers#validate"
   get '/admin' => "admin/vouchers#index"
   get '/customer' => "customer/vouchers#index"
->>>>>>> development
 
   get '/shop/vouchers/validate' => "shop/vouchers#validate"
   get '/shop/vouchers/:id/redeem' => "shop/vouchers#redeem"
@@ -30,11 +23,7 @@ Rails.application.routes.draw do
  
   namespace :admin do
       resources :vouchers
-<<<<<<< HEAD
-      #resources :users
-=======
       resources :templates
->>>>>>> development
   end
 
   namespace :customer do
