@@ -2,25 +2,33 @@
 
 <div>
     <!-- Greeting to the signed in user. Note this needs fixing when devise is sorted -->
-    <h1> Hi <%= current_user.email %>, here are all your current coupons! </h1> 
+    <h1> Hi <%= current_user.email %></h1> 
 
+
+    <!-- takes user to the new  page which lists all the pre-made Coupons avaliable to the user for selection-->
+        <p><%= link_to "Get New Coupon", customer_instances_vouchers_path, class: "btn btn-primary"  %></p>
+
+  
+    <h2> Here are all your vouchers </h2>
         <div>
             <% @instances.each do |instance| %>
-                <div>
+                <div class="customervoucher">
                     <p><strong><%= instance.voucher.description %></strong></p>
                     <p><%= instance.voucher.value %>
+                    <p><%= instance.voucher.id %>
+                    <p><%= instance.voucher.created_at %>
+                    <!-- need to put "status of voucher" -->
 
                      <!-- link which takes user to a page showing the specific coupon details -->
-                    <p><%= link_to "Show Coupon Details", new_customer_instance_path(instance) %></p>
+                    <p><%= link_to "Show Coupon Details", customer_instance_path(instance) %></p>
 
                 </div>
             <% end %>
         </div>
 
-        <!-- takes user to the new  page which lists all the pre-made Coupons avaliable to the user for selection-->
-        <p><%= link_to "Get New Coupon", customer_instances_vouchers_path %></p>
+        
 
        
         <!-- takes user back to the previous page they were on -->
-        <p><%= link_to "Back", :back %></p> 
+        <p><%= link_to "Back", customer_instances_path %></p> 
 </div>

@@ -5,7 +5,7 @@
     <h1> Hi <%= current_user.email %>, here are today's deals avaliable to you! </h1> 
         <div>
             <% @vouchers.each do |voucher| %>
-                <div>
+                <div class="customervoucher">
                     <p><strong><%= voucher.description %></strong></p>
                     <p><%= voucher.value %>
                     <p><%= voucher.id %>
@@ -13,12 +13,12 @@
                     
                     <!-- THIS  IS THE BIT WE NEED TO FIGURE OUT. HOW DO WE MAKE A UNIQUE NEW INSTANCE OF THE COUPON
                     WHICH BELONGS THEN TO THE CUSTOMER?!! -->
-                    <%= link_to "Get this coupon", {controller: 'instances', action: 'custom', id: voucher.id}, method: :post, class: "btn btn-primary"   %> 
+                    <p> <%= link_to "Get this coupon", {controller: 'instances', action: 'custom', id: voucher.id}, method: :post, class: "btn btn-primary"   %></p>
                 
                 </div>
             <% end %>
         </div>  
 
-    <p><%= link_to "Back", :back %></p> <!-- takes user back to the previous page they were on -->
+     <p><%= link_to "Back", customer_instances_path %></p> 
 
 
