@@ -3,9 +3,8 @@ class Admin::VouchersController < ApplicationController
     before_action :authenticate_user!
 
     before_action
-    if User.current_user.is_admin != true
+    if current_user.is_admin != true
         redirect_to :back
-
     end
     
 

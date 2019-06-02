@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root to: "home#index"
 
+    devise_for :users
+
   get '/shop/instances' => "shop/instances#validate"
   get '/shop/vouchers' => "shop/instances#validate"
   get '/shop/instances/validate' => "shop/instances#validate"
@@ -20,6 +22,7 @@ Rails.application.routes.draw do
   namespace :admin do
       resources :instances
       resources :vouchers
+      #resources :users
   end
 
   namespace :customer do
@@ -36,9 +39,7 @@ Rails.application.routes.draw do
   end
 
 
-  devise_for :users
-# For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-#before_action :set_current_user
+# For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   
 end
