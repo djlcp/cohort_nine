@@ -31,7 +31,7 @@ class Customer::VouchersController < ApplicationController
         end
         @voucher.save
         @user = current_user.email
-        NotificationMailer.voucher_notif(@user).deliver
+        NotificationMailer.voucher_notif(@user, @voucher.number).deliver
         render "_custom"
     end
 
