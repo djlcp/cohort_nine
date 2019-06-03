@@ -42,10 +42,10 @@ Rails.application.configure do
   
   # SMTP settings for for dev
   config.action_mailer.smtp_settings = {
-  :address              => "server165.web-hosting.com",
-  :port                 => 465,
-  :user_name            => "test_voucher@jerseybean.je",
-  :password             => "yesthisisthepassword",
+  :address              => ENV['VC_SMTP_ADDRESS'],
+  :port                 => ENV['VC_SMTP_PORT'],
+  :user_name            => ENV['VC_SMTP_USER'],
+  :password             => ENV['VC_SMTP_PASS'],
   :authentication       => "plain",
   :enable_starttls_auto => true,
   :tls                  => true
