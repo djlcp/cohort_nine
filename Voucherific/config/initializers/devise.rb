@@ -44,7 +44,7 @@ Devise.setup do |config|
 
   # Configure parameters from the request object used for authentication. Each entry
   # given should be a request method and it will automatically be passed to the
-  # find_for_authentication method and considered in your model lookup. For instance,
+  # find_for_authentication method and considered in your model lookup. For voucher,
   # if you set :request_keys to [:subdomain], :subdomain will be used on authentication.
   # The same considerations mentioned for authentication_keys also apply to request_keys.
   # config.request_keys = []
@@ -124,7 +124,7 @@ Devise.setup do |config|
 
   # ==> Configuration for :confirmable
   # A period that the user is allowed to access the website even without
-  # confirming their account. For instance, if set to 2.days, the user will be
+  # confirming their account. For voucher, if set to 2.days, the user will be
   # able to access the website for two days without confirming their account,
   # access will be blocked just in the third day.
   # You can also set it to nil, which will allow the user to access the website
@@ -160,7 +160,7 @@ Devise.setup do |config|
   # If true, extends the user's remember period when remembered via cookie.
   # config.extend_remember_period = false
 
-  # Options to be passed to the created cookie. For instance, you can set
+  # Options to be passed to the created cookie. For voucher, you can set
   # secure: true in order to force SSL only cookies.
   # config.rememberable_options = {}
 
