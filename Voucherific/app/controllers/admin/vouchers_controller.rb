@@ -2,14 +2,13 @@ class Admin::VouchersController < ApplicationController
 
     before_action :authenticate_user!
 
-    before_action
-    if current_user.is_admin != true
-        redirect_to :back
-    end
+    before_action :admincheck
     
 
+
+
     def index
-      
+             
     end
 
 
@@ -34,5 +33,14 @@ class Admin::VouchersController < ApplicationController
  #   def voucher_params
   #      params.require(:voucher).permit(:value, :description)
   #  end
+
+  private
+      def admincheck
+
+    end
+      
+  end
+
+end
 
 end
