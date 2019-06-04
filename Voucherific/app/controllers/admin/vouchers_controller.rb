@@ -35,9 +35,10 @@ class Admin::VouchersController < ApplicationController
   #  end
 
   private
-      def admincheck
-
-    end
+    def admincheck
+      if current_user.is_admin? != true
+        redirect_to root_path
+    
       
   end
 
