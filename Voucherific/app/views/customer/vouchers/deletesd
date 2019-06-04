@@ -1,0 +1,16 @@
+<!--<%= link_to template_path(template), method: :put do %>-->
+end
+<p><%= link_to 'Show template', template %></p>
+                    <p><%= link_to 'Show template', template %></p>
+
+
+
+
+                                    <div>
+                    <%= customer_template_path(template), method: :put do %>
+                                    </div>
+            <% end %>
+
+
+
+    <%#= render 'new', template: @voucher %>

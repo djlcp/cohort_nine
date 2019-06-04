@@ -1,0 +1,26 @@
+
+<h2> Available templates: </h2>
+<p> Click on a template to edit it</p>
+
+<% @templates.each do |template| %>
+    
+        <hr class="mt-4 mb-4">
+        <div class="admin_template_card">
+            <p> Template id:  <%= template.id %> </p>
+            <p> Value: £ <%= template.value %> </p>
+            <p> Description: <%= template.description %> </p>
+                <% if template.is_inactive != false %>
+                    <p style="color:red;"> INACTIVE </p>
+                <% end %>
+            <%= link_to content_tag(:span, ""), {controller: 'templates', action: 'show', id: template.id}  %>
+        </div>
+        <hr class="mt-4 mb-4">
+        </br>
+    
+<% end %>
+<p>
+    <%= link_to "Create New template", new_admin_template_path, class: "btn btn-primary" %>
+</p>
+<p>
+    <%= link_to "Back To Admin Homepage", admin_vouchers_path ,class: "btn btn-primary" %>
+</p> 
