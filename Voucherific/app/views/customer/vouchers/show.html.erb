@@ -8,6 +8,8 @@
     <% if @voucher.redeemed_at != nil %>
         <p style="color:red;" > VOUCHER HAS BEEN REDEEMED </p>
     <% end %>
+    
+    <p> <%= link_to "Resend email", :controller => "customer/vouchers", :action => "email_notice", :user => @current_user_email, :voucher_number => @voucher.number, class: "btn btn-primary"   %></p>
 </div>
 
  <p><%= link_to "Back", customer_vouchers_path, class: "btn btn-primary" %></p> 
