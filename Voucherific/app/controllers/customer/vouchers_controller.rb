@@ -3,7 +3,6 @@ class Customer::VouchersController < ApplicationController
     #load_and_authorize_resource
     def index
         @vouchers = Voucher.where(customer_id: current_user.id)
-        @template = Voucher.find_by_id(params[:template_id])
         #@template = template.where(id: @template_id).first
         #@template = template.where(id: @template_id).first
         #@voucher.user_id = current_user.id
@@ -47,6 +46,8 @@ class Customer::VouchersController < ApplicationController
             @voucher.number = 1001
         end
         @voucher.save
+        @user = current_user.email
+        NotificationMailer.voucher_notif(@user, @voucher.number).deliver
         render "_custom"
     end
 =======
