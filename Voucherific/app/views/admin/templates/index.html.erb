@@ -4,19 +4,49 @@
 
 <% @templates.each do |template| %>
     
-        <hr class="mt-4 mb-4">
-        <div class="admin_template_card">
-            <p> Template id:  <%= template.id %> </p>
-            <p> Value: £ <%= template.value %> </p>
-            <p> Description: <%= template.description %> </p>
-                <% if template.is_inactive != false %>
+        <div class="container">
+        <div class="card-deck mb-3 text-center">
+          <div class="card mb-4 shadow-sm">
+            <div class="card-header">
+              <h4 class="my-0 font-weight-normal"> Template id:  <%= template.id %> </h4>
+              <% if template.is_inactive != false %>
                     <p style="color:red;"> INACTIVE </p>
                 <% end %>
             <%= link_to content_tag(:span, ""), {controller: 'templates', action: 'show', id: template.id}  %>
-        </div>
-        <hr class="mt-4 mb-4">
-        </br>
-    
+            </div>
+            <div class="card-body">
+            <h5> Value: £ <%= template.value %> </h5>
+            <p> Description: <%= template.description %> </p>
+          
+          
+          <% if template.is_inactive != true %>
+            <p>
+              <%= link_to "Deactivate", {controller: 'templates', action: 'disable', id: template.id}, data: { confirm: "Are you sure?" }, class: "btn btn-primary" %>
+            </p> 
+          <% else %>
+            <p>
+              <%= link_to "Restore", {controller: 'templates', action: 'restore', id: template.id}, data: { confirm: "Are you sure?" }, class: "btn btn-primary" %>
+            </p>
+          <% end %>
+          
+            <p>
+             <%= link_to "Edit", edit_admin_template_path(template), class: "btn btn-primary" %> 
+             </p>
+          
+          <% if @voucher == nil %>
+            <p>
+              <%= link_to "Delete", admin_template_path(template), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-primary" %>
+            </p>
+          <% end %>
+            </div>
+          </div>
+
+
+
+
+
+
+
 <% end %>
 <p>
     <%= link_to "Create New template", new_admin_template_path, class: "btn btn-primary" %>
@@ -24,3 +54,4 @@
 <p>
     <%= link_to "Back To Admin Homepage", admin_vouchers_path ,class: "btn btn-primary" %>
 </p> 
+

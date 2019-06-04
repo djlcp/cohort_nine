@@ -36,8 +36,8 @@ class Admin::VouchersController < ApplicationController
 
   private
     def admincheck
-      if current_user.is_admin?
-        redirect_to admin_templates_path
+      if current_user.is_admin? != true
+        redirect_to root_path
     
       
   end
