@@ -11,6 +11,6 @@
 
 
 
-<%= link_to "Redeem", {controller: 'vouchers', action: 'redeem', id: @voucher.id}   , class: "btn btn-primary"   %> 
+<%= link_to "Redeem", {controller: 'vouchers', action: 'redeem', id: @voucher.id}, data: { confirm: "Are you sure you wish to redeem this voucher?" }, class: "btn btn-primary"   %> 
 <%= link_to "Try Again", shop_vouchers_validate_path , class: "btn btn-primary" %>
 
