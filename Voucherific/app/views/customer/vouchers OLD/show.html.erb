@@ -1,0 +1,28 @@
+<!--This is the view for the logged in customer to see details of selected template-->
+
+
+<h1> Here is your template </h1>
+<h2> <%= template.description %> </h1>
+
+  <p>
+    <strong>Value:</strong>
+    <%= template.value %>
+  </p>
+
+   <p>
+    <strong>Expires:</strong>
+    
+</p>
+
+<p><%= button_to "Print template"%> </p> <!-- we need to think how to get this working -->
+
+
+<p><%= button_to "Send to e-mail"  %></p> <!-- we need to think how to get this working -->
+<p><%= link_to "Back", :back %></p> <!-- takes user back to the previous page they were on -->
+
+  
+
+
+
+
+

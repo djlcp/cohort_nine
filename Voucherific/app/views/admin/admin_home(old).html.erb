@@ -1,0 +1,8 @@
+
+<% @template.each do |template| %>
+    <p> <%= link_to "All templates" ,"/template/#{template.id}" %> </p>
+    <p> <%= link_to "Reedemed" , "/template/#{template.id}"%> </p>
+    <p> <%= link_to "Expired" , "/template/#{template.id}"%> </p>
+    <p> <%= link_to "Paid templates" , "/template/#{template.id}"%> </p>
+  <% end %>
+ 

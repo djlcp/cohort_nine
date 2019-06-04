@@ -1,17 +1,16 @@
-<!--<%= link_to voucher_path(voucher), method: :put do %>-->
+<!--<%= link_to template_path(template), method: :put do %>-->
 end
-<p><%= link_to 'Show Voucher', voucher %></p>
-                    <p><%= link_to 'Show Voucher', voucher %></p>
+<p><%= link_to 'Show template', template %></p>
+                    <p><%= link_to 'Show template', template %></p>
 
 
 
 
                                     <div>
-                    <%= customer_voucher_path(voucher), method: :put do %>
+                    <%= customer_template_path(template), method: :put do %>
                                     </div>
             <% end %>
 
 
 
-                        <%= render 'form', voucher: @voucher %>
-            <%= link_to 'Back', voucher_path %>
+    <%#= render 'new', template: @voucher %>
