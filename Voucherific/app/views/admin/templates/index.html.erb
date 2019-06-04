@@ -18,19 +18,24 @@
             <h5> Value: £ <%= template.value %> </h5>
             <p> Description: <%= template.description %> </p>
           
-             <% if template.is_inactive != true %>
-               <p>
+
+          
+          <% if template.is_inactive != true %>
+            <p>
               <%= link_to "Deactivate", {controller: 'templates', action: 'disable', id: template.id}, data: { confirm: "Are you sure?" }, class: "btn btn-primary" %>
-              </p> 
+            </p> 
           <% else %>
-             <p>
+            <p>
               <%= link_to "Restore", {controller: 'templates', action: 'restore', id: template.id}, data: { confirm: "Are you sure?" }, class: "btn btn-primary" %>
-             </p>
+            </p>
           <% end %>
+          
             <p>
              <%= link_to "Edit", edit_admin_template_path(template), class: "btn btn-primary" %> 
-            </p>
-           <% if @voucher == nil %>
+             </p>
+          
+          <% if @voucher == nil %>
+
             <p>
               <%= link_to "Delete", admin_template_path(template), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-primary" %>
             </p>

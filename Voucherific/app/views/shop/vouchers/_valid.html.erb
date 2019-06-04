@@ -1,0 +1,16 @@
+<br />
+<h1> Voucher valid ! </h1>
+<br />
+
+
+<p>Number: <%=  @voucher.number %></p>
+<p>Value: £<%=  @template.value %></p>
+<p><%=  @template.description %></p>
+
+
+
+
+
+<%= link_to "Redeem", {controller: 'vouchers', action: 'redeem', id: @voucher.id}   , class: "btn btn-primary"   %> 
+<%= link_to "Try Again", shop_vouchers_validate_path , class: "btn btn-primary" %>
+
