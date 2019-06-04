@@ -1,5 +1,10 @@
 class Admin::TemplatesController < ApplicationController
 
+    before_action :authenticate_user!
+
+    before_action :admincheck
+
+
     def index
       @templates = Template.all
     end
@@ -63,4 +68,14 @@ class Admin::TemplatesController < ApplicationController
     def template_params
         params.require(:template).permit(:value, :description)
     end
+
+    private
+    def admincheck
+      if current_user.is_admin? != true
+        redirect_to root_path
+    
+      
+    end
+
+  end
 end

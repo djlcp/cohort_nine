@@ -30,9 +30,9 @@ class Admin::VouchersController < ApplicationController
  	end
 
 
- #   def voucher_params
-  #      params.require(:voucher).permit(:value, :description)
-  #  end
+  def voucher_params
+      params.require(:voucher).permit(:value, :description)
+  end
 
   private
     def admincheck
@@ -40,8 +40,8 @@ class Admin::VouchersController < ApplicationController
         redirect_to root_path
     
       
-  end
+    end
 
-end
+  end
 
 end
