@@ -2,6 +2,9 @@ class Admin::TemplatesController < ApplicationController
 
     def index
       @templates = Template.all
+      @templates.each do |template|
+        @voucher = Voucher.where(template_id: template.id).first
+      end
     end
 
     def new
