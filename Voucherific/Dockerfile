@@ -1,5 +1,6 @@
 FROM ruby:2.6.0
-RUN apt-get update -qq && apt-get install -y nodejs mysql-client
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - \
+        && apt-get install -y nodejs mysql-client
 RUN mkdir /app
 WORKDIR /app
 COPY Gemfile /app/Gemfile
