@@ -31,13 +31,8 @@ class Admin::VouchersController < ApplicationController
  	end
 
 
-
-<<<<<<< HEAD
-    def voucher_params
-        params.require(:voucher).permit(:value, :description)
-    end
+ #   def voucher_params
+  #      params.require(:voucher).permit(:value, :description)
+  #  end
 
 end
-=======
-  end
->>>>>>> development
