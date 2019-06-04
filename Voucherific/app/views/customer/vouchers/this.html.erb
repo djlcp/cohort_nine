@@ -1,0 +1,13 @@
+<% @vouchers.each do |voucher| %>
+    <div>
+        <p><strong><%= voucher.description %></strong></p>
+        <p><%= voucher.value %>
+        <p><%= voucher.id %>
+        <!-- link which takes user to a page showing the specific coupon details -->
+        
+        <!-- THIS  IS THE BIT WE NEED TO FIGURE OUT. HOW DO WE MAKE A UNIQUE NEW INSTANCE OF THE COUPON
+        WHICH BELONGS THEN TO THE CUSTOMER?!! -->
+        <p><%= button_to "Get this coupon" %>
+    
+    </div>
+<% end %>

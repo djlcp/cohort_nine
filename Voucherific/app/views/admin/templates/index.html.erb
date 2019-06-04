@@ -9,6 +9,7 @@
             <p> Template id:  <%= template.id %> </p>
             <p> Value: £ <%= template.value %> </p>
             <p> Description: <%= template.description %> </p>
+            <%= link_to 'Edit', edit_admin_template_path(template) %>
                 <% if template.is_inactive != false %>
                     <p style="color:red;"> INACTIVE </p>
                 <% end %>

@@ -1,37 +1,24 @@
-<!--This is the view for all coupons for the logged in customer. It is the first page for any existing user when they log in-->
+<!--This is the view for the new or logged in customer to get a new coupon -->
 
 <div>
     <!-- Greeting to the signed in user. Note this needs fixing when devise is sorted -->
-    <h1> Hi <%= current_user.email %></h1> 
-
-
-    <!-- takes user to the new  page which lists all the pre-made Coupons avaliable to the user for selection-->
-        <p><%= link_to "Get New Voucher", customer_vouchers_templates_path, class: "btn btn-primary"  %></p>
-
-  
-    <h2> Here are all your vouchers </h2>
+    <h1> Hi <%= @User %>, here are today's deals avaliable to you! </h1> 
         <div>
             <% @vouchers.each do |voucher| %>
-                <div class="customertemplate">
-                    <p><strong> <%= voucher.template.description %></strong></p>
-                    <p>Voucher number: <%= voucher.number %>
-                    <p>Value: £<%= voucher.template.value %>
-                    <p>Created at: <%= voucher.template.created_at %>
-                    <% if voucher.redeemed_at != nil %>
-                        <p style="color:red;" > VOUCHER HAS BEEN REDEEMED </p>
-                    <% end %>
-                    <!-- need to put "status of template" -->
-
-                     <!-- link which takes user to a page showing the specific coupon details -->
-                    <p><%= link_to "Show Voucher Details", customer_voucher_path(voucher), class: "btn btn-primary" %></p>
-
+                <div>
+                    <p><strong><%= voucher.description %></strong></p>
+                    <p><%= voucher.value %>
+                    <p><%= voucher.id %>
+                    <!-- link which takes user to a page showing the specific coupon details -->
+                    
+                    <!-- THIS  IS THE BIT WE NEED TO FIGURE OUT. HOW DO WE MAKE A UNIQUE NEW INSTANCE OF THE COUPON
+                    WHICH BELONGS THEN TO THE CUSTOMER?!! -->
+                    <p><%= button_to "Get this coupon" %>
+                
                 </div>
             <% end %>
-        </div>
+        </div>  
 
-        
+    <p><%= link_to "Back", :back %></p> <!-- takes user back to the previous page they were on -->
 
-       
-        <!-- takes user back to the previous page they were on -->
-        <p><%= link_to "Back", customer_vouchers_path, class: "btn btn-primary" %></p> 
-</div>
+
