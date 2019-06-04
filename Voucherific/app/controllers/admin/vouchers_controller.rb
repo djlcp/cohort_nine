@@ -1,7 +1,14 @@
 class Admin::VouchersController < ApplicationController
 
+    before_action :authenticate_user!
+
+    before_action :admincheck
+    
+
+
+
     def index
-      
+             
     end
 
 
@@ -23,5 +30,17 @@ class Admin::VouchersController < ApplicationController
  	end
 
 
+ #   def voucher_params
+  #      params.require(:voucher).permit(:value, :description)
+  #  end
 
+  private
+      def admincheck
+
+    end
+      
   end
+
+end
+
+end
