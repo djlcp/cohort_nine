@@ -25,13 +25,9 @@ Rails.application.routes.draw do
   end
 
   namespace :customer do
-<<<<<<< HEAD
-      resources :vouchers
-=======
       resources :instances
       resources :vouchers
       resources :voucher
->>>>>>> dc7bf14f8978bd1515f6cb9b015ee6288d1006f8
       resources :users do
         member do
             get :vouchers

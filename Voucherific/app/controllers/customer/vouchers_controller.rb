@@ -15,9 +15,6 @@ class Customer::VouchersController < ApplicationController
         @template = Voucher.find_by_id(params[:template_id])
     end
 
-<<<<<<< HEAD
-    # generate new template
-=======
   # return list of vouchers that are assigned to a specific user
   def index
     @instance = Instance.new
@@ -30,13 +27,11 @@ class Customer::VouchersController < ApplicationController
     #@voucher = Voucher.where(id: @voucher_id).first
     #@instance.user_id = current_user.id
   end
->>>>>>> dc7bf14f8978bd1515f6cb9b015ee6288d1006f8
 
     def templates
         @templates = Template.where(is_inactive: false)
     end
 
-<<<<<<< HEAD
     def custom
         @template = Template.find(params[:id])
         @voucher = Voucher.new(template_id: @template.id, customer_id: current_user.id)
@@ -50,7 +45,6 @@ class Customer::VouchersController < ApplicationController
         NotificationMailer.voucher_notif(@user, @voucher.number).deliver
         render "_custom"
     end
-=======
   # click on a voucher and open for information about specific voucher
   def show
     @voucher = Voucher.find(params[:id])
@@ -61,7 +55,6 @@ class Customer::VouchersController < ApplicationController
   def create
     @voucher = Instance.new
   end
->>>>>>> dc7bf14f8978bd1515f6cb9b015ee6288d1006f8
 
     def voucher_params
         params.require(:voucher).permit(:template_id, :customer_id)
