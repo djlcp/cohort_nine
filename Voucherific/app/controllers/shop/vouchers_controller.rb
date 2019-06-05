@@ -4,9 +4,6 @@ class Shop::VouchersController < ApplicationController
 
     before_action :vendor_check
 
-    #def index
-
-    #end
 
     def validate
         @number = params["validate"]
