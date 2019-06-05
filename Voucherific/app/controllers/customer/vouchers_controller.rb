@@ -2,12 +2,20 @@ class Customer::VouchersController < ApplicationController
     #before_action :set_post, only: [:show, :edit, :update, :destroy, :new, :create]
     #load_and_authorize_resource
     def index
-        @vouchers = Voucher.where(customer_id: current_user.id)
-        #@template = template.where(id: @template_id).first
-        #@template = template.where(id: @template_id).first
-        #@voucher.user_id = current_user.id
+        today = DateTime.now
+        @vouchers = Voucher.where(customer_id: current_user.id).map do |voucher|
+            if voucher && voucher.redeemed_at == nil  && (voucher.created_at < 30.days.ago ) 
+                #binding.pry
+                {voucher: voucher, status: "Trugfdfgde"}
+            elsif voucher && voucher.redeemed_at != nil 
+                {voucher: voucher, status: "True"}
+            elsif voucher && (today - created_at > 2592000)
+                {voucher: voucher, status: "True"}
+            else
+                {voucher: voucher, status: "True"}
+            end
+        end
       end
-    
     
     # click on a template and open for information about specific template
     def show
