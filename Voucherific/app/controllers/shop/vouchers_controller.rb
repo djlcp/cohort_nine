@@ -2,7 +2,7 @@ class Shop::VouchersController < ApplicationController
 
     before_action :authenticate_user!
 
-    before_action :vendorcheck
+    before_action :vendor_check
 
     #def index
 
@@ -43,8 +43,8 @@ class Shop::VouchersController < ApplicationController
 	end
 
     private
-        def vendorcheck
-          if current_user.is_admin? != true && current_user.is_vendor? != true
+    def vendor_check
+        if current_user.is_admin? != true && current_user.is_vendor? != true
             redirect_to root_path  
         end
     end
