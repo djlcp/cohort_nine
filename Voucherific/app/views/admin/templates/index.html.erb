@@ -19,7 +19,8 @@
             <p> Description: <%= template.description %> </p>
           
 
-          
+          </div>
+          <div class="d-flex justify-content-center">
           <% if template.is_inactive != true %>
             <p>
               <%= link_to "Deactivate", {controller: 'templates', action: 'disable', id: template.id}, data: { confirm: "Are you sure?" }, class: "btn btn-primary" %>
@@ -40,6 +41,7 @@
               <%= link_to "Delete", admin_template_path(template), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-primary" %>
             </p>
           <% end %>
+            </div>
             </div>
           </div>
 
