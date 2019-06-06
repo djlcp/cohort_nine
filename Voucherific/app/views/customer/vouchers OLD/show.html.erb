@@ -1,24 +1,19 @@
-<!--This is the view for the logged in customer to see details of selected template-->
+<!--This is the view for the logged in customer to see details of a specific selected coupon-->
+<h2>Voucher details:</h2>
 
-
-<h1> Here is your template </h1>
-<h2> <%= template.description %> </h1>
-
-  <p>
-    <strong>Value:</strong>
-    <%= template.value %>
-  </p>
-
-   <p>
-    <strong>Expires:</strong>
+<div class="customertemplate">
+    <p>  Number : <%= @voucher.number %> </p>
+    <p>  Value : £ <%= @voucher.template.value %> </p>
+    <p>  Description : <%= @voucher.template.description %> </p>
+    <% if @voucher.redeemed_at != nil %>
+        <p style="color:red;" > VOUCHER HAS BEEN REDEEMED </p>
+    <% end %>
     
-</p>
+    
+</div>
 
-<p><%= button_to "Print template"%> </p> <!-- we need to think how to get this working -->
+ <p><%= link_to "Back", customer_vouchers_path, class: "btn btn-primary" %></p> 
 
-
-<p><%= button_to "Send to e-mail"  %></p> <!-- we need to think how to get this working -->
-<p><%= link_to "Back", :back %></p> <!-- takes user back to the previous page they were on -->
 
   
 

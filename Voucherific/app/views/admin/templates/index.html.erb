@@ -31,12 +31,16 @@
             </p>
           <% end %>
           
-            <p>
-             <%= link_to "Edit", edit_admin_template_path(template), class: "btn btn-primary" %> 
-             </p>
-          
-          <% if @voucher == nil %>
 
+          <% if @voucher = Voucher.where(template_id: template.id).first %>
+          <% else %>
+            <p>
+                <%= link_to "Edit", edit_admin_template_path(template), class: "btn btn-primary" %> 
+            </p>
+         <% end %>
+
+         <% if @voucher = Voucher.where(template_id: template.id).first %>
+         <% else %>
             <p>
               <%= link_to "Delete", admin_template_path(template), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-primary" %>
             </p>
