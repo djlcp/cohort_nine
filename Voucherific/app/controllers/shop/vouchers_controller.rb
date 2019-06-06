@@ -1,5 +1,10 @@
 class Shop::VouchersController < ApplicationController
 
+    before_action :authenticate_user!
+
+    before_action :vendor_check
+
+
     def validate
         @number = params["validate"]
         if @number.present?
@@ -33,5 +38,12 @@ class Shop::VouchersController < ApplicationController
         @voucher.save
         render '_redeem'
 	end
+
+    private
+    def vendor_check
+        if current_user.is_admin? != true && current_user.is_vendor? != true
+            redirect_to root_path  
+        end
+    end
 
 end
