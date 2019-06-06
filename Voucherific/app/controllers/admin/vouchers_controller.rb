@@ -2,7 +2,7 @@ class Admin::VouchersController < ApplicationController
 
     before_action :authenticate_user!
 
-    before_action :admincheck
+    before_action :admin_check
     
 
 
@@ -30,17 +30,15 @@ class Admin::VouchersController < ApplicationController
  	end
 
 
- #   def voucher_params
-  #      params.require(:voucher).permit(:value, :description)
-  #  end
-
-  private
-      def admincheck
-
-    end
-      
+  def voucher_params
+      params.require(:voucher).permit(:value, :description)
   end
 
-end
+  private  
+  def admin_check
+    if current_user.is_admin? != true
+            redirect_to root_path     
+    end
+  end
 
 end
