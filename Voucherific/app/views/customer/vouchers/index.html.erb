@@ -13,18 +13,18 @@
         <div>
             <% @vouchers.each do |voucher| %>
                 <div class="customertemplate">
-                    <p><strong> <%= voucher[:voucher].template.description %></strong></p>
-                    <p>Voucher number: <%= voucher[:voucher].number %>
-                    <p>Value: £<%= voucher[:voucher].template.value %>
-                    <p>Created at: <%= voucher[:voucher].template.created_at %>
-                    <p> Status: <%= voucher[:status] %>
-                    <% if voucher[:voucher].redeemed_at != nil %>
+                    <p><strong> <%= voucher.template.description %></strong></p>
+                    <p>Voucher number: <%= voucher.number %>
+                    <p>Value: £<%= voucher.template.value %>
+                    <p>Created at: <%= voucher.template.created_at %>
+                    <p> Status: <%= voucher.status %>
+                    <% if voucher.redeemed_at != nil %>
                         <p style="color:red;" > VOUCHER HAS BEEN REDEEMED </p>
                     <% end %>
                     <!-- need to put "status of template" -->
 
                      <!-- link which takes user to a page showing the specific coupon details -->
-                    <p><%= link_to "Show Voucher Details", customer_voucher_path(voucher[:voucher]), class: "btn btn-primary" %></p>
+                    <p><%= link_to "Show Voucher Details", customer_voucher_path(voucher), class: "btn btn-primary" %></p>
 
                 </div>
             <% end %>

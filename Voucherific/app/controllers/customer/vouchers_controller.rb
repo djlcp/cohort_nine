@@ -3,18 +3,7 @@ class Customer::VouchersController < ApplicationController
     #load_and_authorize_resource
     def index
         today = DateTime.now
-        @vouchers = Voucher.where(customer_id: current_user.id).map do |voucher|
-            if voucher && voucher.redeemed_at == nil  && (voucher.created_at < 30.days.ago ) 
-                #binding.pry
-                {voucher: voucher, status: "Trugfdfgde"}
-            elsif voucher && voucher.redeemed_at != nil 
-                {voucher: voucher, status: "True"}
-            elsif voucher && (today - created_at > 2592000)
-                {voucher: voucher, status: "True"}
-            else
-                {voucher: voucher, status: "True"}
-            end
-        end
+        @vouchers = Voucher.where(customer_id: current_user.id)
       end
     
     # click on a template and open for information about specific template
