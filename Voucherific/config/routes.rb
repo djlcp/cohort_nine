@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   get '/customer/vouchers/templates' => "customer/vouchers#templates"
   post '/customer/vouchers/custom' => "customer/vouchers#custom"
   
+  get :email_notice, to: 'customer/vouchers#email_notice', as: :email_notice
 
  
   namespace :admin do

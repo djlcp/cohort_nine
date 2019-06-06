@@ -16,15 +16,9 @@
                     <p><strong> <%= voucher.template.description %></strong></p>
                     <p>Voucher number: <%= voucher.number %>
                     <p>Value: £<%= voucher.template.value %>
-                    <p>Created at: <%= voucher.template.created_at %>
-                    <% if voucher.redeemed_at != nil %>
-                        <p style="color:red;" > VOUCHER HAS BEEN REDEEMED </p>
-                    <% end %>
-                    <!-- need to put "status of template" -->
-
-                     <!-- link which takes user to a page showing the specific coupon details -->
-                    <p><%= link_to "Show Voucher Details", customer_voucher_path(voucher), class: "btn btn-primary" %></p>
-
+                    <p>Created at: <%= voucher.created_at.to_formatted_s(:short) %>
+                    <p> Status: <%= voucher.status %>
+                    <p> <%= link_to "Send to email", :controller => "customer/vouchers", :action => "email_notice", :user => @current_user_email, :voucher_number => voucher.number, class: "btn btn-primary"   %></p>
                 </div>
             <% end %>
         </div>
