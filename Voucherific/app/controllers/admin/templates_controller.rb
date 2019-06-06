@@ -2,11 +2,14 @@ class Admin::TemplatesController < ApplicationController
 
     before_action :authenticate_user!
 
-    before_action :admincheck
+    before_action :admin_check
 
 
     def index
       @templates = Template.all
+      @templates.each do |template|
+        @voucher = Voucher.where(template_id: template.id).first
+      end
     end
 
     def new
@@ -69,13 +72,10 @@ class Admin::TemplatesController < ApplicationController
         params.require(:template).permit(:value, :description)
     end
 
-    private
-    def admincheck
-      if current_user.is_admin? != true
-        redirect_to root_path
-    
-      
+    private  
+    def admin_check
+        if current_user.is_admin? != true
+            redirect_to root_path     
+        end
     end
-
-  end
 end
