@@ -11,7 +11,7 @@
   
     <h2> Here are all your vouchers </h2>
         <div>
-            <% @vouchers.each do |voucher| %>
+            <% @vouchers.order("created_at DESC").each do |voucher| %>
                 <div class="customertemplate">
                     <p><strong> <%= voucher.template.description %></strong></p>
                     <p>Voucher number: <%= voucher.number %>
@@ -25,7 +25,7 @@
 
         
 
-       
+       <!-- ADD IN A MAGICAL NOTICE -->
         <!-- takes user back to the previous page they were on -->
         <p><%= link_to "Back", customer_vouchers_path, class: "btn btn-primary" %></p> 
 </div>
