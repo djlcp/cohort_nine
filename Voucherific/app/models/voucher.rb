@@ -7,13 +7,13 @@ class Voucher < ApplicationRecord
 
     def status
         if created_at > 30.days.ago
-          "Potato status 1"
+          "Valid"
         elsif created_at < 30.days.ago
-          "Potato status 2"
+          "Expired"
         elsif redeemed_at # give you false if nil or true if there is a date 
-          "Potato status 3"
+          "Redeemed"
         else
-          "Potato status 4"
+          "Valid"
         end
     end
 end
