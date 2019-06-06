@@ -4,10 +4,13 @@
         <a class="navbar-brand" href="#">
             <img src="#" width="30" height="30" class="d-inline-block align-top" alt="">
             VOUCHERIFIC</a>
-            <a> Contact </a>
-        <a class="nav-link" href="/users/sign_in"><class="btn btn-outline-dark">Log In</button></a>
-        <button type="button" class="btn btn-outline-dark"><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></button>
-        <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+            
+        <% if user_signed_in? %>
+                    <%= link_to "Log Out", destroy_user_session_path, :method => 'delete', class: "nav-link" %>
+                    <% else %>
+                    <%= link_to "Log In", new_user_session_path, class: "nav-link" %>
+                  <% end %>
+                  </nav>
+
     </nav>
-    
     </header>

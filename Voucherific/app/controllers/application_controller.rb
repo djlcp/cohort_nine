@@ -8,6 +8,8 @@ class ApplicationController < ActionController::Base
 			admin_path
 		elsif current_user.is_vendor?
 			shop_path
+		else
+			customer_path
 		end
 	end
 end
