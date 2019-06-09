@@ -16,13 +16,13 @@ class Shop::VouchersController < ApplicationController
                 @today = DateTime.now.to_i
             end
 
-            if @voucher && (@voucher.redeemed_at == nil ) && (@today - @created_at < 2592000) 
+            if @voucher && @voucher.status == "Valid"
                 @template_id = @voucher.template_id
                 @template = Template.where(id: @template_id).first
                 render '_valid'
-            elsif @voucher && (@voucher.redeemed_at != nil )
+            elsif @voucher && @voucher.status == "Redeemed"
                 render '_fail_redeemed'
-            elsif @voucher && (@today - @created_at > 2592000)
+            elsif @voucher && @voucher.status == "Expired"
                 render '_fail_expired'
             else
                 render '_not_valid'
