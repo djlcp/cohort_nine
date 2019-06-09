@@ -5,7 +5,7 @@
 <div class="section">
 
 <%= simple_form_for :validate, url: '/shop/vouchers/validate', method: "GET", html: { class: 'form-inline' } do |f| %>
-  <%= f.input :number, label: false, required: true, input_html: {value: ""} %>
+  <%= f.number_field :number, label: false, required: true, input_html: {value: ""} %>
   <%= f.submit "Submit", class: "btn btn-primary" %>
  <% end %>
 
