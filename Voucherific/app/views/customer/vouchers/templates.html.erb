@@ -1,6 +1,6 @@
 <div class="text-center">
     <!-- Greeting to the signed in user. Note this needs fixing when devise is sorted -->
-    <h1> Hi <%= current_user.email %>,<br> here are today's deals avaliable to you! </br></h1> 
+    <h1> Hi <%= current_user.email %>,<br> here are today's deals avaliable to you! </h1> 
     </div>  
      <div>
      <% @templates.each do |template| %>
@@ -12,10 +12,7 @@
         </div>
         <div class="card-body">
             <p>Value: £<%= template.value %>
-             <!-- link which takes user to a page showing the specific coupon details -->
              
-             <!-- THIS  IS THE BIT WE NEED TO FIGURE OUT. HOW DO WE MAKE A UNIQUE NEW voucher OF THE COUPON
-             WHICH BELONGS THEN TO THE CUSTOMER?!! -->
             <% if @voucher = Voucher.where(template_id: template.id, customer_id: current_user.id).first %>
 
             <p> <button type= "button" class="btn btn-primary"> You got me! </button> </p>
