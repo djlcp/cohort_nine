@@ -2,11 +2,7 @@
 
 <div>
     <!-- Greeting to the signed in user. Note this needs fixing when devise is sorted -->
-    <h1> Hi <%= current_user.email %></h1> 
-
-
-    <!-- takes user to the new  page which lists all the pre-made Coupons avaliable to the user for selection-->
-        <p><%= link_to "Get New Voucher", customer_vouchers_templates_path, class: "btn btn-primary"  %></p>
+  
 
   
     <h2> Here are all your vouchers </h2>
@@ -27,5 +23,5 @@
 
        <!-- ADD IN A MAGICAL NOTICE -->
         <!-- takes user back to the previous page they were on -->
-        <p><%= link_to "Back", customer_vouchers_path, class: "btn btn-primary" %></p> 
+        <p><%= link_to "Back to Homepage", root_path, class: "btn btn-primary" %></p> 
 </div>
