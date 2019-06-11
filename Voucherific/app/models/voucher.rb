@@ -6,14 +6,14 @@ class Voucher < ApplicationRecord
     belongs_to :template
 
     def status
-        if created_at > 30.days.ago
+        if (created_at > 30.days.ago && redeemed_at == nil)
           "Valid"
-        elsif created_at < 30.days.ago
-          "Expired"
         elsif redeemed_at # give you false if nil or true if there is a date 
           "Redeemed"
+        elsif created_at < 30.days.ago
+          "Expired"
         else
-          "Valid"
+          "Invalid"
         end
     end
 end
