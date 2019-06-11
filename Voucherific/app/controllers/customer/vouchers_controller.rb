@@ -2,12 +2,9 @@ class Customer::VouchersController < ApplicationController
     #before_action :set_post, only: [:show, :edit, :update, :destroy, :new, :create]
     #load_and_authorize_resource
     def index
+        today = DateTime.now
         @vouchers = Voucher.where(customer_id: current_user.id)
-        #@template = template.where(id: @template_id).first
-        #@template = template.where(id: @template_id).first
-        #@voucher.user_id = current_user.id
       end
-    
     
     # click on a template and open for information about specific template
     def show
@@ -31,8 +28,14 @@ class Customer::VouchersController < ApplicationController
         end
         @voucher.save
         @user = current_user.email
-        NotificationMailer.voucher_notif(@user, @voucher.number).deliver
         render "_custom"
+    end
+
+    def email_notice
+        @voucher = params[:voucher_number]
+        @user = current_user.email
+        NotificationMailer.voucher_notif(@user, @voucher).deliver
+        render "generate-success-sent"
     end
 
     def voucher_params

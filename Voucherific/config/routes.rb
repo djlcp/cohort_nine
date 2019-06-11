@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 
   get '/admin/vouchers/redeemed' => "admin/vouchers#redeemed"
   get '/admin/vouchers/all' => "admin/vouchers#all"
+  get '/admin/vouchers/expired' => "admin/vouchers#expired"
+  get '/admin/vouchers/paid' => "admin/vouchers#paid"
 
   get '/admin/templates/disable/:id' => "admin/templates#disable"
   get '/admin/templates/restore/:id' => "admin/templates#restore"
@@ -19,6 +21,7 @@ Rails.application.routes.draw do
   get '/customer/vouchers/templates' => "customer/vouchers#templates"
   post '/customer/vouchers/custom' => "customer/vouchers#custom"
   
+  get :email_notice, to: 'customer/vouchers#email_notice', as: :email_notice
 
  
   namespace :admin do
