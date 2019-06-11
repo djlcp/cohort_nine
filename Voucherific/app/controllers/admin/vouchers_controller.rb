@@ -20,13 +20,13 @@ class Admin::VouchersController < ApplicationController
     def redeemed
       @vouchers = Voucher.where.not(vendor_id: nil)
     end
- 
-    #def expired
-    #	@expired = voucher.where(:expiry_date => Date.current)
-    #end
+  
+    def expired
+    	@vouchers = Voucher.where(status: "Expired")
+    end
 
  	def paid
- 		@paid = Voucher.where.not(paid_at: nil)
+ 		@vouchers = Voucher.where.not(paid_at: nil)
  	end
 
 
