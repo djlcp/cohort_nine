@@ -4,6 +4,7 @@ class Customer::VouchersController < ApplicationController
     def index
         today = DateTime.now
         @vouchers = Voucher.where(customer_id: current_user.id)
+        #@expiry = Voucher.find(params[:created_at]) - 30.days.ago
       end
     
     # click on a template and open for information about specific template

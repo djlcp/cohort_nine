@@ -21,7 +21,9 @@
                         <p>Voucher number: <%= voucher.number %>
                         <p>Value: £<%= voucher.template.value %>
                         <p>Created at: <%= voucher.created_at.to_formatted_s(:short) %>
-                        <p> Status: <%= voucher.status %>
+                        <p>Status: <%= voucher.status %>
+                        <p><%= voucher.created_at - 30.days.ago %>
+                        <p>Expiry: <%= voucher.expiry %>
                         <p> <%= link_to "Send to email", :controller => "customer/vouchers", :action => "email_notice", :user => @current_user_email, :voucher_number => voucher.number, class: "btn btn-primary" %></p>
                 </div>
             </div>
