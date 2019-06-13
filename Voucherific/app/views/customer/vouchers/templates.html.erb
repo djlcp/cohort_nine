@@ -1,27 +1,23 @@
 <div class="text-center">
-    <!-- Greeting to the signed in user. Note this needs fixing when devise is sorted -->
-    <div>
-        <h1> Hi <%= current_user.email %>,<br> here are today's deals avaliable to you! </h1> 
-    </div>  
-    <div>
-        <% @templates.each do |template| %>
-            <div class="container">
-            <div class="card-deck mb-3 text-center">
-            <div class="card mb-4 shadow-sm">
-            <div class="card-header">
-                <p><strong> <%= template.description %></strong></p>
-            </div>
-            <div class="card-body">
-                <p>Value: £<%= template.value %>
-                <% if @voucher = Voucher.where(template_id: template.id, customer_id: current_user.id).first %>
-                    <p> Voucher has already been claimed</p>
-                <% else %>
-                    <p> <%= link_to "Get this coupon", {controller: 'vouchers', action: 'custom', id: template.id}, method: :post, class: "btn btn-primary" %></p>
-                <% end %>
-            </div>
-            </div>
-        <% end %>
-    </div>  
+    <h1> Hi <%= current_user.email %>,<br> here are today's deals avaliable to you! </br></h1> 
+    
+     <% @templates.each do |template| %>
+        <div class="container">
+        <div class="card-deck mb-3 text-center">
+        <div class="card mb-4 shadow-sm">
+        <div class="card-header">
+            <p><strong> <%= template.description %></strong></p>
+        </div>
+        <div class="card-body">
+             <p>Value: £<%= template.value %>
+             <!-- link which takes user to a page showing the specific coupon details -->
+             
+             <!-- THIS  IS THE BIT WE NEED TO FIGURE OUT. HOW DO WE MAKE A UNIQUE NEW voucher OF THE COUPON
+             WHICH BELONGS THEN TO THE CUSTOMER?!! -->
+             <p> <%= link_to "Get this coupon", {controller: 'vouchers', action: 'custom', id: template.id}, method: :post, class: "btn btn-primary"   %></p>
+         </div>
+         </div>
+     <% end %>
  </div>  
     
      <p><%= link_to "Back To Homepage", root_path, class: "btn btn-primary" %></p> 

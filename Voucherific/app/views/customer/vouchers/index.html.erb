@@ -19,13 +19,13 @@
             <div class="card-body">
                 <p>Voucher number: <%= voucher.number %>
                 <p>Value: £<%= voucher.template.value %>
-                <p>Voucher created: <%= voucher.created%>
-                 <p>Voucher expires: <%= voucher.expiry %>
+                <p>Voucher generated on: <%= voucher.created_at.to_formatted_s(:short) %>
                 <p>Status: <%= voucher.status %>
                 <% if voucher.status == "Valid"%>
+                    <p>Voucher expiry date: <%= voucher.expiry %>
                     <p> <%= link_to "Send to email", :controller => "customer/vouchers", :action => "email_notice", :user => @current_user_email, :voucher_number => voucher.number, class: "btn btn-primary"%></p>
                 <%else%>
-                    <p>Unfortunately, this voucher is no longer avaliable</p>
+                    <p>Unfortunately, this voucher has expired, this voucher is invalid</p>
                 <%end%>
                         
             </div>
