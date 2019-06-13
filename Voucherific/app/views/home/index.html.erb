@@ -8,61 +8,110 @@
   </head>
   <body> 
   <header>
+  <% if !user_signed_in? %>
     <section class="jumbotron text-center">
-    <div class="container">
-      <h1 class="jumbotron-heading">Get your eye sight in check</h1>
-      <p class="lead text-muted">Voucherific launches vouchers for young people who need glasses.</p>
-      <p>
-        <a href="/users/sign_in" class="btn btn-primary my-2">Sign In</a>
-        <a href="/users/sign_up" class="btn btn-secondary my-2">Register</a>
-      </p>
-    </div>
-  </section>
+      <div class="container">
+        <h1 class="jumbotron-heading">Get your eye sight in check</h1>
+          <p class="lead text-muted">Voucherific launches vouchers for young people who need glasses.</p>
+          <p>
+            <a href="/users/sign_in" class="btn btn-primary my-2">Sign In</a>
+            <a href="/users/sign_up" class="btn btn-secondary my-2">Register</a>
+          </p>
+      </div>
+    </section>
+  <% elsif current_user.is_admin? %>
+    <section class="jumbotron text-center">
+      <div class="container">
+        <h1 class="jumbotron-heading">Welcome <%= current_user.email %> !</h1>
+        <p class="lead text-muted">You are signed in as an admin.</p>
+        <p>
+          <p>
+            <%= link_to "Templates", admin_templates_path, class: "btn btn-primary" %>
+          </p>
+          <p>
+            <%= link_to "Vouchers", admin_vouchers_path, class: "btn btn-primary" %>
+          </p>
+          <p>
+            <%= link_to "Shops", admin_shops_path, class: "btn btn-primary" %>
+          </p>
+        </p>
+      </div>
+    </section>
+  <% elsif current_user.is_vendor? %>
+    <section class="jumbotron text-center">
+      <div class="container">
+        <h1 class="jumbotron-heading">Welcome <%= current_user.email %> !</h1>
+        <p class="lead text-muted">You are signed in as a vendor.</p>
+        <p>
+          <p>
+            <%= link_to "Validate Voucher", shop_path, class: "btn btn-primary" %>
+          </p>
+        </p>
+      </div>
+    </section>
+  <% else %>
+    <section class="jumbotron text-center">
+      <div class="container">
+        <h1 class="jumbotron-heading">Welcome <%= current_user.email %> !</h1>
+        <h1 class="jumbotron-heading">Get your eye sight in check</h1>
+        <p class="lead text-muted">Voucherific launches vouchers for young people who need glasses.</p>
+        <p class="lead text-muted"></p>
+        <p>
+          <p>
+            <%= link_to "New Voucher", customer_vouchers_templates_path, class: "btn btn-primary" %>
+            <%= link_to "My Vouchers", customer_path, class: "btn btn-primary" %>
+          </p>
+        </p>
+      </div>
+    </section>
+<%end%>
   </header>
+<% if !user_signed_in? %>
     <div class="album py-5 bg-light">
-    <div class="container">
+      <div class="container">
 
-      <div class="row">
-        <div class="col-md-4">
-          <div class="card mb-4 box-shadow">
-            <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="Card image cap">
-            <div class="card-body">
-                <h4>Vendor</h4>
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                  <small class="text-muted">www.website.com<br />01534 123 456<br /> email@example.com</small>
-                </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card mb-4 box-shadow">
-            <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="Card image cap">
-            <div class="card-body">
-              <h4>Vendor</h4>
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                 <div class="d-flex justify-content-between align-items-center">
-                <small class="text-muted">www.website.com<br />01534 123 456<br /> email@example.com</small>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="card mb-4 box-shadow">
+              <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="Card image cap">
+              <div class="card-body">
+                  <h4>Vendor</h4>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <small class="text-muted">www.website.com<br />01534 123 456<br /> email@example.com</small>
+                    </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card mb-4 box-shadow">
-            <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="Card image cap">
+          
+          <div class="col-md-4">
+            <div class="card mb-4 box-shadow">
+              <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="Card image cap">
               <div class="card-body">
                 <h4>Vendor</h4>
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                   <div class="d-flex justify-content-between align-items-center">
-                <small class="text-muted">www.website.com<br />01534 123 456<br /> email@example.com</small>
+                  <small class="text-muted">www.website.com<br />01534 123 456<br /> email@example.com</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card mb-4 box-shadow">
+              <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="Card image cap">
+                <div class="card-body">
+                  <h4>Vendor</h4>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                  <small class="text-muted">www.website.com<br />01534 123 456<br /> email@example.com</small>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
   </div>
-   
+  <%end%> 
 
      
   </body>
