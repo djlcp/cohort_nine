@@ -1,5 +1,8 @@
-<h2>Sign up</h2>
 
+<section class="text-center">
+  
+  <div class="p-4"><h2>Sign up</h2></div>
+  <div class="container-fluid w-25 p-3">
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
@@ -21,9 +24,11 @@
     <%= f.password_field :password_confirmation, class: 'form-control', autocomplete: "new-password" %>
   </div>
 
-  <div class="actions">
+  <div class="actions p-3">
     <%= f.submit "Sign up", class: 'btn btn-primary' %>
   </div>
 <% end %>
 
 <%= render "devise/shared/links" %>
+</div>
+</section>
