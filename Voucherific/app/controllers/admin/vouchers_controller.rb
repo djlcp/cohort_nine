@@ -22,7 +22,7 @@ class Admin::VouchersController < ApplicationController
     end
   
     def expired
-    	@vouchers = Voucher.where(status: "Expired")
+    	@vouchers = Voucher.where(status == "Expired")
     end
 
  	def paid
