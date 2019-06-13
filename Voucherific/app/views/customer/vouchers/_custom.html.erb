@@ -1,4 +1,9 @@
-<h1> You've got your copy of your voucher created ! </h1>
 
-<p> <%= link_to "SEND TO EMAIL", :controller => "customer/vouchers", :action => "email_notice", :user => @current_user_email, :voucher_number => @voucher.number, class: "btn btn-primary"   %></p>
+<h1 class= "text-center"> Your voucher has been created! </h1>
+
+
+<p class= "text-center"> <%= link_to "SEND TO EMAIL", :controller => "customer/vouchers", :action => "email_notice", :user => @current_user_email, :voucher_number => @voucher.number, class: "btn btn-primary"   %></p>
+
+
+
 <p><%= link_to "Back", customer_vouchers_path, class: "btn btn-primary" %></p> 
