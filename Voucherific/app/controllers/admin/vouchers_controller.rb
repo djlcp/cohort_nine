@@ -20,9 +20,9 @@ class Admin::VouchersController < ApplicationController
     def redeemed
       @vouchers = Voucher.where(status == "Redeemed")
     end
- 
+  
     def expired
-    	@vouchers = Voucher.where(status == "Expired")
+    	@vouchers = Voucher.where(status: "Expired")
     end
     
     def paid
