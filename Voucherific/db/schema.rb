@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_02_154952) do
+ActiveRecord::Schema.define(version: 2019_06_13_173320) do
 
   create_table "shops", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -41,6 +41,8 @@ ActiveRecord::Schema.define(version: 2019_06_02_154952) do
     t.boolean "is_admin"
     t.boolean "is_vendor"
     t.bigint "shop_id"
+    t.string "first_name"
+    t.string "last_name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["shop_id"], name: "index_users_on_shop_id"
