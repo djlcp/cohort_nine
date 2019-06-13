@@ -9,6 +9,10 @@ class Voucher < ApplicationRecord
       Time.at(created_at + 30.days).strftime("%F")
     end
 
+    def created
+      Time.at(created_at).strftime("%F")
+    end
+
     def status
         if (created_at > 30.days.ago && redeemed_at == nil)
           "Valid"

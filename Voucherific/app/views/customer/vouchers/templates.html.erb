@@ -14,7 +14,7 @@
             <div class="card-body">
                 <p>Value: £<%= template.value %>
                 <% if @voucher = Voucher.where(template_id: template.id, customer_id: current_user.id).first %>
-                    <p> <button type= "button" class="btn btn-primary">You got me!</button></p>
+                    <p> Voucher has already been claimed</p>
                 <% else %>
                     <p> <%= link_to "Get this coupon", {controller: 'vouchers', action: 'custom', id: template.id}, method: :post, class: "btn btn-primary" %></p>
                 <% end %>
