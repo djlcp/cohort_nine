@@ -1,4 +1,10 @@
 class StaticPageController < ApplicationController
-    def index
+    def about
+    end
+    def contact
+    end
+    def faq
+    end
+    def terms
     end
 end
