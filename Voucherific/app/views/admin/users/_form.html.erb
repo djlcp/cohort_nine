@@ -4,32 +4,25 @@
 <div class="card-deck mb-3 text-center">
   <div class="card mb-4 shadow-sm">
     <div class="card-header">
-      <h4 class="my-0 font-weight-normal"> Register a new shop </h4>
+      <h4 class="my-0 font-weight-normal"> Edit User PRiveleges</h4>7
+      <p> Insert User details here </p>
     </div>
     <div class="card-body">
      <div class="field">
       <div class="control">
-        <%= f.input :first_name, input_html: { class: 'input' }, wrapper: false, label_html: { class: 'label' } %>
+        <%= f.label Grant admin privileges %>
+        <%= f.check_box :is_admin %>
      </div>
     </div><br>
     <div class="field">
       <div class="control">
-        <%= f.input :location, input_html: { class: 'textarea' }, wrapper: false, label_html: { class: 'label' }  %>
+        <%= f.label Grant admin privileges %>
+        <%= f.check_box :is_vendor %>        
       </div>
     </div>
-    <div class="field">
-      <div class="control">
-        <%= f.input :contact_phone, input_html: { class: 'textarea' }, wrapper: false, label_html: { class: 'label' }  %>
-      </div>
-    </div>
-    <div class="field">
-      <div class="control">
-        <%= f.input :contact_email, input_html: { class: 'textarea' }, wrapper: false, label_html: { class: 'label' }  %>
-      </div>
-    </div>
-     <br>
+
      <div>
-      <%= f.button :submit, 'Save shop',class: "btn btn-primary" %>
-      <%= link_to "Back to shops list", admin_shops_path, class: "btn btn-primary" %>
+      <%= f.button :submit, 'Save user',class: "btn btn-primary" %>
+      <%= link_to "Back to user list", admin_users_path, class: "btn btn-primary" %>
       <% end %>
     </div>
