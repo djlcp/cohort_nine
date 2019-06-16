@@ -4,19 +4,19 @@
 <div class="card-deck mb-3 text-center">
   <div class="card mb-4 shadow-sm">
     <div class="card-header">
-      <h4 class="my-0 font-weight-normal"> Edit User PRiveleges</h4>7
+      <h4 class="my-0 font-weight-normal"> Edit User Priveleges</h4>7
       <p> Insert User details here </p>
     </div>
     <div class="card-body">
      <div class="field">
       <div class="control">
-        <%= f.label Grant admin privileges %>
+        <%= f.label :is_admin, 'Grant admin Priveleges'%>
         <%= f.check_box :is_admin %>
      </div>
     </div><br>
     <div class="field">
       <div class="control">
-        <%= f.label Grant admin privileges %>
+        <%= f.label :is_vendor, 'Grant vendor Priveleges'%>
         <%= f.check_box :is_vendor %>        
       </div>
     </div>
