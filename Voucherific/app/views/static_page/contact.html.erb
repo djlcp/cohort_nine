@@ -8,24 +8,44 @@
     <title>Voucherific</title>
     
   </head>
+			<div class="container">
+			<div style="text-align:center">
+			  <h2>Contact Us</h2>
+			  <p>Swing by for a cup of coffee, or send us a message by populating the form below:</p>
+			</div>
 
-  <body>
-
-  		<header> <!-- Reusable Code snippit here --> </header>
-
-	    		<h1>Contact Us</h1>
-			<ul>
-			    	
-			    <li><a href="" alt="Clickable link to Social Media page 1">Social Media 1</a></li>
-			   	<li><a href="" alt="Clickable link to Social Media page 2">Social Medai 2</a></li>
-			   	<li><a href="" alt="Clickable link to Social Media page 3">Social Media 3</a></li>
-
-			   	<li><a href="" alt="List phone number">Phone</a></li>
-			    		<!-- Look into whether or not additional functinality is possible ie upon clicking number automaticly dial number assuming website is being accessed on smartphone ?" -->
-
-			   	<li><a href="" alt="Post Code -">Post Code</a></li>
-						<!-- Possible additional functionality in either embedding google maps into web page with it set to our postcode. -->
-	    	</ul>
+			<div class="row">
+			  <div class="column">
+			
+				Voucherific<br>
+				Brighton Road<br>
+				St Helier<br>
+				JE2 3ZU<br>
+				<a href="tel:07797763441">Click here to Call Us</a><br>
+				Please note our opening hours are as follows: <br> Monday - Friday 8.00am - 17:00pm Saturday & Sunday Closed
+				<div class="column"><div class="gmap_canvas"><iframe width="500" height="300" id="gmap_canvas" src="https://maps.google.com/maps?q=Brighton%20Road%20St%20Helier&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.pureblack.de"></a></div><style>.mapouter{position:relative;text-align:right;height:265px;width:469px;}.gmap_canvas {overflow:hidden;background:none!important;height:265px;width:469px;}</style></div>
+			  </div>
+			  
+			  <div class="column">
+				<form method="post" action="mailto:youremail@youremail.com">
+				  <label for="fname">First Name</label>
+				  <input type="text" id="fname" name="firstname" placeholder="Your name..">
+				  <label for="lname">Last Name</label>
+				  <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+				  <label for="country">Country</label>
+				  <select id="country" name="country">
+					<option value="Jersey">Jersey</option>
+					<option value="Guernsey">Guernsey</option>
+				  </select>
+				  <label for="subject">Subject</label>
+				  <textarea id="subject" name="subject" placeholder="Write something.." style="height:170px"></textarea>
+				  <input type="submit" value="Submit" action="mailto:hellovoucherific@example.com">
+				</form>
+				<br>
+				<p><small>We will endeavour to respond to your message within 2 working days</small></p>
+			  </div>
+			</div>
+		  </div>
 
 	     <footer>
   		<!-- Reusable code snippit here -->
