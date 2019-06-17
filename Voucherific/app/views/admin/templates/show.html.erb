@@ -1,0 +1,43 @@
+
+
+<h2> Template details </h2>
+
+<div class="container">
+<div class="card-deck mb-3 text-center">
+  <div class="card mb-4 shadow-sm">
+    <div class="card-header">
+      <h4 class="my-0 font-weight-normal"> Template id:  <%= @template.id %> </h4>
+      <%= link_to content_tag(:span, ""), {controller: 'templates', action: 'show', id: @template.id}  %>
+    </div>
+    <div class="card-body">
+    <h5> Value: £ <%= @template.value %> </h5>
+    <p> Description: <%= @template.description %> </p>
+  
+
+  <div class="button-group">
+  <% if @template.is_inactive != true %>
+    <p>
+      <%= link_to "Deactivate", {controller: 'templates', action: 'disable', id: @template.id}, data: { confirm: "Are you sure?" }, class: "btn btn-primary" %>
+    </p> 
+  <% else %>
+    <p>
+      <%= link_to "Restore", {controller: 'templates', action: 'restore', id: @template.id}, data: { confirm: "Are you sure?" }, class: "btn btn-primary" %>
+    </p>
+  <% end %>
+  
+    <p>
+     <%= link_to "Edit", edit_admin_template_path(@template), class: "btn btn-primary" %> 
+     </p>
+  
+  <% if @voucher == nil %>
+
+    <p>
+      <%= link_to "Delete", admin_template_path(@template), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-primary" %>
+    </p>
+  <% end %>
+
+    <p>
+  <%= link_to "Back to templates list", admin_templates_path, class: "btn btn-primary" %>
+    </p>
+  </div>
+    </div>

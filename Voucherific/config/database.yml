@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # MySQL. Versions 5.1.10 and up are supported.
 #
 # Install the MySQL driver
@@ -20,13 +21,36 @@ default: &default
 development:
   <<: *default
   database: Voucherific_rails_development
+=======
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  #database: <%= ENV['VC_DB_NAME'] %>
+  adapter: mysql2
+  pool: 5
+  username: <%= ENV['VC_DB_USERNAME'] %>
+  password: <%= ENV['VC_DB_PASSWORD'] %>
+  host: <%= ENV['VC_DB_HOST'] %>
+  port: <%= ENV['VC_DB_PORT'] %>
+
+development:
+  <<: *default
+  database: <%= ENV['DEV_VC_DB_NAME'] %>
+  #database: Voucherific_development
+>>>>>>> development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
+<<<<<<< HEAD
   database: Voucherific_rails_test
+=======
+  database: <%= ENV['TEST_VC_DB_NAME'] %>
+  #database: Voucherific_test
+>>>>>>> development
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -49,6 +73,12 @@ test:
 #
 production:
   <<: *default
+<<<<<<< HEAD
   database: Voucherific_rails_production
   username: Voucherific_rails
   password: <%= ENV['VOUCHERIFIC_RAILS_DATABASE_PASSWORD'] %>
+=======
+  database: <%= ENV['PROD_VC_DB_NAME'] %>
+  #database: Voucherific_production
+  #database: <%= ENV['VC_DB_NAME'] %>
+>>>>>>> development

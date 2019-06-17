@@ -1,12 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title><!--  --> </title>
-    </head>
+    <header>   
+            
+    <nav class="navbar fixed-top navbar-light bg-light">
+        <a class="navbar-brand" href="/">
+            <img src="#" width="30" height="30" class="d-inline-block align-top" alt="">
+            VOUCHERIFIC</a>
+            
+        <% if user_signed_in? %>
+                    <%= link_to "Log Out", destroy_user_session_path, :method => 'delete', class: "nav-link" %>
+                    <% else %>
+                    <%= link_to "Log In", new_user_session_path, class: "nav-link" %>
+                  <% end %>
+                  
 
-    <body>
-
-    	<header> <!-- --> </header>>
-   
-    </body>
-</html>
+    </nav>
+    </header>

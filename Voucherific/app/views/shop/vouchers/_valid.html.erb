@@ -1,0 +1,16 @@
+<br />
+<h1> Voucher valid ! </h1>
+<br />
+
+
+<p>Number: <%=  @voucher.number %></p>
+<p>Value: £<%=  @template.value %></p>
+<p><%=  @template.description %></p>
+
+
+
+
+
+<%= link_to "Redeem", {controller: 'vouchers', action: 'redeem', id: @voucher.id}, data: { confirm: "Are you sure you wish to redeem this voucher?"}, class: "btn btn-primary"   %> 
+<%= link_to "Go Back", shop_vouchers_validate_path , class: "btn btn-primary" %>
+

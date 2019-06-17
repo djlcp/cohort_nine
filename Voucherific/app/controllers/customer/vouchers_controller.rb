@@ -1,15 +1,47 @@
 class Customer::VouchersController < ApplicationController
-  
-  before_action :authenticate_user!
+    #before_action :set_post, only: [:show, :edit, :update, :destroy, :new, :create]
+    #load_and_authorize_resource
+    def index
+        today = DateTime.now
+        @vouchers = Voucher.where(customer_id: current_user.id)
+        #@expiry = Voucher.find(params[:created_at]) - 30.days.ago
+      end
+    
+    # click on a template and open for information about specific template
+    def show
+        @voucher = Voucher.find(params[:id])
+        @template = Voucher.find_by_id(params[:template_id])
+    end
 
-  # return list of vouchers that are assigned to a specific user
-  def index
-    @voucher = Voucher.all
-  end
+    # generate new template
 
-  # click on a voucher and open for information about specific vocuher
-  def show
-    @voucher = Voucher.find(params[:id])
-  end
+    def templates
+        @templates = Template.where(is_inactive: false)
+    end
 
+    def custom
+        @template = Template.find(params[:id])
+        @voucher = Voucher.new(template_id: @template.id, customer_id: current_user.id)
+        if Voucher.last != nil 
+            @voucher.number = Voucher.last.number + 1
+        else
+            @voucher.number = 1001
+        end
+        @voucher.save
+        @user = current_user.email
+        render "_custom"
+    end
+
+    def email_notice
+        @voucher = params[:voucher_number]
+        @user = current_user.email
+        NotificationMailer.voucher_notif(@user, @voucher).deliver
+        #flash.now[:error] = "You have not updated."
+        #flash[:notice] = "A notification has been sent to."
+        render "generate-success-sent"
+    end
+
+    def voucher_params
+        params.require(:voucher).permit(:template_id, :customer_id)
+    end
 end

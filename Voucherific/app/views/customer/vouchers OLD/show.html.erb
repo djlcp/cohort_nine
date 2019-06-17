@@ -1,0 +1,23 @@
+<!--This is the view for the logged in customer to see details of a specific selected coupon-->
+<h2>Voucher details:</h2>
+
+<div class="customertemplate">
+    <p>  Number : <%= @voucher.number %> </p>
+    <p>  Value : £ <%= @voucher.template.value %> </p>
+    <p>  Description : <%= @voucher.template.description %> </p>
+    <% if @voucher.redeemed_at != nil %>
+        <p style="color:red;" > VOUCHER HAS BEEN REDEEMED </p>
+    <% end %>
+    
+    
+</div>
+
+ <p><%= link_to "Back", customer_vouchers_path, class: "btn btn-primary" %></p> 
+
+
+  
+
+
+
+
+
