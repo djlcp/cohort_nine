@@ -34,6 +34,7 @@ Rails.application.routes.draw do
       resources :vouchers
       resources :templates
       resources :shops
+      resources :users
   end
 
   namespace :customer do

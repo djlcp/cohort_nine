@@ -1,13 +1,23 @@
 <!--This is the view for all coupons for the logged in customer. It is the first page for any existing user when they log in-->
 <div class="text-center">
     <!-- Greeting to the signed in user. Note this needs fixing when devise is sorted -->
-     <h1> Hi <%= current_user.email %></h1> 
+     <h1> Hi <%= current_user.first_name %></h1> 
 
 
     <!-- takes user to the new  page which lists all the pre-made Coupons avaliable to the user for selection-->
   
     <h2> Here are all your vouchers </h2>
-</div>
+
+    <% if flash.now[:notice]%>
+  <div class="container">
+    <p class="alert alert-info">
+        <% if flash.now[:notice] %>
+        <strong>Success &nbsp;</strong><%= flash.now[:notice] %>
+        <% end %>
+    </p>
+        <% end %>
+    </div>
+    
         <div>
         <% @vouchers.order("created_at DESC").each do |voucher| %>
             <div class="container">
@@ -33,6 +43,7 @@
                     <p> <%= link_to "Send to email", :controller => "customer/vouchers", :action => "email_notice", :user => @current_user_email, :voucher_number => voucher.number, class: "btn btn-primary"%></p>
                 <%else%>
                     <p>Unfortunately, this voucher has expired, this voucher is invalid</p>
+                <%end%>
                 <%end%>
                         
             </div>
