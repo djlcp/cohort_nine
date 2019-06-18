@@ -1,0 +1,23 @@
+Searching 2741 files for "VC_FROM"
+
+/home/jen/Documents/DJC_code/final_project/cohort_nine/Voucherific/config/environments/development.rb:
+   47    :user_name            => ENV['VC_SMTP_USER'],
+   48    :password             => ENV['VC_SMTP_PASS'],
+   49:   :from                 => ENV['VC_SMTP_USER'],
+   50    :authentication       => "plain",
+   51    :enable_starttls_auto => true,
+
+/home/jen/Documents/DJC_code/final_project/cohort_nine/Voucherific/config/initializers/devise.rb:
+   19    # note that it will be overwritten if you use your own mailer class
+   20    # with default "from" parameter.
+   21:   config.mailer_sender = ENV['VC_SMTP_USER']
+   22  
+   23    # Configure the class responsible to send e-mails.
+
+/home/jen/Documents/DJC_code/final_project/cohort_nine/Voucherific/tmp/cache/bootsnap-compile-cache/16/37899c1bdaed16:
+    <binary>
+
+/home/jen/Documents/DJC_code/final_project/cohort_nine/Voucherific/tmp/cache/bootsnap-compile-cache/1b/937078b888ab6e:
+    <binary>
+
+4 matches across 4 files
