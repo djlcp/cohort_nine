@@ -1,7 +1,7 @@
 <div class="text-center">
     <!-- Greeting to the signed in user. Note this needs fixing when devise is sorted -->
     <div>
-        <h1> Hi <%= current_user.email %>,<br> here are today's deals avaliable to you! </h1> 
+        <h1> Hi <%= current_user.first_name %>,<br> here are today's deals avaliable to you! </h1> 
     </div>  
     <div>
         <% @templates.each do |template| %>
