@@ -20,26 +20,31 @@
         <div>
         <% @vouchers.order("created_at DESC").each do |voucher| %>
             <div class="container">
-            <div class="card-deck mb-3 text-center">
-            <div class="card mb-4 shadow-sm">
-            <div class="card-header">
-                <p><strong> <%= voucher.template.description %></strong></p>
-            </div>
-            <div class="card-body">
-                <p>Voucher number: <%= voucher.number %>
-                <p>Value: £<%= voucher.template.value %>
-                <p>Voucher created: <%= voucher.created%>
-                 <p>Voucher expires: <%= voucher.expiry %>
-                <p>Status: <%= voucher.status %>
-            </div>
-            <% if voucher.status == "Valid"%>	
-                    <p>Voucher expiry date: <%= voucher.expiry %>	
-                    <p> <%= link_to "Send to email", :controller => "customer/vouchers", :action => "email_notice", :user => @current_user_email, :voucher_number => voucher.number, class: "btn btn-primary"%></p>
-            <%end%>
+                <div class="card-deck mb-3 text-center">
+                    <div class="card mb-4 shadow-sm">
+                        <div class="card-header">
+                            <p><strong> <%= voucher.template.description %></strong></p>
+                        </div>
+                        <div class="card-body">
+                            <p>Voucher number: <%= voucher.number %>
+                            <p>Value: £<%= voucher.template.value %>
+                            <p>Voucher created: <%= voucher.created%>
+                            <p>Voucher expires: <%= voucher.expiry %>
+                            <p>Status: <%= voucher.status %>
+                        
+                        <% if voucher.status == "Valid"%>	
+                                <p>Voucher expiry date: <%= voucher.expiry %>	
+                                <p> <%= link_to "Send to email", :controller => "customer/vouchers", :action => "email_notice", :user => @current_user_email, :voucher_number => voucher.number, class: "btn btn-primary"%></p>
+                        <%end%>
+                        </div>
+                    </div>
+                <div>
             </div>
         <% end %>
         </div>
+        
         <!-- ADD IN A MAGICAL NOTICE -->
         <!-- takes user back to the previous page they were on -->
         <!--<p><%= link_to "Back", customer_vouchers_path, class: "btn btn-primary" %></p>-->
         <p><%= link_to "Get New Voucher", customer_vouchers_templates_path, class: "btn btn-primary"  %></p>
+</div>
