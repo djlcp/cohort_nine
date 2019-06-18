@@ -3,7 +3,7 @@
 <h2>Enter your Voucher code below </h1>
 
 
-<div class="text-center p-4"
+<div class="text-center p-4">
 <%= simple_form_for :validate, url: '/shop/vouchers/validate', method: "GET", html: { class: 'form-inline' } do |f| %>
   <%= f.number_field :number, label: false, required: true, input_html: {value: ""} %>
   <%= f.submit "Submit", class: "btn btn-primary" %>
