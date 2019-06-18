@@ -8,11 +8,16 @@
   
     <h2> Here are all your vouchers </h2>
 
-  <p class="alert alert-info">
-    <%= flash[:notice] %>
-  </p>
-
-</div>
+    <% if flash.now[:notice]%>
+  <div class="container">
+    <p class="alert alert-info">
+        <% if flash.now[:notice] %>
+        <strong>Success &nbsp;</strong><%= flash.now[:notice] %>
+        <% end %>
+    </p>
+        <% end %>
+    </div>
+    
         <div>
         <% @vouchers.order("created_at DESC").each do |voucher| %>
             <div class="container">
