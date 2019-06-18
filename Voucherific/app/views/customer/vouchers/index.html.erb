@@ -7,6 +7,11 @@
     <!-- takes user to the new  page which lists all the pre-made Coupons avaliable to the user for selection-->
   
     <h2> Here are all your vouchers </h2>
+
+  <p class="alert alert-info">
+    <%= flash[:notice] %>
+  </p>
+
 </div>
         <div>
         <% @vouchers.order("created_at DESC").each do |voucher| %>
