@@ -47,19 +47,18 @@
       <th scope="col">Voucher Status</th>
       <th scope="col">Date of Status</th>
       <th scope="col">Value</th>
-      <th scope="col">Optician</th>
       <th scope="col">Customer E-mail</th>
-      <th scope="col">Payment Status</th>
       </tr>
   </thead>
   <tbody>
 
   <% @vouchers.each do |voucher| %>
     <tr>
-      <th scope="row">1</th>
       <td><%= voucher.number %></td>
-      <td><%= voucher.template.description %></td>
-      <td><%= voucher.number %></td>
+      <td><%= voucher.status %></td>
+      <td><%= voucher.updated_at %></td>
+      <td>£<%= voucher.template.value %></td>
+      <td><%= voucher.customer.email %></td>
       
     </tr>
     <% end %>
