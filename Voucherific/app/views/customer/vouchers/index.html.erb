@@ -33,7 +33,10 @@
                  <p>Voucher expires: <%= voucher.expiry %>
                 <p>Status: <%= voucher.status %>
             </div>
-            </div>
+            <% if voucher.status == "Valid"%>	
+                    <p>Voucher expiry date: <%= voucher.expiry %>	
+                    <p> <%= link_to "Send to email", :controller => "customer/vouchers", :action => "email_notice", :user => @current_user_email, :voucher_number => voucher.number, class: "btn btn-primary"%></p>
+            <%end%>
         <% end %>
         </div>
         
