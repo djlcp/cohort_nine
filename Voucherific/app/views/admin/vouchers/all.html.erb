@@ -2,22 +2,7 @@
 
 <hr class="mt-4 mb-4">
 
-<% @vouchers.each do |voucher| %>
-    <div class="container">
-    <div class="card-deck mb-3 text-center">
-    <div class="card mb-4 shadow-sm">
-    <div class="card-header">
-        <p><strong> Voucher number: <%= voucher.number %> </strong></p>
-    </div>
-    <div class="card-body">
-        <p> Voucher number: <%= voucher.number %> </p>
-        <p> Voucher value:  <%= voucher.template.value %> </p>
-        <p> Voucher description:  <%= voucher.template.description %> </p>
-    </div>
-    </div>
-<% end %>
 
-</div>
 
    
 
@@ -68,22 +53,28 @@
 <table class="table table-hover">
   <thead>
     <tr>
-      <th scope="col">Voucher</th>
+      <th scope="col">Voucher number</th>
+      <th scope="col">Template Id</th>
+      <th scope="col">Customer E-mail</th>
       <th scope="col">Voucher Status</th>
       <th scope="col">Date of Status</th>
       <th scope="col">Value</th>
-      <th scope="col">Customer E-mail</th>
+      <th scope="col">Redeemed by</th>
       </tr>
   </thead>
   <tbody>
 
   <% @vouchers.each do |voucher| %>
     <tr>
-      <td><%= voucher.number %></td>
+      <td><%= voucher.number %></th>
+      <td><%= voucher.template.id %></td>
+      <td><%= voucher.customer.email %></td>
       <td><%= voucher.status %></td>
       <td><%= voucher.updated_at %></td>
-      <td>£<%= voucher.template.value %></td>
-      <td><%= voucher.customer.email %></td>
+      <td>£ <%= voucher.template.value %></td>
+      <%if voucher.vendor.email?%>
+      <td><%= voucher.vendor.email %></td>
+      <%end%>
       
     </tr>
     <% end %>
