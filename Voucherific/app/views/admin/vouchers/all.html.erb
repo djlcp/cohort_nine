@@ -1,4 +1,3 @@
-
 <h2> All vouchers </h2>
 
 <hr class="mt-4 mb-4">
@@ -66,29 +65,31 @@
                 	</div>
 </div>
 
-
-
-
 <table class="table table-hover">
   <thead>
     <tr>
-      <th scope="col">Voucher</th>
+      <th scope="col">Voucher number</th>
+      <th scope="col">Template Id</th>
+      <th scope="col">Customer E-mail</th>
       <th scope="col">Voucher Status</th>
       <th scope="col">Date of Status</th>
       <th scope="col">Value</th>
-      <th scope="col">Optician</th>
-      <th scope="col">Customer E-mail</th>
-      <th scope="col">Payment Status</th>
+      <th scope="col">Redeemed by</th>
       </tr>
   </thead>
   <tbody>
 
   <% @vouchers.each do |voucher| %>
     <tr>
-      <th scope="row">1</th>
-      <td><%= voucher.number %></td>
-      <td><%= voucher.template.description %></td>
-      <td><%= voucher.number %></td>
+      <td><%= voucher.number %></th>
+      <td><%= voucher.template.id %></td>
+      <td><%= voucher.customer.email %></td>
+      <td><%= voucher.status %></td>
+      <td><%= voucher.updated_at %></td>
+      <td>£ <%= voucher.template.value %></td>
+      <%if voucher.vendor.email?%>
+      <td><%= voucher.vendor.email %></td>
+      <%end%>
       
     </tr>
     <% end %>
@@ -96,3 +97,5 @@
    
   </tbody>
 </table>
+
+<%= link_to "Back To Admin Homepage", admin_vouchers_path ,class: "btn btn-primary" %>
