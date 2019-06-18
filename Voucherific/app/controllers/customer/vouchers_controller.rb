@@ -34,7 +34,7 @@ class Customer::VouchersController < ApplicationController
 
     def email_notice
         @voucher = params[:voucher_number]
-        @user = current_user.first_name
+        @user = current_user.email
         NotificationMailer.voucher_notif(@user, @voucher).deliver
         #flash.now[:error] = "You have not updated."
         flash[:notice] = "A notification has been sent to: #{current_user.email}"

@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: config.action_mailer.smtp_settings.from
+  default from: "test_voucher@jerseybean.je"
   layout 'mailer'
 end
