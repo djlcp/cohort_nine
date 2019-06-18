@@ -72,10 +72,9 @@
       <td><%= voucher.status %></td>
       <td><%= voucher.updated_at %></td>
       <td>£ <%= voucher.template.value %></td>
-      <%if voucher.vendor.email?%>
-      <td><%= voucher.vendor.email %></td>
+      <%if voucher.vendor %>
+        <td><%= voucher.vendor.email %></td>
       <%end%>
-      
     </tr>
     <% end %>
    
