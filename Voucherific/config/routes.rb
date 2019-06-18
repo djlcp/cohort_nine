@@ -7,6 +7,12 @@ Rails.application.routes.draw do
   get '/admin' => "admin/vouchers#index"
   get '/customer' => "customer/vouchers#index"
 
+  get'/about' => "static_page#about"
+  get'/contact' => "static_page#contact"
+  get'/faq' => "static_page#faq"
+  get'/terms' => "static_page#terms"
+  
+
   get '/shop/vouchers/validate' => "shop/vouchers#validate"
   get '/shop/vouchers/:id/redeem' => "shop/vouchers#redeem"
 
@@ -27,6 +33,8 @@ Rails.application.routes.draw do
   namespace :admin do
       resources :vouchers
       resources :templates
+      resources :shops
+      resources :users
   end
 
   namespace :customer do
