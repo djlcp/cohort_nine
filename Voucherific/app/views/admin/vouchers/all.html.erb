@@ -1,4 +1,30 @@
 <h2> All vouchers </h2>
+
+<hr class="mt-4 mb-4">
+
+<% @vouchers.each do |voucher| %>
+    <div class="container">
+    <div class="card-deck mb-3 text-center">
+    <div class="card mb-4 shadow-sm">
+    <div class="card-header">
+        <p><strong> Voucher number: <%= voucher.number %> </strong></p>
+    </div>
+    <div class="card-body">
+        <p> Voucher number: <%= voucher.number %> </p>
+        <p> Voucher value:  <%= voucher.template.value %> </p>
+        <p> Voucher description:  <%= voucher.template.description %> </p>
+    </div>
+    </div>
+<% end %>
+
+</div>
+
+   
+
+
+
+<%= link_to "Back To Admin Homepage", admin_vouchers_path ,class: "btn btn-primary" %>
+
 <div class="container-fluid bg-light ">
 	<div class="row align-items-center justify-content-center">
             	        <div class="col-md-2 pt-3">
