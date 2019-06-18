@@ -46,6 +46,7 @@ Rails.application.configure do
   :port                 => ENV['VC_SMTP_PORT'],
   :user_name            => ENV['VC_SMTP_USER'],
   :password             => ENV['VC_SMTP_PASS'],
+  :from                 => ENV['VC_FROM'],
   :authentication       => "plain",
   :enable_starttls_auto => true,
   :tls                  => true
