@@ -22,7 +22,7 @@
   <% elsif current_user.is_admin? %>
     <section class="jumbotron text-center">
       <div class="container">
-        <h1 class="jumbotron-heading">Welcome <%= current_user.email %> !</h1>
+        <h1 class="jumbotron-heading">Welcome <%= current_user.first_name %> !</h1>
         <p class="lead text-muted">You are signed in as an admin.</p>
         <p>
           <p>
@@ -43,7 +43,7 @@
   <% elsif current_user.is_vendor? %>
     <section class="jumbotron text-center">
       <div class="container">
-        <h1 class="jumbotron-heading">Welcome <%= current_user.email %> !</h1>
+        <h1 class="jumbotron-heading">Welcome <%= current_user.first_name %> !</h1>
         <p class="lead text-muted">You are signed in as a vendor.</p>
         <p>
           <p>
@@ -55,7 +55,7 @@
   <% else %>
     <section class="jumbotron text-center">
       <div class="container">
-        <h1 class="jumbotron-heading">Welcome <%= current_user.email %> !</h1>
+        <h1 class="jumbotron-heading">Welcome <%= current_user.first_name %> !</h1>
         <h1 class="jumbotron-heading">Get your eye sight in check</h1>
         <p class="lead text-muted">Voucherific launches vouchers for young people who need glasses.</p>
         <p class="lead text-muted"></p>
