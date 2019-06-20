@@ -6,7 +6,7 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag "application" %>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -30,8 +30,17 @@
       <p class="alert"><%= alert %></p>
       <%= yield %>
   </section>
+  <div class="section-basic text-center" id="footer">
+    <div id ="subscribe-text">
+      <h3>Thank you for supporting us!</h3>
+      <h3> We at Voucherific work continuosly to bring you the best deals.</h3>
+    </div>
+    <div class="container-footer">
+      <a class="nav-link" href="/about">About</a>
+      <a class="nav-link" href="/contact">Contact</a>
+      <a class="nav-link" href="/faq"> FAQs</a>
+      <a class="nav-link" href="/terms"> T&CS</a>
+    </div>
+  </div> 
   </body>
-    <section class="text-center pt-4 fixed-bottom" style="width: 310px;">
-  <%= render "layouts/footer" %>
-    </section>
 </html>
