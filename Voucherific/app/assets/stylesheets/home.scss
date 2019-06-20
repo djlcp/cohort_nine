@@ -6,6 +6,7 @@
 
 section{
     padding-top: 50px;
+    padding-bottom: 100px;
 }
   
   .navbar-background{
@@ -46,6 +47,11 @@ section{
 
   .path-navbar{
       background-color: #353535;
+  }
+
+  .nav-buttons{
+    display: flex;
+    justify-content: flex-end;
   }
 
   .card-discount{
