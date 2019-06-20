@@ -35,7 +35,9 @@ class Customer::VouchersController < ApplicationController
     def email_notice
         @voucher = params[:voucher_number]
         @user = current_user.email
-        NotificationMailer.voucher_notif(@user, @voucher).deliver
+        unless(flash.now[:notice])
+            NotificationMailer.voucher_notif(@user, @voucher).deliver
+        end
         #flash.now[:error] = "You have not updated."
         flash[:notice] = "A notification has been sent to: #{current_user.email}"
         redirect_to customer_vouchers_path #"generate-success-sent"
