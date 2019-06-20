@@ -45,10 +45,16 @@ section{
     font-weight: bolder;
     left: 50%;
     transform: translate(-50%, -50%);
+    text-shadow: white 0px 0px 10px;
+    font-size: 3em !important;
   }
 
   .path-navbar{
       background-color: rgb(5, 184, 124);
+  }
+  
+  .path-navbar a{
+    color: white;
   }
 
   .nav-buttons{
@@ -78,7 +84,16 @@ section{
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    padding-top: 300px;
+    padding-top: 250px;
     padding-bottom: 30px;
     color: #FFFFFF
+  }
+
+  .container-footer a{
+    color:rgb(5, 184, 124);
+    font-weight: bold;
+}
+
+  .card-header{
+    background-color: rgba(1243, 255, 146, 0.5) !important;
   }

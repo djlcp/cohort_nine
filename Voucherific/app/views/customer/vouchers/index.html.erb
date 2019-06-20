@@ -34,7 +34,7 @@
                         
                         <% if voucher.status == "Valid"%>	
                                 <p>Voucher expiry date: <%= voucher.expiry %>	
-                                <p> <%= link_to "Send to email", :controller => "customer/vouchers", :action => "email_notice", :user => @current_user_email, :voucher_number => voucher.number, class: "btn btn-primary"%></p>
+                                <p> <%= link_to "Send to email", :controller => "customer/vouchers", :action => "email_notice", :user => @current_user_email, :voucher_number => voucher.number, class: "btn btn-success"%></p>
                         <%end%>
                         </div>
                     </div>
@@ -44,5 +44,5 @@
         <!-- ADD IN A MAGICAL NOTICE -->
         <!-- takes user back to the previous page they were on -->
         
-        <p><%= link_to "Back To Homepage", root_path, class: "btn btn-primary" %></p> 
+        <p><%= link_to "Back To Homepage", root_path, class: "btn btn-success" %></p> 
 </div>
