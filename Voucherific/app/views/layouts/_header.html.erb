@@ -9,7 +9,7 @@
                         </a>
                         
                         <% if user_signed_in? %>
-                                    <%= link_to "My Details", customer_user_path(current_user), class: "nav-link" %>
+                                    <%= link_to "My Details", {controller: 'customer/users', action: 'index', id: current_user.id} %>
                                     <% if !current_user.is_admin? && !current_user.is_vendor? %>
                                         <%= link_to "My Vouchers", customer_path, class: "nav-link" %>
                                     <%end%>

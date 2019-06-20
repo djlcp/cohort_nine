@@ -20,11 +20,11 @@ class Customer::UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
 
- #       if @user.save
-  #          redirect_to [:admin, @user]
-   #     else
+       #if @user.save
+       #   redirect_to [:admin, @user]
+      #else
             render 'edit'
-    #    end
+     # end
   end 
 
 	private  
