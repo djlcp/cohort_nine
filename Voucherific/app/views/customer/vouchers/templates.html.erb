@@ -17,7 +17,7 @@
                     <p> Voucher has already been claimed</p>
                     <p> <button type= "button" class="btn btn-primary">You got me!</button></p>
                 <% else %>
-                    <p> <%= link_to "Get this coupon", {controller: 'vouchers', action: 'custom', id: template.id}, method: :post, class: "btn btn-primary" %></p>
+                    <p> <%= link_to "Get this coupon", {controller: 'vouchers', action: 'custom', id: template.id}, data: { confirm: "Are you sure you want this voucher?" },method: :post, class: "btn btn-primary" %></p>
                 <% end %>
             </div>
             </div>

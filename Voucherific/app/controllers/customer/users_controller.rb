@@ -9,6 +9,7 @@ class Customer::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    #@user = current_user
   end
 
 
@@ -28,7 +29,7 @@ class Customer::UsersController < ApplicationController
 
 	private  
 	def user_params
-      params.require(:user).permit(:first_name, :last_name, :is_admin, :is_vendor, :email, :dobho)
+      params.require(:user).permit(:id, :first_name, :last_name, :is_admin, :is_vendor, :email)
   end
 
 end

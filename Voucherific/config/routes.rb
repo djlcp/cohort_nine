@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root to: "home#index"
 
-  devise_for :users
+  devise_for :users, :controllers => { registrations: 'registration' }
   
   get'/shop' => "shop/vouchers#validate"
   get '/admin' => "admin/vouchers#index"
