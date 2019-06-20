@@ -1,17 +1,42 @@
     <header>   
-            
-    <nav class="navbar fixed-top navbar-light bg-light">
-        <a class="navbar-brand" href="/">
-            <img src="#" width="30" height="30" class="d-inline-block align-top" alt="">
-            VOUCHERIFIC</a>
-            
-        <% if user_signed_in? %>
-                    <%= link_to "My Details", customer_user_path(current_user), class: "nav-link" %>
-                    <%= link_to "Log Out", destroy_user_session_path, :method => 'delete', class: "nav-link" %>
+    <% if current_page?('/') %>
+       <div class ="navbar-background">   
+        <div class = "navbar-container">
+                    
+                    <nav class="navbar fixed-top navbar-light topnav">
+                        <a class="navbar-brand" href="/">
+                            <%=image_tag("logo.png", alt: "Voucherific Logo", :size => '220x60')%>
+                        </a>
+                        
+                        <% if user_signed_in? %>
+                                    <%= link_to "My Details", customer_user_path(current_user), class: "nav-link" %>
+                                    <% if !current_user.is_admin? && !current_user.is_vendor? %>
+                                        <%= link_to "My Vouchers", customer_path, class: "nav-link" %>
+                                    <%end%>
+                                    <%= link_to "Log Out", destroy_user_session_path, :method => 'delete', class: "nav-link" %>
+                        <% else %>
+                                    <%= link_to "Log In", new_user_session_path, class: "nav-link" %>
+                        <% end %>
+                
+                    </nav>
+            </div>
+            <div class="navbar-text">
+                <h1>Save money today with the best deals in town! </h1>
+            </div>
+        </div>
+    <%else%>
+        <div>
+            <nav class="navbar fixed-top navbar-light path-navbar">
+                    <a class="navbar-brand" href="/">
+                        <%=image_tag("logo.png", alt: "Voucherific Logo", :size => '220x60')%>
+                    </a>   
+                    <% if user_signed_in? %>
+                        <%= link_to "My Details", customer_user_path(current_user), class: "nav-link" %>
+                        <%= link_to "Log Out", destroy_user_session_path, :method => 'delete', class: "nav-link" %>
                     <% else %>
-                    <%= link_to "Log In", new_user_session_path, class: "nav-link" %>
-                  <% end %>
-                  
-
-    </nav>
+                        <%= link_to "Log In", new_user_session_path, class: "nav-link" %>
+                    <% end %>
+            </nav>
+     <%end%>
+     </div>
     </header>
