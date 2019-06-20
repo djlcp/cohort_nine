@@ -4,6 +4,7 @@ class Customer::VouchersController < ApplicationController
     def index
         today = DateTime.now
         @vouchers = Voucher.where(customer_id: current_user.id)
+        #@expiry = Voucher.find(params[:created_at]) - 30.days.ago
       end
     
     # click on a template and open for information about specific template
@@ -27,7 +28,7 @@ class Customer::VouchersController < ApplicationController
             @voucher.number = 1001
         end
         @voucher.save
-        @user = current_user.email
+        @user = current_user.first_name
         render "_custom"
     end
 
@@ -35,7 +36,9 @@ class Customer::VouchersController < ApplicationController
         @voucher = params[:voucher_number]
         @user = current_user.email
         NotificationMailer.voucher_notif(@user, @voucher).deliver
-        render "generate-success-sent"
+        #flash.now[:error] = "You have not updated."
+        flash[:notice] = "A notification has been sent to: #{current_user.email}"
+        redirect_to customer_vouchers_path #"generate-success-sent"
     end
 
     def voucher_params

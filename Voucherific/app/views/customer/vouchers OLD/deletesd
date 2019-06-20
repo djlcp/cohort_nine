@@ -12,6 +12,10 @@ end
             <% end %>
 
 
+<% flash.each do |key, value| %>
+  <%= content_tag :div, value, class: "flash #{key}" %>
+<% end %>
+, remote: true
 
     <%#= render 'new', template: @voucher %>
 
