@@ -63,4 +63,13 @@ section{
     color: white;
   }
 
-  
+  #footer {
+    background-image: linear-gradient(0deg,rgba(48,48,47,0.8),rgba(0,0,0,.8)),image_url('/assets/sales.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 300px;
+    padding-bottom: 30px;
+    color: #FFFFFF
+  }
