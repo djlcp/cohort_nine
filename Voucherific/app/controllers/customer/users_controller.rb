@@ -20,12 +20,13 @@ class Customer::UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
 
-       #if @user.save
-       #   redirect_to [:admin, @user]
-      #else
+    if @user.save
+      redirect_to customer_users_path(current_user)
+      else
             render 'edit'
-     # end
+      end
   end 
+
 
 	private  
 	def user_params
