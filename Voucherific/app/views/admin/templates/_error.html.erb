@@ -1,4 +1,4 @@
 <h2> Can't delete this template as there are already vouchers created </h2>
 <h2> You can deactivate it instead </h2>
-<%= link_to "Deactivate", {controller: 'templates', action: 'disable', id: @template.id}, data: { confirm: "Are you sure?" }, class: "btn btn-primary" %>
-<%= link_to "Back to templates list", admin_templates_path, class: "btn btn-primary" %>
+<%= link_to "Deactivate", {controller: 'templates', action: 'disable', id: @template.id}, data: { confirm: "Are you sure?" }, class: "btn btn-success" %>
+<%= link_to "Back to templates list", admin_templates_path, class: "btn btn-success" %>
