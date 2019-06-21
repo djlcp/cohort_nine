@@ -66,6 +66,29 @@ section{
       min-height: 350px;
   }
 
+  .card-logo{
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .customer-card{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .customer-card-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  .customer-card-qr{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+  }
 
 
   .topnav.scrolled {
@@ -95,5 +118,5 @@ section{
 }
 
   .card-header{
-    background-color: rgba(1243, 255, 146, 0.5) !important;
+    background-color: rgba(5, 184, 124, 0.3) !important;
   }
