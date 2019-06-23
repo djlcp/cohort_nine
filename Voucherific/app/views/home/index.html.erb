@@ -14,7 +14,7 @@
         <h1 class="jumbotron-heading">Check out today's deals below </h1>
           <p class="lead text-muted">Sign in or Register to grab them now!</p>
           <p>
-            <a href="/users/sign_in" class="btn btn-primary my-2">Sign In</a>
+            <a href="/users/sign_in" class="btn btn-success my-2">Sign In</a>
             <a href="/users/sign_up" class="btn btn-secondary my-2">Register</a>
           </p>
       </div>
@@ -26,16 +26,16 @@
         <p class="lead text-muted">You are signed in as an admin.</p>
         <p>
           <p>
-            <%= link_to "Templates", admin_templates_path, class: "btn btn-primary" %>
+            <%= link_to "Templates", admin_templates_path, class: "btn btn-success" %>
           </p>
           <p>
-            <%= link_to "Vouchers", admin_vouchers_path, class: "btn btn-primary" %>
+            <%= link_to "Vouchers", admin_vouchers_path, class: "btn btn-success" %>
           </p>
           <p>
-            <%= link_to "Shops", admin_shops_path, class: "btn btn-primary" %>
+            <%= link_to "Shops", admin_shops_path, class: "btn btn-success" %>
           </p>
           <p>
-            <%= link_to "User Priviledges", admin_users_path, class: "btn btn-primary" %>
+            <%= link_to "User Priviledges", admin_users_path, class: "btn btn-success" %>
           </p>          
         </p>
       </div>
@@ -47,7 +47,7 @@
         <p class="lead text-muted">You are signed in as a vendor.</p>
         <p>
           <p>
-            <%= link_to "Validate Voucher", shop_path, class: "btn btn-primary" %>
+            <%= link_to "Validate Voucher", shop_path, class: "btn btn-success" %>
           </p>
         </p>
       </div>
@@ -79,10 +79,10 @@
                         <p> <button type= "button" class="btn btn-secondary" disabled>You got me!</button></p>
                         <p> Voucher has already been claimed</p>
                       <% else %>
-                        <p> <%= link_to "Get this coupon", {controller: 'customer/vouchers', action: 'custom', id: template.id}, data: { confirm: "Are you sure you want this voucher?" },method: :post, class: "btn btn-primary" %></p>
+                        <p> <%= link_to "Get this coupon", {controller: 'customer/vouchers', action: 'custom', id: template.id}, data: { confirm: "Are you sure you want this voucher?" },method: :post, class: "btn btn-success" %></p>
                       <% end %>
                     <%else%>
-                          <p> <%= link_to "Get this coupon", new_user_session_path, class: "btn btn-primary" %></p>                   
+                          <p> <%= link_to "Get this coupon", new_user_session_path, class: "btn btn-success" %></p>                   
                     <%end%>
                 </div>
               </div>

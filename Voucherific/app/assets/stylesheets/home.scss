@@ -6,10 +6,12 @@
 
 section{
     padding-top: 50px;
+    padding-bottom: 100px;
 }
   
   .navbar-background{
-    background-image: image_url('/assets/shopping.jpg');
+    background-image: image_url('/assets/sales.jpg');
+   
   
     min-height: 480px;
   
@@ -32,7 +34,8 @@ section{
   }
 
   .topnav a{
-      color: black;
+      color:rgb(5, 184, 124);
+      font-weight: bold;
   }
 
   .navbar-text {
@@ -42,34 +45,82 @@ section{
     font-weight: bolder;
     left: 50%;
     transform: translate(-50%, -50%);
+    text-shadow: white 0px 0px 10px;
+    font-size: 3em !important;
   }
 
   .path-navbar{
-      background-color: #353535;
+      background-color: rgb(5, 184, 124);
+  }
+  
+  .path-navbar a{
+    color: white;
+  }
+
+  .nav-buttons{
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .btn-success{
+    background-color: rgb(5, 184, 124) !important;
   }
 
   .card-discount{
       min-height: 350px;
   }
 
+  .card-logo{
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .customer-card{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .customer-card-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  .customer-card-qr{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+  }
 
 
   .topnav.scrolled {
-    background-color: #353535 !important;
+    background-color: rgb(5, 184, 124) !important;
     transition: background-color 200ms linear;
   }
 
   .topnav.scrolled a{
     color: white;
+    font-weight: bold;
   }
 
   #footer {
-    background-image: linear-gradient(0deg,rgba(48,48,47,0.8),rgba(0,0,0,.8)),image_url('/assets/sales.jpg');
+    background-image: linear-gradient(0deg,rgba(48,48,47,0.8),rgba(0,0,0,.8)),image_url('/assets/shopping.jpg');
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    padding-top: 300px;
+    padding-top: 250px;
     padding-bottom: 30px;
     color: #FFFFFF
+  }
+
+  .container-footer a{
+    color:rgb(5, 184, 124);
+    font-weight: bold;
+}
+
+  .card-header{
+    background-color: rgba(5, 184, 124, 0.3) !important;
   }
