@@ -1,6 +1,7 @@
 class Customer::UsersController < ApplicationController
 
 	before_action :authenticate_user!
+  before_action :confirm_current_user
 
 
   def index
@@ -30,7 +31,13 @@ class Customer::UsersController < ApplicationController
 
 	private  
 	def user_params
-      params.require(:user).permit(:first_name, :last_name, :email)
+      params.require(:user).permit(:id, :first_name, :last_name, :email)
+  end
+
+  private
+  def confirm_current_user
+      @user = User.find(params[:id])
+      redirect_to root_path unless current_user == @user    
   end
 
 end
