@@ -20,8 +20,8 @@
         <%= f.check_box :is_vendor %>           
       </div>
       <div id="Shop_details" style="display:none;">
-        <%= f.label :shop %>
-         <%= f.collection_select :shop_id, Shop.order(:name),:id,:name, include_blank: true %>
+        <%= f.label :shop_id, "Shop ID" %>
+         <%= f.collection_select :shop_id, Shop.order(:name),:id,:name, include_blank: false  %>
       </div>
       <script type="text/javascript">
   var checkbox = document.getElementById('user_is_vendor');
