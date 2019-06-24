@@ -43,8 +43,13 @@ class Admin::ShopsController < ApplicationController
 
     def destroy
         @shop = Shop.find(params[:id])
-        @shop.destroy
-        redirect_to admin_shops_path
+        @users = User.find_by_shop_id(@shop.id)
+        if @users
+            raise "shops with existing members of staff can't be deleted, please remove vendor priviledges before deleting this store"
+        else
+            @shop.destroy
+            redirect_to admin_shops_path
+        end
     end
 
     private
