@@ -43,8 +43,13 @@ class Admin::ShopsController < ApplicationController
 
     def destroy
         @shop = Shop.find(params[:id])
-        @shop.destroy
-        redirect_to admin_shops_path
+        @users = User.find_by_shop_id(@shop.id)
+        if @users
+            render :error
+        else
+            @shop.destroy
+            redirect_to admin_shops_path and return
+        end
     end
 
     private
