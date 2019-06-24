@@ -11,15 +11,15 @@
         <%= link_to content_tag(:span, ""), {controller: 'users', action: 'show', id: user.id}  %>
         </div>
         <div class="card-body">
-        <h5> User name: <%= user.first_name %> <%= user.last_name %> </h5>
-        <p> Date of Birth: <%= user.dob %> </p>
+        <h5> Name: <%= user.first_name %> <%= user.last_name %> </h5>
+        <p> Email: <%= user.email %> </p>
 
       
 
       </div>
       <div class="d-flex justify-content-center">
         <p>
-            <%= link_to "Edit", edit_admin_user_path(user), class: "btn btn-primary" %> 
+            <%= link_to "Edit", edit_admin_user_path(user), class: "btn btn-success" %> 
         </p>
     
  
@@ -37,5 +37,5 @@
 <% end %>
 
 <p>
-<%= link_to "Back To Homepage", root_path ,class: "btn btn-primary" %>
+<%= link_to "Back To Homepage", root_path ,class: "btn btn-success" %>
 </p> 

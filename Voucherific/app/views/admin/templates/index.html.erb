@@ -23,11 +23,11 @@
           <div class="d-flex justify-content-center">
           <% if template.is_inactive != true %>
             <p>
-              <%= link_to "Deactivate", {controller: 'templates', action: 'disable', id: template.id}, data: { confirm: "Are you sure?" }, class: "btn btn-primary" %>
+              <%= link_to "Deactivate", {controller: 'templates', action: 'disable', id: template.id}, data: { confirm: "Are you sure?" }, class: "btn btn-success" %>
             </p> 
           <% else %>
             <p>
-              <%= link_to "Restore", {controller: 'templates', action: 'restore', id: template.id}, data: { confirm: "Are you sure?" }, class: "btn btn-primary" %>
+              <%= link_to "Restore", {controller: 'templates', action: 'restore', id: template.id}, data: { confirm: "Are you sure?" }, class: "btn btn-success" %>
             </p>
           <% end %>
           
@@ -35,14 +35,14 @@
           <% if @voucher = Voucher.where(template_id: template.id).first %>
           <% else %>
             <p>
-                <%= link_to "Edit", edit_admin_template_path(template), class: "btn btn-primary" %> 
+                <%= link_to "Edit", edit_admin_template_path(template), class: "btn btn-success" %> 
             </p>
          <% end %>
 
          <% if @voucher = Voucher.where(template_id: template.id).first %>
          <% else %>
             <p>
-              <%= link_to "Delete", admin_template_path(template), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-primary" %>
+              <%= link_to "Delete", admin_template_path(template), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-success" %>
             </p>
           <% end %>
             </div>
@@ -57,9 +57,9 @@
 
 <% end %>
 <p>
-    <%= link_to "Create New template", new_admin_template_path, class: "btn btn-primary" %>
+    <%= link_to "Create New template", new_admin_template_path, class: "btn btn-success" %>
 </p>
 <p>
-    <%= link_to "Back To Homepage", root_path ,class: "btn btn-primary" %>
+    <%= link_to "Back To Homepage", root_path ,class: "btn btn-success" %>
 </p> 
 

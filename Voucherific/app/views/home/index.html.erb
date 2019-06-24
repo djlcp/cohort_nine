@@ -11,10 +11,10 @@
   <% if !user_signed_in? %>
     <section class="jumbotron text-center">
       <div class="container">
-        <h1 class="jumbotron-heading">Get your eye sight in check</h1>
-          <p class="lead text-muted">Voucherific launches vouchers for young people who need glasses.</p>
+        <h1 class="jumbotron-heading">Check out today's deals below </h1>
+          <p class="lead text-muted">Sign in or Register to grab them now!</p>
           <p>
-            <a href="/users/sign_in" class="btn btn-primary my-2">Sign In</a>
+            <a href="/users/sign_in" class="btn btn-success my-2">Sign In</a>
             <a href="/users/sign_up" class="btn btn-secondary my-2">Register</a>
           </p>
       </div>
@@ -26,16 +26,16 @@
         <p class="lead text-muted">You are signed in as an admin.</p>
         <p>
           <p>
-            <%= link_to "Templates", admin_templates_path, class: "btn btn-primary" %>
+            <%= link_to "Templates", admin_templates_path, class: "btn btn-success" %>
           </p>
           <p>
-            <%= link_to "Vouchers", admin_vouchers_path, class: "btn btn-primary" %>
+            <%= link_to "Vouchers", admin_vouchers_path, class: "btn btn-success" %>
           </p>
           <p>
-            <%= link_to "Shops", admin_shops_path, class: "btn btn-primary" %>
+            <%= link_to "Shops", admin_shops_path, class: "btn btn-success" %>
           </p>
           <p>
-            <%= link_to "User Priveledges", admin_users_path, class: "btn btn-primary" %>
+            <%= link_to "User Priviledges", admin_users_path, class: "btn btn-success" %>
           </p>          
         </p>
       </div>
@@ -47,7 +47,7 @@
         <p class="lead text-muted">You are signed in as a vendor.</p>
         <p>
           <p>
-            <%= link_to "Validate Voucher", shop_path, class: "btn btn-primary" %>
+            <%= link_to "Validate Voucher", shop_path, class: "btn btn-success" %>
           </p>
         </p>
       </div>
@@ -56,67 +56,45 @@
     <section class="jumbotron text-center">
       <div class="container">
         <h1 class="jumbotron-heading">Welcome <%= current_user.first_name %> !</h1>
-        <h1 class="jumbotron-heading">Get your eye sight in check</h1>
-        <p class="lead text-muted">Voucherific launches vouchers for young people who need glasses.</p>
-        <p class="lead text-muted"></p>
-        <p>
-          <p>
-            <%= link_to "New Voucher", customer_vouchers_templates_path, class: "btn btn-primary" %>
-            <%= link_to "My Vouchers", customer_path, class: "btn btn-primary" %>
-          </p>
-        </p>
+        <h1 class="jumbotron-heading">Check out today's deals below </h1>
+        
       </div>
     </section>
 <%end%>
   </header>
-<% if !user_signed_in? %>
-    <div class="album py-5 bg-light">
+<% if !user_signed_in? || (!current_user.is_admin? && !current_user.is_vendor?) %>
+<div class="album py-5 bg-light">
       <div class="container">
-
         <div class="row">
-          <div class="col-md-4">
-            <div class="card mb-4 box-shadow">
-              <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="Card image cap">
-              <div class="card-body">
-                  <h4>Vendor</h4>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                      <small class="text-muted">www.website.com<br />01534 123 456<br /> email@example.com</small>
-                    </div>
-              </div>
-            </div>
-          </div>
-          
-          <div class="col-md-4">
-            <div class="card mb-4 box-shadow">
-              <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="Card image cap">
-              <div class="card-body">
-                <h4>Vendor</h4>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                  <small class="text-muted">www.website.com<br />01534 123 456<br /> email@example.com</small>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card mb-4 box-shadow">
-              <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="Card image cap">
+        <%if @templates != nil %>
+          <% @templates.each do |template|%>
+            <div class="col-md-4">
+              <div class="card card-discount mb-4 box-shadow">
+              <%=image_tag("sale.jpg", alt: "Sale pic", :size => '200x120')%>
                 <div class="card-body">
-                  <h4>Vendor</h4>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                  <small class="text-muted">www.website.com<br />01534 123 456<br /> email@example.com</small>
+                    <h4>£ <%= template.value %> discount</h4>
+                    <p class="card-text"><%= template.description %></p>
+                    <% if user_signed_in? %>
+                      <% if @voucher = Voucher.where(template_id: template.id, customer_id: current_user.id).first %>
+                        <p> <button type= "button" class="btn btn-secondary" disabled>You got me!</button></p>
+                        <p> Voucher has already been claimed</p>
+                      <% else %>
+                        <p> <%= link_to "Get this coupon", {controller: 'customer/vouchers', action: 'custom', id: template.id}, data: { confirm: "Are you sure you want this voucher?" },method: :post, class: "btn btn-success" %></p>
+                      <% end %>
+                    <%else%>
+                          <p> <%= link_to "Get this coupon", new_user_session_path, class: "btn btn-success" %></p>                   
+                    <%end%>
                 </div>
               </div>
             </div>
-          </div>
+          <%end%>
+        <%end%>
         </div>
       </div>
-  </div>
-  <%end%> 
-
-     
+  </div>   
+<%end%> 
   </body>
-</html>        
+
+</html>   
+   
        
