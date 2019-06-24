@@ -22,6 +22,7 @@
         <div class="card-body">
         <h5> Name: <%= user.first_name %> <%= user.last_name %> </h5>
         <p> Email: <%= user.email %> </p>
+        <p> Role: <%= user.role %> </p>
         <%if user.is_vendor?%>
           <p> Shop: <%= user.shop.name %> </p>
         <%end%>

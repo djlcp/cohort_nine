@@ -8,10 +8,7 @@ class Customer::VouchersController < ApplicationController
       end
     
     # click on a template and open for information about specific template
-    def show
-        @voucher = Voucher.find(params[:id])
-        @template = Voucher.find_by_id(params[:template_id])
-    end
+
 
     # generate new template
 
