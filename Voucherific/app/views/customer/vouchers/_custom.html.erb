@@ -1,9 +1,35 @@
 
 <h1 class= "text-center"> Your voucher has been created! </h1>
 
+<div class="container">
+                <div class="card-deck mb-3">
+                    <div class="card voucher-card mb-4 shadow-sm">
+                        <div class="card-header">
+                            <p><strong> <%= @voucher.template.description %></strong></p>
+                        </div>
+                        <div class="card-body customer-card">
+                            <div class = "customer-card-text">
+                                <strong> <p> Voucher number:</strong> <%= @voucher.number %>
+                                <strong> <p> Value:</strong> £<%= @voucher.template.value %>
+                                <strong> <p> Voucher created:</strong> <%= @voucher.created%>
+                                <strong> <p> Voucher expires:</strong> <%= @voucher.expiry %>
+                                <strong> <p> Status:</strong> <%= @voucher.status %>
+                                <% if @voucher.status == "Valid"%>	
+                                    <strong> <p>Voucher expiry date:</strong> <%= @voucher.expiry %>
+                                    <p class= "text-center"> <%= link_to "SEND TO EMAIL", :controller => "customer/vouchers", :action => "email_notice", :user => @current_user_email, :voucher_number => @voucher.number, class: "btn btn-success"   %></p>
+                                <%end%>
+                            </div>
+                            <div class="customer-card-qr">
+                                <img src=<%="https://chart.googleapis.com/chart?chs=225x225&cht=qr&chl=#{current_user.id}-#{@voucher.number}&choe=UTF-8"%> alt="QR code">
+                                <div class="card-logo">
+                                     <%=image_tag("logo-inversed.png", alt: "Voucherific Logo", :size => '220x60')%>
+                                 </div>
+                            </div>
+                        </div>
+                        
+                    </div>
 
-<p class= "text-center"> <%= link_to "SEND TO EMAIL", :controller => "customer/vouchers", :action => "email_notice", :user => @current_user_email, :voucher_number => @voucher.number, class: "btn btn-success"   %></p>
-
+</div>
 
 
 <p><%= link_to "Back To Homepage", root_path, class: "btn btn-success" %></p> 
