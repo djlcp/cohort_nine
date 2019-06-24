@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root to: "home#index"
 
-  devise_for :users, :controllers => { registrations: 'registration' }
+  devise_for :users, :controllers => { registrations: 'registrations' }
   
   get'/shop' => "shop/vouchers#validate"
   get '/admin' => "admin/vouchers#index"
@@ -29,12 +29,7 @@ Rails.application.routes.draw do
   
   get :email_notice, to: 'customer/vouchers#email_notice', as: :email_notice
 
-  devise_scope :user do
-    unauthenticated :user do
-      root :to => 'home#index', as: :unauthenticated_root
-    end
-  end
- 
+
   namespace :admin do
       resources :vouchers
       resources :templates
