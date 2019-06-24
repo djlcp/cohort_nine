@@ -17,8 +17,23 @@
     <div class="field">
       <div class="control">
         <%= f.label :is_vendor, 'Grant vendor Priveleges'%>
-        <%= f.check_box :is_vendor %>        
+        <%= f.check_box :is_vendor %>           
       </div>
+      <div id="Shop_details" style="display:none;">
+        <%= f.label :shop_id, "Shop ID" %>
+         <%= f.collection_select :shop_id, Shop.order(:name),:id,:name, include_blank: false  %>
+      </div>
+      <script type="text/javascript">
+  var checkbox = document.getElementById('user_is_vendor');
+  var details_div = document.getElementById('Shop_details');
+  checkbox.onchange = function() {
+     if(this.checked) {
+       details_div.style['display'] = 'block';
+     } else {
+       details_div.style['display'] = 'none';
+     }
+  };
+</script>
     </div>
 
      <div>
@@ -26,3 +41,7 @@
       <%= link_to "Back to user list", admin_users_path, class: "btn btn-success" %>
       <% end %>
     </div>
+
+
+
+
