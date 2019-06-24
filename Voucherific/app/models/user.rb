@@ -13,4 +13,14 @@ class User < ApplicationRecord
 
 
          has_many :templates, through: :vouchers
+
+  def role
+    if is_admin?
+      "Admin"
+    elsif is_vendor? # give you false if nil or true if there is a date 
+      "Vendor"
+    else
+      "Customer"
+    end
+  end
 end
