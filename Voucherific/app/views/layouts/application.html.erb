@@ -4,7 +4,7 @@
     <title>Voucherific</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <%= favicon_link_tag 'v.png' %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag "application" %>
     <meta charset="utf-8">
@@ -30,19 +30,5 @@
       <p class="alert"><%= alert %></p>
       <%= yield %>
   </section>
-  <div class="section-basic text-center" id="footer">
-    <div id ="subscribe-text">
-      <h3>Thank you for choosing us!</h3>
-      <h3> We at Voucherific work continuosly to bring you the best deals.</h3>
-    </div>
-    </br>
-    </br>
-    <div class="container-footer">
-      <a class="nav-link" href="/about">About</a>
-      <a class="nav-link" href="/contact">Contact</a>
-      <a class="nav-link" href="/faq"> FAQs</a>
-      <a class="nav-link" href="/terms"> T&CS</a>
-    </div>
-  </div> 
   </body>
 </html>
