@@ -1,3 +1,14 @@
+
+<h2 class="p-3"> User List </h2>
+<p>Search by email address:</p>
+<div class="mx-auto" style="width: 300px;">
+    <%= simple_form_for :search_user, url: admin_users_path, method: "GET", html: { class: 'form-inline' } do |f| %>
+       <p> <%= f.text_field :email, label: false, required: true, input_html: {value: ""} %>
+        <%= f.submit "Search", class: "btn btn-success" %> 
+        <%= link_to "Reset", admin_users_path ,class: "btn btn-success" %> </p>
+    <% end %>
+    </div>
+
 <h2 class="p-3"> User List </h2>
 
 <% @users.each do |user| %>
