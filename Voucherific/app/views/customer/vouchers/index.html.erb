@@ -33,11 +33,11 @@
                                 <strong> <p> Status:</strong> <%= voucher.status %>
                                 <% if voucher.status == "Valid"%>	
                                     <strong> <p>Voucher expiry date:</strong> <%= voucher.expiry %>	
-                                    <strong>  <p> <%= link_to "Send to email", :controller => "customer/vouchers", :action => "email_notice", :user => @current_user_email, :voucher_number => voucher.number, class: "btn btn-success"%></p></strong>
+                                    <strong>  <p> <%= link_to "Send to email", :controller => "customer/vouchers", :action => "email_notice", :user => @current_user_email, :voucher_number => voucher.number,:voucher_desc => voucher.template.description, class: "btn btn-success"%></p></strong>
                                 <%end%>
                             </div>
                             <div class="customer-card-qr">
-                                <%=image_tag("fake-qr.png", alt: "Qr Code", :size => '200x200')%>
+                                <img src=<%="https://chart.googleapis.com/chart?chs=225x225&cht=qr&chl=#{current_user.id}-#{voucher.number}&choe=UTF-8"%> alt="QR code">
                                 <div class="card-logo">
                                      <%=image_tag("logo-inversed.png", alt: "Voucherific Logo", :size => '220x60')%>
                                  </div>
