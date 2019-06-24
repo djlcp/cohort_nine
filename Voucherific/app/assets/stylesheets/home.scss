@@ -7,124 +7,158 @@
 section{
     padding-top: 50px;
 }
+
+body{
+  background-color: #e9ecef !important;
+}
   
-  .navbar-background{
-    background-image: image_url('/assets/sales.jpg');
-   
+.navbar-background{
+  background-image: image_url('/assets/sales.jpg');
   
-    min-height: 480px;
-  
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin-top: -50px;
-  
-    position: relative;
-  }
-  
-  .navbar-container{
-    position: absolute;
-    margin: 20px;
-    width: auto;
-  }
-  
-  .topnav {
-    overflow: hidden;
-  }
 
-  .topnav a{
-      color:rgb(5, 184, 124);
-      font-weight: bold;
-  }
+  min-height: 480px;
 
-  .navbar-text {
-    position: absolute;
-    color: white;
-    top: 60%;
-    font-weight: bolder;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-shadow: white 0px 0px 10px;
-    font-size: 6rem !important;
-  }
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top: -50px;
 
-  .path-navbar{
-      background-color: rgb(5, 184, 124);
-  }
-  
-  .path-navbar a{
-    color: white;
-  }
+  position: relative;
+}
 
-  .nav-buttons{
-    display: flex;
-    justify-content: flex-end;
-  }
+.navbar-container{
+  position: absolute;
+  margin: 20px;
+  width: auto;
+}
 
-  .btn-success{
-    background-color: rgb(5, 184, 124) !important;
-  }
+.topnav {
+  overflow: hidden;
+}
 
-  .card-discount{
-      min-height: 350px;
-  }
-
-  .card-logo{
-    display: flex;
-    justify-content: flex-end;
-  }
-
-  .customer-card{
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .customer-card-text{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-  }
-
-  .customer-card-qr{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-end;
-  }
-
-
-  .topnav.scrolled {
-    background-color: rgb(5, 184, 124) !important;
-    transition: background-color 200ms linear;
-  }
-
-  .topnav.scrolled a{
-    color: white;
-    font-weight: bold;
-  }
-
-  #footer {
-    background-image: linear-gradient(0deg,rgba(48,48,47,0.8),rgba(0,0,0,.8)),image_url('/assets/shopping.jpg');
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    padding-top: 150px;
-    padding-bottom: 30px;
-    color: #FFFFFF
-  }
-
-  .container-footer a{
+.topnav a{
     color:rgb(5, 184, 124);
     font-weight: bold;
 }
 
-.container-footer a:hover{
+.topnav a:hover{
   color:white;
+}
+
+.topnav.scrolled {
+  background-color: rgb(5, 184, 124) !important;
+  transition: background-color 200ms linear;
+}
+
+.topnav.scrolled a{
+  color: white;
   font-weight: bold;
 }
 
-  .card-header{
-    background-color: rgba(5, 184, 124, 0.3) !important;
-  }
+.navbar-text {
+  position: absolute;
+  color: white;
+  top: 60%;
+  font-weight: bolder;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-shadow: white 0px 0px 10px;
+  font-size: 6rem !important;
+}
+
+.path-navbar{
+    background-color: rgb(5, 184, 124);
+}
+
+.path-navbar a{
+  color: white;
+  font-weight: bold;
+}
+
+.path-navbar a:hover, .topnav.scrolled a:hover{
+  color: black;
+}
+
+.nav-buttons{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-success{
+  background-color: rgb(5, 184, 124) !important;
+}
+
+.card-discount{
+    min-height: 350px;
+}
+
+.card-logo{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.customer-card{
+  display: flex;
+  justify-content: space-between;
+}
+
+.customer-card-text{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.customer-card-qr{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+
+
+
+#footer {
+  background-image: linear-gradient(0deg,rgba(48,48,47,0.8),rgba(0,0,0,.8)),image_url('/assets/shopping.jpg');
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 150px;
+  padding-bottom: 30px;
+  color: #FFFFFF
+}
+
+.container-footer a{
+  color:rgb(5, 184, 124);
+  font-weight: bold;
+}
+
+.container-footer a:hover{
+color:white;
+font-weight: bold;
+}
+
+.card-header{
+  background-color: rgba(5, 184, 124, 0.3) !important;
+}
+
+
+.btn-tile{
+  font-size: 20px !important;
+  width: 200px;
+  height: 200px;
+  margin-right: 26px;
+  margin-bottom: 26px!important;
+  border-radius: 5px;
+  display: table-cell;
+  vertical-align: middle;
+  padding-top: 70px !important;
+}
+
+.btn-tile:hover{
+  background-color: rgba(5, 184, 124, 0.6) !important;
+  border: 0px;
+
+}
