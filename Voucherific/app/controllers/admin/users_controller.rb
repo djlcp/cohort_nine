@@ -6,6 +6,13 @@ class Admin::UsersController < ApplicationController
 
   def index
     @users = User.all
+        @search = params["search_user"]
+        if @search.present?
+          @email = @search["email"]
+          @users = User.where(email: @email)
+        else
+          @users = User.all
+        end    
   end
 
   def show

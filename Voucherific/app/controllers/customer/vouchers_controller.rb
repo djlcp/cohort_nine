@@ -8,10 +8,7 @@ class Customer::VouchersController < ApplicationController
       end
     
     # click on a template and open for information about specific template
-    def show
-        @voucher = Voucher.find(params[:id])
-        @template = Voucher.find_by_id(params[:template_id])
-    end
+
 
     # generate new template
 
@@ -37,12 +34,13 @@ class Customer::VouchersController < ApplicationController
         @user = current_user.email
         @user_first = current_user.first_name
         @voucher_desc = params[:voucher_desc]
+        @user_id = current_user.id
         #Voucher.where(template_id: template.id, customer_id: current_user.id).first %>
         unless(flash.now[:notice])
-            NotificationMailer.voucher_notif(@user, @voucher, @voucher_desc, @user_first).deliver
+            NotificationMailer.voucher_notif(@user, @voucher, @voucher_desc, @user_first, @user_id).deliver
         end
         #flash.now[:error] = "You have not updated."
-        flash[:notice] = "A notification has been sent to: #{current_user.email}"
+        flash[:notice] = "#{current_user.email}"
         redirect_to customer_vouchers_path #"generate-success-sent"
     end
 
