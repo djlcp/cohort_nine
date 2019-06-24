@@ -23,20 +23,17 @@
     <section class="jumbotron text-center">
       <div class="container">
         <h1 class="jumbotron-heading">Welcome <%= current_user.first_name %> !</h1>
+        </br>
         <p class="lead text-muted">You are signed in as an admin.</p>
+        </br>
         <p>
-          <p>
-            <%= link_to "Templates", admin_templates_path, class: "btn btn-success" %>
-          </p>
-          <p>
-            <%= link_to "Vouchers", admin_vouchers_path, class: "btn btn-success" %>
-          </p>
-          <p>
-            <%= link_to "Shops", admin_shops_path, class: "btn btn-success" %>
-          </p>
-          <p>
-            <%= link_to "User Priviledges", admin_users_path, class: "btn btn-success" %>
-          </p>          
+            <%= link_to "View, add or edit Templates", admin_templates_path, class: "btn btn-success btn-tile" %>
+        
+            <%= link_to "View all Vouchers", admin_vouchers_path, class: "btn btn-success btn-tile" %>
+        
+            <%= link_to "View, add or edit Partner Shops", admin_shops_path, class: "btn btn-success btn-tile" %>
+         
+            <%= link_to "Manage User Priviledges", admin_users_path, class: "btn btn-success btn-tile" %>        
         </p>
       </div>
     </section>
@@ -44,10 +41,12 @@
     <section class="jumbotron text-center">
       <div class="container">
         <h1 class="jumbotron-heading">Welcome <%= current_user.first_name %> !</h1>
+        </br>
         <p class="lead text-muted">You are signed in as a vendor.</p>
+        </br>
         <p>
           <p>
-            <%= link_to "Validate Voucher", shop_path, class: "btn btn-success" %>
+            <%= link_to "Validate Vouchers", shop_path, class: "btn btn-success" %>
           </p>
         </p>
       </div>
@@ -93,6 +92,25 @@
       </div>
   </div>   
 <%end%> 
+<div class="section-basic text-center" id="footer">
+    <div id ="subscribe-text">
+      <h3>Thank you for choosing us!</h3>
+      <h3> We at Voucherific work continuosly to bring you the best deals.</h3>
+    </div>
+    </br>
+    <div class="container-footer">
+      <a class="nav-link" href="/about">About</a>
+      <a class="nav-link" href="/contact">Contact</a>
+      <a class="nav-link" href="/faq"> FAQs</a>
+      <a class="nav-link" href="/terms"> T&CS</a>
+    </div></br>
+      <p> Thanks for the photos: </p> 
+      <a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px" href="https://unsplash.com/@blankerwahnsinn?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Fabian Blank"><span style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewBox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg></span><span style="display:inline-block;padding:2px 3px">Fabian Blank</span></a>
+      <a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px" href="https://unsplash.com/@freestocks?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from freestocks.org"><span style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewBox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg></span><span style="display:inline-block;padding:2px 3px">freestocks.org</span></a>
+      <a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px" href="https://unsplash.com/@belart84?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Artem Beliaikin @belart84"><span style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewBox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg></span><span style="display:inline-block;padding:2px 3px">Artem Beliaikin @belart84</span></a>
+      </br></br>
+      <p>This app was designed and coded with <span style="font-size:150%;color:red;">&hearts;</span> by cohort nine of Digital Jersey's coding programme. </p>
+    </div> 
   </body>
 
 </html>   

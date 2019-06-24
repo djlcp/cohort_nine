@@ -4,8 +4,7 @@
 <div class="card-deck mb-3 text-center">
   <div class="card mb-4 shadow-sm">
     <div class="card-header">
-      <h4 class="my-0 font-weight-normal"> Edit User Privileges</h4>7
-      <p> Insert User details here </p>
+      <h4 class="my-0 font-weight-normal"> Edit User Privileges</h4>
     </div>
     <div class="card-body">
      <div class="field">
@@ -19,11 +18,13 @@
         <%= f.label :is_vendor, 'Grant vendor Priveleges'%>
         <%= f.check_box :is_vendor %>           
       </div>
+      </br>
       <div id="Shop_details" style="display:none;">
-        <%= f.label :shop_id, "Shop ID" %>
+        <%= f.label :shop_id, "Assign a partner shop" %>
          <%= f.collection_select :shop_id, Shop.order(:name),:id,:name, include_blank: false  %>
       </div>
-      <script type="text/javascript">
+      </br>
+<script type="text/javascript">
   var checkbox = document.getElementById('user_is_vendor');
   var details_div = document.getElementById('Shop_details');
   checkbox.onchange = function() {
