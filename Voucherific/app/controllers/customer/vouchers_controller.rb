@@ -37,9 +37,10 @@ class Customer::VouchersController < ApplicationController
         @user = current_user.email
         @user_first = current_user.first_name
         @voucher_desc = params[:voucher_desc]
+        @user_id = current_user.id
         #Voucher.where(template_id: template.id, customer_id: current_user.id).first %>
         unless(flash.now[:notice])
-            NotificationMailer.voucher_notif(@user, @voucher, @voucher_desc, @user_first).deliver
+            NotificationMailer.voucher_notif(@user, @voucher, @voucher_desc, @user_first, @user_id).deliver
         end
         #flash.now[:error] = "You have not updated."
         flash[:notice] = "#{current_user.email}"
