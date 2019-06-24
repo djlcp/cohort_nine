@@ -41,12 +41,12 @@ section{
   .navbar-text {
     position: absolute;
     color: white;
-    top: 50%;
+    top: 60%;
     font-weight: bolder;
     left: 50%;
     transform: translate(-50%, -50%);
     text-shadow: white 0px 0px 10px;
-    font-size: 3em !important;
+    font-size: 6rem !important;
   }
 
   .path-navbar{
@@ -111,7 +111,7 @@ section{
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    padding-top: 250px;
+    padding-top: 150px;
     padding-bottom: 30px;
     color: #FFFFFF
   }
@@ -119,6 +119,11 @@ section{
   .container-footer a{
     color:rgb(5, 184, 124);
     font-weight: bold;
+}
+
+.container-footer a:hover{
+  color:white;
+  font-weight: bold;
 }
 
   .card-header{
