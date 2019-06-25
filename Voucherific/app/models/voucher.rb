@@ -25,3 +25,6 @@ class Voucher < ApplicationRecord
         end
     end
 end
+
+
+

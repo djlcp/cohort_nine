@@ -1,46 +1,55 @@
-<!--This is the view for all coupons for the logged in customer. It is the first page for any existing user when they log in-->
-<div class="text-center">
-    <!-- Greeting to the signed in user. Note this needs fixing when devise is sorted -->
-     <h1> Hi <%= current_user.first_name %></h1> 
 
+<div>
+    
+     <h1> Hi, <%= current_user.first_name %> !</h1>
+     <h2> Here are all your vouchers </h2>
+     </br>
+     </br>
 
-    <!-- takes user to the new  page which lists all the pre-made Coupons avaliable to the user for selection-->
-  
-    <h2> Here are all your vouchers </h2>
 
     <% if flash.now[:notice]%>
-  <div class="container">
-    <p class="alert alert-info">
-        <% if flash.now[:notice] %>
-        <strong>Success &nbsp;</strong><%= flash.now[:notice] %>
-        <% end %>
-    </p>
-        <% end %>
-    </div>
-    
+        <div class="container">
+            <p class="alert alert-info">
+                <strong>Your voucher has been sent to: &nbsp;</strong><%= flash.now[:notice] %>
+            </p>
+        
+        </div>
+    <% end %>
+
         <div>
         <% @vouchers.order("created_at DESC").each do |voucher| %>
             <div class="container">
-            <div class="card-deck mb-3 text-center">
-            <div class="card mb-4 shadow-sm">
-            <div class="card-header">
-                <p><strong> <%= voucher.template.description %></strong></p>
-            </div>
-            <div class="card-body">
-                <p>Voucher number: <%= voucher.number %>
-                <p>Value: £<%= voucher.template.value %>
-                <p>Voucher created: <%= voucher.created%>
-                 <p>Voucher expires: <%= voucher.expiry %>
-                <p>Status: <%= voucher.status %>
-            </div>
-            <% if voucher.status == "Valid"%>	
-                    <p>Voucher expiry date: <%= voucher.expiry %>	
-                    <p> <%= link_to "Send to email", :controller => "customer/vouchers", :action => "email_notice", :user => @current_user_email, :voucher_number => voucher.number, class: "btn btn-primary"%></p>
-            <%end%>
+                <div class="card-deck mb-3">
+                    <div class="card voucher-card mb-4 shadow-sm">
+                        <div class="card-header">
+                            <p><strong> <%= voucher.template.description %></strong></p>
+                        </div>
+                        <div class="card-body customer-card">
+                            <div class = "customer-card-text">
+                                <strong> <p> Voucher number:</strong> <%= voucher.number %>
+                                <strong> <p> Value:</strong> £<%= voucher.template.value %>
+                                <strong> <p> Voucher created:</strong> <%= voucher.created%>
+                                <strong> <p> Voucher expires:</strong> <%= voucher.expiry %>
+                                <strong> <p> Status:</strong> <%= voucher.status %>
+                                <% if voucher.status == "Valid"%>	
+                                    <strong> <p>Voucher expiry date:</strong> <%= voucher.expiry %>	
+                                    <strong>  <p> <%= link_to "Send to email", :controller => "customer/vouchers", :action => "email_notice", :user => @current_user_email, :voucher_number => voucher.number,:voucher_desc => voucher.template.description, class: "btn btn-success"%></p></strong>
+                                <%end%>
+                            </div>
+                            <div class="customer-card-qr">
+                                <img src=<%="https://chart.googleapis.com/chart?chs=225x225&cht=qr&chl=#{current_user.id}-#{voucher.number}&choe=UTF-8"%> alt="QR code">
+                                <div class="card-logo">
+                                     <%=image_tag("logo-inversed.png", alt: "Voucherific Logo", :size => '220x60')%>
+                                 </div>
+                            </div>
+                        </div>
+                        
+                    </div>
         <% end %>
         </div>
         
         <!-- ADD IN A MAGICAL NOTICE -->
         <!-- takes user back to the previous page they were on -->
-        <!--<p><%= link_to "Back", customer_vouchers_path, class: "btn btn-primary" %></p>-->
-        <p><%= link_to "Get New Voucher", customer_vouchers_templates_path, class: "btn btn-primary"  %></p>
+        
+        <p><%= link_to "Back To Homepage", root_path, class: "btn btn-success" %></p> 
+</div>

@@ -6,7 +6,7 @@
 <div class="mx-auto" style="width: 300px;">
   <%= simple_form_for :validate, url: '/shop/vouchers/validate', method: "GET", html: { class: 'form-inline' } do |f| %>
     <%= f.number_field :number, label: false, required: true, input_html: {value: ""} %>
-    <%= f.submit "Submit", class: "btn btn-primary" %>
+    <%= f.submit "Submit", class: "btn btn-success" %>
   <% end %>
 </div>
 
@@ -14,7 +14,7 @@
       <small> This offer cannot be used in conjunction with any other discount or promotional offer</small>
   <div class="text-center p-4"
   <p>
-    <%= link_to "Back To Homepage", root_path ,class: "btn btn-primary" %>
+    <%= link_to "Back To Homepage", root_path ,class: "btn btn-success" %>
   </p> 
 </div>
 

@@ -6,6 +6,13 @@ class Admin::UsersController < ApplicationController
 
   def index
     @users = User.all
+        @search = params["search_user"]
+        if @search.present?
+          @email = @search["email"]
+          @users = User.where(email: @email)
+        else
+          @users = User.all
+        end    
   end
 
   def show
@@ -20,16 +27,22 @@ class Admin::UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
 
- #       if @user.save
-  #          redirect_to [:admin, @user]
-   #     else
+
+      if @user.update(user_params)
+
+      if @user.is_vendor == false
+        @user.shop_id = nil
+        @user.save
+      end  
+           redirect_to admin_users_path
+      else
             render 'edit'
-    #    end
+      end
   end 
 
 	private  
 	def user_params
-      params.require(:user).permit(:first_name, :last_name, :is_admin, :is_vendor, :email, :dobho)
+      params.require(:user).permit(:first_name, :last_name, :is_admin, :is_vendor, :email, :shop_id)
   end
 
 

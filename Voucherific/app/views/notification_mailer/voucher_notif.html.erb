@@ -5,6 +5,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<link href="https://fonts.googleapis.com/css?family=Oleo+Script:700&display=swap" rel="stylesheet" type="text/css">
 <style type="text/css">
 
     
@@ -26,6 +27,11 @@
             line-height: 32px !important;
         }
     }
+    .qr {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    }
 
     /* ANDROID CENTER FIX */
     div[style*="margin: 16px 0;"] { margin: 0 !important; }
@@ -37,7 +43,7 @@
 
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
     <tr>
-        <td bgcolor="#54A2A2" align="center">
+        <td bgcolor="#05b87c" align="center">
             <!--[if (gte mso 9)|(IE)]>
             <table align="center" border="0" cellspacing="0" cellpadding="0" width="600">
             <tr>
@@ -58,7 +64,7 @@
     </tr>
     <!-- HERO -->
     <tr>
-        <td bgcolor="#54A2A2" align="center" style="padding: 0px 10px 0px 10px;">
+        <td bgcolor="#05b87c" align="center" style="padding: 0px 10px 0px 10px;">
             <!--[if (gte mso 9)|(IE)]>
             <table align="center" border="0" cellspacing="0" cellpadding="0" width="600">
             <tr>
@@ -67,7 +73,7 @@
             <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;" >
                 <tr>
                     <td bgcolor="#ffffff" align="center" valign="top" style="padding: 40px 20px 20px 20px; border-radius: 4px 4px 0px 0px; color: #111111; font-family: sans-serif; font-size: 48px; font-weight: 400; line-height: 48px;">
-                      <h1 style="font-size: 25px; font-weight: 400; margin: 0;">Hi, here is your voucher!</h1>
+                      <h1 style="font-size: 25px; font-weight: 400; margin: 0;">Hi, <%= @user_first %>!</h1>
                     </td>
                 </tr>
             </table>
@@ -88,16 +94,17 @@
             <![endif]-->
             <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;" >
               <tr>
-                <td bgcolor="#ffffff" align="left" style="padding: 20px 30px 40px 30px; color: #666666; font-family: sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;" >
-                  <p style="margin: 0;">Please take your voucher to the evil coperations for it to be redeemed. <br><br> Your voucher code is: <%= @vouchernumber %><br>
+                <td bgcolor="#ffffff" align="left" style="padding: 20px 30px 40px 30px; color: #666666; font-family: sans-serif; font-size: 14px; font-weight: 400; line-height: 25px;" >
+                  <p style="margin: 0;">Thank you for claiming a voucher with Voucherific!. <br><br>You can take your voucher for <%= @voucher_desc %> in store any time before the expiry date to be redeemed.<br><br> Your voucher number: <%= @vouchernumber %><br>
                     <br><br><br>
-                    Don't click here</p>
+                    Please show the QR code below at checkout to claim this voucher.</p>
+                    <img class="qr" src=<%="https://chart.googleapis.com/chart?chs=225x225&cht=qr&chl=#{@user_id}-#{@vouchernumber}&choe=UTF-8"%> alt="QR code">
                 </td>
 			  </tr>
 			  <tr>
 				  <td bgcolor="#ffffff" align="left" style="padding: 20px 30px 40px 30px; color: #666666; font-family: sans-serif; font-size: 10px; font-weight: 400; line-height: 15px;" >
 				  <p style="margin: 0;">T&C's <br>
-				  Wayfarers whatever YOLO gochujang. Lo-fi irony ethical, authentic lyft migas scenester. Kogi hella ethical irony pabst. Poutine synth poke cray, enamel pin polaroid la croix post-ironic jianbing palo santo ugh vexillologist single-origin coffee 90's yr. Offal meditation hot chicken bicycle rights forage you probably haven't heard of them swag squid. Forage vape banh mi slow-carb, taxidermy meditation tumblr truffaut PBR&B fashion axe readymade gastropub drinking vinegar prism schlitz. Blue bottle pork belly cliche banjo vegan distillery vexillologist, truffaut hella disrupt migas skateboard kickstarter cold-pressed. Gastropub jean shorts disrupt, ugh listicle glossier succulents. Single-origin coffee prism 3 wolf moon, deep v retro pabst tattooed intelligentsia freegan taiyaki celiac. Shabby chic YOLO slow-carb, heirloom tattooed sriracha woke lo-fi meh iPhone marfa pickled cardigan.</p>
+				  In these Website Standard Terms and Conditions, “Your Content” shall mean any audio, video text, images or other material you choose to display on this Website. By displaying Your Content, you grant Company Name a non-exclusive, worldwide irrevocable, sub licensable license to use, reproduce, adapt, publish, translate and distribute it in any and all media. Your Content must be your own and must not be invading any third-party's rights. Company Name reserves the right to remove any of Your Content from this Website at any time without notice.</p>
 				 
 				  </td>
 			  </tr>
