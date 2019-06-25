@@ -33,6 +33,23 @@
     margin-right: auto;
     }
 
+    .header-lg,
+    .header-md,
+    .header-sm {
+      font-size: 32px;
+      font-weight: 700;
+      line-height: normal;
+      padding: 35px 0 0;
+      color: #4d4d4d;
+    }
+
+
+    .block-rounded {
+      border-radius: 5px;
+      border: 1px solid #e5e5e5;
+      vertical-align: top;
+    }
+
     /* ANDROID CENTER FIX */
     div[style*="margin: 16px 0;"] { margin: 0 !important; }
 </style>
@@ -73,7 +90,7 @@
             <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;" >
                 <tr>
                     <td bgcolor="#ffffff" align="center" valign="top" style="padding: 40px 20px 20px 20px; border-radius: 4px 4px 0px 0px; color: #111111; font-family: sans-serif; font-size: 48px; font-weight: 400; line-height: 48px;">
-                      <h1 style="font-size: 25px; font-weight: 400; margin: 0;">Hi, <%= @user_first %>!</h1>
+                      <h1 class="header-lg" style=font-weight: 400; margin: 0;">Hi, <%= @user_first %>!</h1>
                     </td>
                 </tr>
             </table>
@@ -95,8 +112,8 @@
             <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;" >
               <tr>
                 <td bgcolor="#ffffff" align="left" style="padding: 20px 30px 40px 30px; color: #666666; font-family: sans-serif; font-size: 14px; font-weight: 400; line-height: 25px;" >
-                  <p style="margin: 0;">Thank you for claiming a voucher with Voucherific!. <br><br>You can take your voucher for <%= @voucher_desc %> in store any time before the expiry date to be redeemed.<br><br> Your voucher number: <%= @vouchernumber %><br>
-                    <br><br><br>
+                  <p style="margin: 0;">Thank you for claiming a voucher with Voucherific!. <br><br>You can take your voucher in store to claim <%= @voucher_desc %> any time before the expiry date to be redeemed.<br><br><br> Your voucher number: <%= @vouchernumber %><br>
+                    
                     Please show the QR code below at checkout to claim this voucher.</p>
                     <img class="qr" src=<%="https://chart.googleapis.com/chart?chs=225x225&cht=qr&chl=#{@user_id}-#{@vouchernumber}&choe=UTF-8"%> alt="QR code">
                 </td>
