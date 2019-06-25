@@ -23,6 +23,10 @@ services:
       VC_DB_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       VC_DB_HOST: db
       VC_DB_PORT: 3306
+      VC_SMTP_ADDRESS: ${VC_SMTP_ADDRESS}
+      VC_SMTP_PORT: ${VC_SMTP_PORT}
+      VC_SMTP_USER: ${VC_SMTP_USER}
+      VC_SMTP_PASS: ${VC_SMTP_PASS}
     ports:
       - "3000:3000"
     depends_on:
