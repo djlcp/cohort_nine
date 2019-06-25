@@ -18,11 +18,10 @@ class Customer::VouchersController < ApplicationController
 
     def custom
         @template = Template.find(params[:id])
-        @voucher = Voucher.new(template_id: @template.id, customer_id: current_user.id)
-        @vouchers = Voucher.where("customer_id == current_user.id AND template_id == @template.id")
-        if @vouchers
-            redirect_to root_path
-        else
+        #if Voucher.where("customer_id == current_user.id AND template_id == template.id IN Voucher.all")
+         #   redirect_to root_path
+        #else
+            @voucher = Voucher.new(template_id: @template.id, customer_id: current_user.id)
             if Voucher.last != nil 
                 @voucher.number = Voucher.last.number + 1
             else
@@ -31,7 +30,7 @@ class Customer::VouchersController < ApplicationController
             @voucher.save
             @user = current_user.first_name
             render "_custom"
-        end
+        #end
     end
 
     def email_notice
