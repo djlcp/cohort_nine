@@ -6,20 +6,20 @@
     <div class="card-deck mb-3 text-center">
       <div class="card mb-4 shadow-sm">
         <div class="card-header">
-          <h4 class="my-0 font-weight-normal"> User id:  <%= current_user.id %> </h4>
+          <h4 class="my-0 font-weight-normal"> <%= current_user.first_name %> <%= current_user.last_name %> </h4>
           
         <%= link_to content_tag(:span, ""), {controller: 'users', action: 'show', id: current_user.id}  %>
         </div>
         <div class="card-body">
-        <h5> User name: <%= current_user.first_name %> <%= current_user.last_name %> </h5>
-        <p> "boop" </p>
+        <h5> Email: <%= current_user.email %> </h5>
 
       
 
       </div>
       <div class="d-flex justify-content-center">
         <p>
-            <%= link_to "Edit", edit_customer_user_path(current_user), class: "btn btn-primary" %> 
+            <%= link_to "Edit", edit_customer_user_path(current_user), class: "btn btn-success" %> 
+            <%= link_to "Change your password", edit_user_registration_path, class: "btn btn-success" %>
         </p>
     
  
@@ -31,5 +31,5 @@
 
 
 <p>
-<%= link_to "Back To Homepage", root_path ,class: "btn btn-primary" %>
+<%= link_to "Back To Homepage", root_path ,class: "btn btn-success" %>
 </p> 

@@ -4,9 +4,9 @@
     <title>Voucherific</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <%= favicon_link_tag 'v.png' %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag "application" %>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -31,7 +31,4 @@
       <%= yield %>
   </section>
   </body>
-    <section class="text-center pt-4 fixed-bottom" style="width: 310px;">
-  <%= render "layouts/footer" %>
-    </section>
 </html>

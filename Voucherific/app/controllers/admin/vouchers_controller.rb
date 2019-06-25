@@ -3,17 +3,21 @@ class Admin::VouchersController < ApplicationController
     before_action :authenticate_user!
 
     before_action :admin_check
-    
-
-
 
     def index
-             
+        @vouchers = Voucher.all
+        @search = params["search_voucher"]
+        if @search.present?
+          @number = @search["number"]
+          @vouchers = Voucher.where(number: @number)
+        else
+          @vouchers = Voucher.all
+        end    
     end
 
 
     def all
-      @vouchers = Voucher.all
+      
     end
 
     

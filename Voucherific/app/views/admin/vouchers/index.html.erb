@@ -1,23 +1,47 @@
-<h1> This is the vouchers page </h1>
-<h2> Please select one of the following options </h2>
+<h1> This is a list of all the vouchers issued </h1>
+<p>Search by voucher number:</p>
+<div class = "section">
+    <div class="mx-auto" style="width: 300px;">
+    <%= simple_form_for :search_voucher, url: admin_vouchers_path, method: "GET", html: { class: 'form-inline' } do |f| %>
+       <p> <%= f.text_field :number, label: false, required: true, input_html: {value: ""} %>
+        <%= f.submit "Search", class: "btn btn-success" %> 
+        <%= link_to "Reset", admin_vouchers_path ,class: "btn btn-success" %> </p>
+    <% end %>
+    </div>
 
 
-<hr class="mt-4 mb-4">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+            <th scope="col">Voucher number</th>
+            <th scope="col">Template Id</th>
+            <th scope="col">Customer E-mail</th>
+            <th scope="col">Voucher Status</th>
+            <th scope="col">Date of Status</th>
+            <th scope="col">Value</th>
+            <th scope="col">Redeemed by</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @vouchers.each do |voucher| %>
+                <tr>
+                <td><%= voucher.number %></th>
+                <td><%= voucher.template.id %></td>
+                <td><%= voucher.customer.email %></td>
+                <td><%= voucher.status %></td>
+                <td><%= voucher.updated_at %></td>
+                <td>£ <%= voucher.template.value %></td>
+                <%if voucher.vendor %>
+                    <td><%= voucher.vendor.email %></td>
+                <%end%>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
 
-
-<h4> Vouchers </h4>
-<div>   
-    <%= link_to "All vouchers", admin_vouchers_all_path, class: "btn btn-primary" %>
-    <%= link_to "Redeemed vouchers", admin_vouchers_redeemed_path, class: "btn btn-primary" %>
-    <%= link_to "Expired vouchers", admin_vouchers_expired_path, class: "btn btn-primary" %>
-    <%= link_to "Paid vouchers", admin_vouchers_paid_path, class: "btn btn-primary" %>
+    <p>
+        <%= link_to "Back To Homepage", root_path ,class: "btn btn-success" %>
+    </p> 
 </div>
-
-<hr class="mt-4 mb-4">
-
-<p>
-    <%= link_to "Back To Homepage", root_path ,class: "btn btn-primary" %>
-</p> 
-
 
 
