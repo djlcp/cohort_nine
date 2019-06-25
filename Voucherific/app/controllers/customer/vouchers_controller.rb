@@ -19,14 +19,19 @@ class Customer::VouchersController < ApplicationController
     def custom
         @template = Template.find(params[:id])
         @voucher = Voucher.new(template_id: @template.id, customer_id: current_user.id)
-        if Voucher.last != nil 
-            @voucher.number = Voucher.last.number + 1
+        @vouchers = Voucher.where("customer_id == current_user.id AND template_id == @template.id")
+        if @vouchers
+            redirect_to root_path
         else
-            @voucher.number = 1001
+            if Voucher.last != nil 
+                @voucher.number = Voucher.last.number + 1
+            else
+                @voucher.number = 1001
+            end
+            @voucher.save
+            @user = current_user.first_name
+            render "_custom"
         end
-        @voucher.save
-        @user = current_user.first_name
-        render "_custom"
     end
 
     def email_notice
